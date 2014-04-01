@@ -343,7 +343,7 @@ class BloodTest
      *
      * @ORM\Column(name="blood_c_foal", type="string", length=100, nullable=true)
      */
-    private $cFoal = '';
+    private $cFoal =  '';
 
     /**
      * @var boolean
