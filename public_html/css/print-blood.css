@@ -54,7 +54,6 @@ header .print {display: block}
 
 .page-number{
     content: counter(page);
-
 }
 
 #pageNumber { counter-increment: page; }
