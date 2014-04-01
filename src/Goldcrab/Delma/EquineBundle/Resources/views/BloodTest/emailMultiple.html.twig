@@ -1,0 +1,198 @@
+{% extends '::email.html.twig' %}
+
+
+{% block body -%}
+    <div class="page">
+    <div style="text-align: center;"><h3>DUBAI EQUINE HOSPITAL</h3>
+        <p style="text-align: center; margin-bottom: 30px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+    </div>
+
+
+    <div class="clear"></div>
+
+    <div class="sub-main">
+
+    <div>
+        <table class="table table-bordered table-hover table-condensed table-centered">
+            <thead>
+            <tr>
+                <h3>Heamatology</h3>
+                <th>Horse Name</th>
+
+                {% if showHema == true %}
+                    <th>WBC</th>
+                    <th>HCT</th>
+                    <th>HB</th>
+                    <th>RBC</th>
+                    <th>MCV</th>
+                    <th>MCH</th>
+                    <th>MCHC</th>
+                    <th colspan="2">NEUT</th>
+                    <th colspan="2">LYMPH</th>
+                    <th colspan="2">MONO</th>
+                    <th colspan="2">EOSINO</th>
+                    <th colspan="2">BASO</th>
+                    <th>BANDS %</th>
+                    <th>PTP</th>
+                    <th>Hp FIB</th>
+                    <th>PLT</th>
+                {% endif %}
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+
+                    <td>{{ entity.horse.name }}</td>
+
+                    {% if showHema == true %}
+                        <td>{{ entity.hWbc }}</td>
+                        <td>{{ entity.hHct }}</td>
+                        <td>{{ entity.hHb }}</td>
+                        <td>{{ entity.hRbc }}</td>
+                        <td>{{ entity.hMcv }}</td>
+                        <td>{{ entity.hMch }}</td>
+                        <td>{{ entity.hMchc }}</td>
+                        <td>{{ entity.hNeut }}</td>
+                        <td>{{ entity.hNeut2 }}</td>
+                        <td>{{ entity.hLymph }}</td>
+                        <td>{{ entity.hLymph2 }}</td>
+                        <td>{{ entity.hMono }}</td>
+                        <td>{{ entity.hMono2 }}</td>
+                        <td>{{ entity.hEosino }}</td>
+                        <td>{{ entity.hEosino2 }}</td>
+                        <td>{{ entity.hBaso }}</td>
+                        <td>{{ entity.hBaso2 }}</td>
+                        <td>{{ entity.hBands }}</td>
+                        <td>{{ entity.hPtp }}</td>
+                        <td>{{ entity.hHpFib }}</td>
+                        <td>{{ entity.hPlt }}</td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-bordered table-hover table-condensed table-centered">
+            <thead>
+            <tr>
+                <h3>Chemistry</h3>
+                <th>Horse Name</th>
+
+                {% if showChem == true %}
+                    <th>AST</th>
+                    <th>CK</th>
+                    <th>LDH</th>
+                    <th>GGT</th>
+                    <th>ALP</th>
+                    <th>T. BIL</th>
+                    <th>STP</th>
+                    <th>ALB</th>
+                    <th>CREA</th>
+                    <th>UN</th>
+                    <th>GLUC</th>
+                    <th>D. BIL</th>
+                    <th>SAA</th>
+                    <th>LAC</th>
+                    <th>TRIG</th>
+                    <th>IRON</th>
+                    <th>Troponin</th>
+                    <th>PHOS</th>
+                    <th>FOAL</th>
+                {% endif %}
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.horse.name }}</td>
+
+                    {% if showChem == true %}
+                        <td>{{ entity.cAst }}</td>
+                        <td>{{ entity.cCk }}</td>
+                        <td>{{ entity.cLd }}</td>
+                        <td>{{ entity.cGct }}</td>
+                        <td>{{ entity.cAlp }}</td>
+                        <td>{{ entity.cTBil }}</td>
+                        <td>{{ entity.cStp }}</td>
+                        <td>{{ entity.cAlb }}</td>
+                        <td>{{ entity.cCrea }}</td>
+                        <td>{{ entity.cUn }}</td>
+                        <td>{{ entity.cGluc }}</td>
+                        <td>{{ entity.cDBil }}</td>
+                        <td>{{ entity.cSaa }}</td>
+                        <td>{{ entity.cLac }}</td>
+                        <td>{{ entity.cTrig }}</td>
+                        <td>{{ entity.cIron }}</td>
+                        <td>{{ entity.cTroponin }}</td>
+                        <td>{{ entity.cPhos }}</td>
+                        <td>{{ entity.cFoal }}</td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-bordered table-hover table-condensed table-centered">
+            <thead>
+            <tr>
+                <h3>Electrolytes</h3>
+                <th>Horse Name</th>
+
+                {% if showElec == true %}
+                    <th>NA</th>
+                    <th>K</th>
+                    <th>CL</th>
+                    <th>Bicarb</th>
+                    <th>MG</th>
+                    <th>CA</th>
+                    <th>ICA</th>
+                    <th>PH</th>
+                    <th>BUN</th>
+                    <th>GLUC</th>
+                    <th>HB</th>
+                    <th>HCT</th>
+                {% endif %}
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td>{{ entity.horse.name }}</td>
+
+                    {% if showElec == true %}
+                        <td>{{ entity.eNa }}</td>
+                        <td>{{ entity.eK }}</td>
+                        <td>{{ entity.eCl }}</td>
+                        <td>{{ entity.eBicarb }}</td>
+                        <td>{{ entity.eMg }}</td>
+                        <td>{{ entity.eCa }}</td>
+                        <td>{{ entity.eIca }}</td>
+                        <td>{{ entity.ePh }}</td>
+                        <td>{{ entity.eBun }}</td>
+                        <td>{{ entity.eGluc }}</td>
+                        <td>{{ entity.eHb }}</td>
+                        <td>{{ entity.eHct }}</td>
+                    {% endif %}
+
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+
+
+    </div>
+    </div>
+{% endblock %}
+

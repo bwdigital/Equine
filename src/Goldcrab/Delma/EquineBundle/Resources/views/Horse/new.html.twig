@@ -1,0 +1,212 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('horse') }}">Horse</a> <span class="divider">/</span></li>
+                        <li class="active">New Horse</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span6 offset3">
+
+                            <h4>Horse - New</h4>
+
+                            <form class="form-horizontal" action="{{ path('horse_create') }}" method="post" {{ form_enctype(form) }}>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.name) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.name) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.name, 'Horse Name' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.name) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.stable) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.stable) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.stable, 'Horse Stable' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.stable) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(form.alternateName) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.alternateName) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.alternateName, 'Horse Nick Name' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.alternateName) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.owner) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.owner) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.owner, 'Horse Owner' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.owner) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.trainer) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.trainer) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.trainer, 'Horse Trainer' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.trainer) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.breed) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.breed) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.breed, 'Horse Breed' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.breed) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(form.dob) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.dob) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.dob, 'Horse DOB' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.dob) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(form.gender) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.gender) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.gender, 'Gender' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.gender) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.type) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.type) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.type, 'Type' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.type) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.color) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.color) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.color, 'Color' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.color) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.sire) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.sire) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.sire, 'Sire' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.sire) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.dam) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.dam) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.dam, 'Dam' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.dam) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.code) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.code) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.code, 'Code' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.code) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.status) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.status) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.status, 'Status' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.status) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.country) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.country) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.country, 'Country' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.country) }}</div>
+                                </div>
+
+                                <div class="controls">
+                                    <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                    <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                </div>
+
+                                {{ form_row (form._token) }}
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('horse') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+
+{% endblock %}

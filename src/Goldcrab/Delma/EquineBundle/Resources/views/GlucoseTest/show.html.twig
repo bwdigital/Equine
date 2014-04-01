@@ -1,0 +1,150 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('test_glucose') }}">Glucose Test</a> <span class="divider">/</span></li>
+                        <li class="active">View Test</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span8 offset2">
+
+                            <h4>Glucose Tolerance Test - View</h4>
+
+                            {{ include('DelmaEquineBundle::testShowExtras.html.twig') }}
+
+                            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+                            <table class="table table-bordered width-802">
+                                <tbody>
+                                <tr><th>Time (secs)</th><th>Result (mg/dL)</th></tr>
+
+                                {% for testValue in entity.testValues %}
+                                    <tr>
+                                        <td>{{ testValue.time}}</td>
+                                        <td>{{ testValue.value }}</td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+
+                            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+
+                            <table class="table table-bordered width-80">
+                                <tbody>
+                                <tr>
+                                    <td><b>Comments</b><br />{{ entity.comments }}</td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+
+                            <div  style="padding: 20px 0 0 50px;">
+                                {% if is_granted("ROLE_SUPER_ADMIN") %}
+                                    <a class="btn btn-primary" href="{{ path('test_glucose_edit', { 'id': entity.id }) }}"><i class="icon-edit icon-white"></i> Edit test</a>
+                                    <div class="btn-group">
+                                        <button class="btn btn-info"><i class="icon-envelope icon-white"></i> Email</button>
+                                        <button class="btn btn-info dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                        </button>
+                                        <ul class="dropdown-menu">
+                                            <li> <a onclick="openEmailText('{{ entity.doctor.id }}','{{ entity.doctor.firstname }}');"> Doctor</a></li>
+                                            <li> <a onclick="openEmailText('{{ entity.testedBy.id }}','{{ entity.testedBy.firstname }}');"> Tester</a></li>
+                                            {% if entity.horse.owner %}
+                                            <li> <a onclick="openEmailText('{{ entity.horse.owner.id }}','{{ entity.horse.owner.firstname }}');"> Owner</a></li>
+                                            {% endif %}
+                                            {% if entity.horse.trainer %}
+                                            <li> <a onclick="openEmailText('{{ entity.horse.trainer.id }}','{{ entity.horse.trainer.firstname }}');"> Trainer</a></li>
+                                            {% endif %}
+                                        </ul>                                        
+                                    </div>
+                                {% endif %}
+
+                                <a class="btn btn-info"href="{{ path('test_glucose_print', { 'id': entity.id }) }}" onclick="return printPopup(this.href,'test_glucose_print_{{ entity.id }}');"><i class="icon-print icon-white"></i> Print</a>
+                                {% if is_granted("ROLE_SUPER_ADMIN") %}
+                                    <a href="{{ path('test_glucose_new') }}" class="btn btn-success"><i class="icon-plus icon-white"></i> New Glucose Test</a>
+                                {% endif %}
+                            </div>
+
+                            <form action="{{ path('test_glucose_email') }}" method="post" id="emailTestForm">
+                                <div id="inline" style="display:none;width:500px;">
+                                    <h2>Email Report</h2>
+                                    <table width="100%" border="0">
+                                        <tr>
+                                            <td width="30%">To:</td>
+                                            <td width="70%"><input type="text" id="emailToUser" name="toUser" style="width:80%" class="userAutoCompleteSelector"></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="30%">Subject:</td>
+                                            <td width="70%"><input type="text" name="toSubject" value="Glucose Test Results"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="2">
+<textarea style="width:600px;" cols="600" rows="10" name="toBody">
+Attached the test report you had requested for.
+
+Regards,
+{{ app.user.firstname }}
+</textarea>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <input type="hidden" name="emailTestID" value="{{ entity.id }}" />
+                                    <a class="btn btn-info" id="sendTestEmail" ><i class="icon-envelope icon-white"></i> Email</a>
+                                    <a class="btn btn-danger" href="javascript:$.fancybox.close();"><i class="icon-trash icon-white"></i> Close</a>
+                                </div>
+                                <script language="javascript">
+                                    function openEmailText(toUserId,toFirstName){
+                                        $("#emailToUser").val(toUserId).trigger("change");
+                                        $.fancybox( '#inline' , {
+                                            maxWidth	: 800,
+                                            maxHeight	: 600,
+                                            fitToView	: true,
+                                            width		: '70%',
+                                            height		: '70%',
+                                            autoSize	: false,
+                                            closeClick	: false,
+                                            openEffect	: 'none',
+                                            closeEffect	: 'none'
+                                        });
+                                        return false;
+                                    }
+                                    $(document).ready(function() {
+                                        $('#sendTestEmail').click(function(){
+                                            var emailToUser  = $('#emailToUser').select2("val");
+                                            if(emailToUser.length==0){
+                                                $("#emailToUser").select2("open");
+                                                return;
+                                            }
+                                            $.fancybox.close();
+                                            $('#emailTestForm').submit();
+                                        });
+                                    });
+                                </script>
+                            </form>
+
+                            <hr />
+
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('test_glucose') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                {% if is_granted("ROLE_SUPER_ADMIN") %}
+                                    <div class="pull-right">
+                                        <button class="btn btn-danger" onclick="deleteTest('{{ path('test_glucose_delete', { 'id': entity.id }) }}');" type="button"><i class="icon-trash icon-white"></i> Delete</button>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+
+{% endblock %}

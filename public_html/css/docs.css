@@ -1,0 +1,226 @@
+.show-grid {
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.show-grid [class*="span"] {
+    background-color: whitesmoke;
+    border-radius: 15px;
+/*line-height: 20px;
+min-height: 40px;*/
+}
+/*.show-grid [class*="span"]:hover {
+background-color: #DDDDDD;
+}*/
+
+#selectBoxesButton{
+    display: none;
+}
+
+.show-grid .show-grid {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+.show-grid .show-grid [class*="span"] {
+    margin-top: 5px;
+}
+.show-grid [class*="span"] [class*="span"] {
+    /*background-color: #CCCCCC;*/
+}
+.show-grid [class*="span"] [class*="span"] [class*="span"] {
+    /* background-color: #999999;*/background-color: #CCCCCC;
+}
+
+.right {
+    text-align:right;
+    padding-right: 5px;
+    font-weight: bold;
+}
+
+.glucose input {
+    width: 100px;
+    text-align: center;
+}
+
+.glucose li {
+    list-style: none;
+}
+
+.glucose {
+    margin: 0 100px 20px;
+}
+
+.w60 input{
+    width: 50px;
+
+}
+
+.ta600 {
+    padding: 15px 0  15px 10%;
+}
+
+.ta600 textarea{
+    height: 100px;
+    width: 600px;
+}
+
+.noborder
+{
+    width: 0px;
+
+}
+
+.noborder td
+{
+    border: 0px;
+    font-size: 12px;
+    padding: 0 8px;
+
+}
+
+.span6 h4 {
+    background: none repeat scroll 0 0 #2071a1;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    margin: 0 0 40px;
+    padding: 10px 30px;
+}
+
+.span8 h4 {
+    background: none repeat scroll 0 0 #2071a1;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    margin: 0 0 40px;
+    padding: 10px 30px;
+}
+.box-header{
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #6C8393;
+    background-image: linear-gradient(#7F95A5, #6C8393);
+    background-repeat: repeat-x;
+    border-color: #6E8290 #6E8290 #586873;
+    border-image: none;
+    border-radius: 4px 4px 0 0;
+    border-style: solid;
+    border-width: 1px;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 10px 20px;
+    position: relative;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
+}
+
+ul#navlist
+{
+    margin-left: 0;
+    padding-left: 0;
+    white-space: nowrap;
+}
+
+#navlist li
+{
+    display: inline;
+    list-style-type: none;
+}
+
+#navlist a { padding: 3px 10px; }
+
+#navlist a:link, #navlist a:visited
+{
+    color: #fff;
+    background-color: #036;
+    text-decoration: none;
+}
+
+#navlist a:hover
+{
+    color: #fff;
+    background-color: #369;
+    text-decoration: none;
+}
+
+.table-bordered {
+    margin: 0 0 20px;
+    width: 100%;
+}
+
+.table-bordered.width-fix1 {
+    margin: 0 5%;
+    width: 500px;
+}
+
+.table-bordered.width-fix1 th {
+    width: 300px;
+}
+.table-bordered.width-fix1 td {
+    width: 200px;
+}
+
+.table-bordered.width-80 {
+    margin: 0 5%;
+    width: 90%;
+}
+
+.table-bordered.w-c td {
+    text-align: center;
+}
+
+.table-bordered.w-c th {
+    text-align: center;
+}
+
+.table thead {
+    background-color: #f5d185;
+}
+
+.center {
+    text-align: center;
+}
+
+.table-bordered.width-801 {
+    margin: 0 5%;
+    width:400px;
+}
+
+.table-bordered.width-801 th {
+    width: 150px;
+    text-align: right;
+}
+
+.table-bordered.width-801 td {
+    width: 50px;
+    text-align: left;
+}
+
+.table-bordered.width-802 {
+    margin: 0 5%;
+    width:400px;
+}
+
+.table-bordered.width-802 th {
+    width: 200px;
+    text-align: center;
+}
+
+.table-bordered.width-802 td {
+    width: 200px;
+    text-align: center;
+}
+
+.table tbody {
+
+}
+
+.blue-bg {
+     background-color: #dcfbf9;
+     padding:10px;
+ }
+
+.services-gc {
+
+    background-image: url("http://gconline.goldcrab.in/wp-content/uploads/2013/10/services-gc.jpg");
+    background-repeat: no-repeat;
+
+}

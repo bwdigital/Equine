@@ -1,0 +1,114 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('horse') }}">Horse</a> <span class="divider">/</span></li>
+                        <li class="active">View Horse</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span6 offset3">
+
+                            <h4>Horse - View</h4>
+
+                            <table class="table table-bordered width-80">
+                                <tbody>
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ entity.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Horse Name</th>
+                                    <td>{{ entity.name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Alternate Name</th>
+                                    <td>{{ entity.alternateName }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Stable</th>
+                                    <td>{{ entity.stable.name }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Horse Owner</th>
+                                    <td>{{ entity.owner }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Trainer</th>
+                                    <td>{{ entity.trainer }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Breed</th>
+                                    <td>{% if entity.breed %} {{ entity.breed.name }} {% endif %}</td>
+                                </tr>
+                                <tr>
+                                    <th>DOB</th>
+                                    <td>{% if entity.dob %} {{ entity.dob|date('Y-m-d') }} {% endif %}</td>
+                                </tr>
+                                <tr>
+                                    <th>Gender</th>
+                                    <td>{{ entity.gender }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Color</th>
+                                    <td>{{ entity.color }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Type</th>
+                                    <td>{{ entity.type }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Sire</th>
+                                    <td>{{ entity.sire }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Dam</th>
+                                    <td>{{ entity.dam }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Country</th>
+                                    <td>{{ entity.country }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Code</th>
+                                    <td>{{ entity.code }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Status</th>
+                                    <td>{{ entity.status }}</td>
+                                </tr>
+
+                                </tbody>
+                            </table>
+
+                            <div  style="padding: 20px 0 0 50px;">
+                                <a class="btn btn-primary" href="{{ path('horse_edit', { 'id': entity.id }) }}"><i class="icon-edit icon-white"></i> Edit</a>
+                            </div>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('horse') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right">
+                                    <form action="{{ path('horse_delete', { 'id': entity.id }) }}" method="post">
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        {{ form_widget(delete_form) }}
+                                        <button class="btn btn-danger" type="submit"><i class="icon-trash icon-white"></i> Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+{% endblock %}

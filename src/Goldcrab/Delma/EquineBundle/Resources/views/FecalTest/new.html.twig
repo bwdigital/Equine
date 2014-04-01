@@ -1,0 +1,121 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('test_fecal_create') }}">Faecal Test</a> <span class="divider">/</span></li>
+                        <li class="active">New Test</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span8 offset2">
+
+                            <h4>Faecal Test - New</h4>
+                            <form action="{{ path('test_fecal_create') }}" method="post" {{ form_enctype(form) }}>
+
+                                {{ include('DelmaEquineBundle::testAddExtras.html.twig') }}
+
+                                <hr />
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">Anoplocephala</div>
+                                    <div class="span4">{{ form_widget(form.anoplocephala) }}</div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span2 right">Strongyle</div>
+                                    <div class="span4">{{ form_widget(form.strongyle) }}</div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span2 right">Parascaris</div>
+                                    <div class="span4">{{ form_widget(form.parascaris) }}</div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span2 right">Occult</div>
+                                    <div class="span4">{{ form_widget(form.occult) }}</div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span2 right">Clostridium</div>
+                                    <div class="span4">{{ form_widget(form.clostridium) }}</div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span12 ta600"><b>Comments</b> <br />{{ form_widget(form.comments) }}</div>
+                                </div>
+
+                                <div  style="margin: 0 30px;">
+                                    <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                    <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                </div>
+
+                                {{ form_row (form._token) }}
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('test_fecal') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <script language="javascript">
+
+
+        $(document).ready(function() {
+
+
+            $(':input').keypress(function(e){
+                if (e.which == 13) {
+                    if (!this.form.tabOrder) {
+                        var els = this.form.elements,
+                                ti = [],
+                                rest = [];
+                        for (var i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex > 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                ti.push(els[i]);
+                            }
+                        }
+                        ti.sort(function(a,b){ return a.tabIndex - b.tabIndex; });
+                        for (i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex == 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                rest.push(els[i]);
+                            }
+                        }
+                        this.form.tabOrder = ti.concat(rest);
+                    }
+                    for (var j = 0, jl = this.form.tabOrder.length; j < jl; j++) {
+                        if (this === this.form.tabOrder[j]) {
+                            if (j+1 < jl) {
+                                $(this.form.tabOrder[j+1]).select();
+                            } else {
+                                $(this).blur();
+                            }
+                        }
+
+                    }
+                    return false;
+                }
+            });
+
+        });
+    </script>
+{% endblock %}
+
+

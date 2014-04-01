@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+
+{% block body -%}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('breed') }}">Breed</a> <span class="divider">/</span></li>
+                        <li class="active">Breed New</li>
+                    </ul>
+
+                        <div class="row show-grid">
+                            <div class="span6 offset3">
+
+                                <h4>Breed New</h4>
+
+                                <form class="form-horizontal" action="{{ path('breed_create') }}" method="post" {{ form_enctype(form) }}>
+                                    <div class="control-group">
+                                        {% if form_errors(form.name) %}
+                                            <div class="alert alert-error">
+                                                <a class="close" data-dismiss="alert">&times;</a>
+                                                {{ form_errors(form.name) }}
+                                            </div>
+                                        {% endif %}
+                                        <label class="control-label" for="">{{ form_label(form.name, 'Breed Name' ) }}</label>
+                                        <div class="controls">{{ form_widget(form.name) }}</div>
+                                    </div>
+                                    <div class="controls">
+                                        <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                        <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                    </div>
+
+                                    {{ form_row (form._token) }}
+                                </form>
+
+                                <hr />
+                                <div style="padding: 0 40px 20px;">
+                                    <div class="btn"><a href="{{ path('breed') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                    <div class="pull-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

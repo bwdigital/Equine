@@ -1,0 +1,87 @@
+<div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container-fluid">
+            <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <p class="navbar-text pull-left">
+                <img src="/img/horse-icn.jpg" alt="DEH" style="padding:0px;" />&nbsp;&nbsp;
+            </p>
+            <div class="nav-collapse collapse">
+                <ul class="nav pull-right">
+                    <li>
+                        <p class="navbar-text pull-right">
+                            {% if app.user %}
+                                {{ app.user.email }} | <a href="{{ path('fos_user_security_logout') }}" class="navbar-link">Logout</a>
+                            {% else %}
+                                Guest | <a href="{{ path('fos_user_security_login') }}" class="navbar-link">Login</a>
+                            {% endif %}
+                        </p>
+                    </li>
+                </ul>
+                {% if app.user %}
+                <ul class="nav">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Lab Tests <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a href="{{ path('test_blood') }}">Blood Test</a>
+                            </li>
+
+                            <li><a href="{{ path('test_bacteria') }}">Bacteria Test</a></li>
+
+                            <li><a href="{{ path('test_glucose') }}">Glucose Test</a></li>
+
+                            <li class="dropdown-submenu">
+                                <a href="#">Cytology Test</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ path('test_cytology_ttw') }}">TTW</a></li>
+                                    <li><a href="{{ path('test_cytology_afa') }}">Abdominal Fluid Analysis</a></li>
+                                    <li><a href="{{ path('test_cytology_pfa') }}">Pleural Fluid Analysis</a></li>
+                                    <li><a href="{{ path('test_cytology_jfa') }}">Joint Fluid Analysis</a></li>
+                                    <li><a href="{{ path('test_cytology_csfa') }}">CSF Analysis</a></li>
+                                    <li><a href="{{ path('test_cytology_general') }}">General</a></li>
+                                </ul>
+                            </li>
+
+                            <li><a href="{{ path('test_fecal') }}">Faecal Test</a></li>
+
+                            <li><a href="{{ path('test_urine') }}">Urine Analysis</a></li>
+
+                            <li><a href="{{ path('test_coagulation') }}">Coagulation Profile</a></li>
+
+                        </ul>
+                    </li>
+                    {% if is_granted("ROLE_SUPER_ADMIN") %}
+                        <li class="dropdown">
+
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="icon-cog icon-white"></i>
+                                Manage
+                                <b class="caret"></b>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="{{ path('antibiotic') }}">Antibiotic</a></li>
+                                <li><a href="{{ path('breed') }}">Breed</a></li>
+                                <li><a href="{{ path('stable') }}">Stable</a></li>
+                                <li><a href="{{ path('horse') }}">Horse</a></li>
+                                <li><a href="{{ path('user') }}">Users</a></li>
+                                {#<li class="divider"></li>#}
+                                {#<li><a href="#">Settings</a></li>#}
+                            </ul>
+                        </li>
+                    {% endif %}
+                </ul>
+                {% endif %}
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,103 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('user') }}">User</a> <span class="divider">/</span></li>
+                        <li class="active">View User</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span6 offset3">
+
+                            <h4>User - View</h4>
+
+                            <table  class="table table-bordered width-80">
+                                <tbody>
+
+                                <tr>
+                                    <th>Id</th>
+                                    <td>{{ entity.id }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Firstname</th>
+                                    <td>{{ entity.firstname }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Lastname</th>
+                                    <td>{{ entity.lastname }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Email</th>
+                                    <td>{{ entity.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Mobile</th>
+                                    <td>{{ entity.mobile }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Address</th>
+                                    <td>{{ entity.address }}</td>
+                                </tr>
+                                <tr>
+                                    <th>City</th>
+                                    <td>{{ entity.city }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Country</th>
+                                    <td>{{ entity.country }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Roles</th>
+                                    <td>{{ entity.roles }}</td>
+                                </tr>
+
+                                <tr>
+                                    <th>Enabled</th>
+                                    <td>{{ entity.enabled }}</td>
+                                </tr>
+                                <tr>
+                                    <th>Last Login</th>
+                                    <td>{{ entity.lastLogin|date('Y-m-d H:i:s') }}</td>
+                                </tr>
+
+
+                                </tbody>
+                            </table>
+
+                            <div  style="padding: 20px 0 0 50px;">
+
+                                <a  class="btn btn-primary" href="{{ path('user_edit', { 'id': entity.id }) }}">
+                                    Edit
+                                </a>
+
+                            </div>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('user') }}">Back to the list</a></div>
+                                <div class="pull-right">
+                                    <form action="{{ path('user_delete', { 'id': entity.id }) }}" method="post">
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        {{ form_widget(delete_form) }}
+                                        <button class="btn btn-danger" type="submit">Delete</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+{% endblock %}

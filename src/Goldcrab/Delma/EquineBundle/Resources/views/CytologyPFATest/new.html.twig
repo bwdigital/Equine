@@ -1,0 +1,214 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('test_cytology_pfa') }}">Cytology - Pleural Fluid Analysis Test</a> <span class="divider">/</span></li>
+                        <li class="active">New Test</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span8 offset2">
+
+                            <h4>Cytology - Pleural Fluid Analysis Test - New</h4>
+
+                            <form action="{{ path('test_cytology_pfa_create') }}" method="post" {{ form_enctype(form) }}>
+
+                                {{ include('DelmaEquineBundle::testAddExtras.html.twig') }}
+
+                                <hr/>
+                                <div class="row-fluid">
+                                    <div class="span2 right">Sample Date</div>
+                                    <div class="span4">{{ form_widget(form.sampleDate, {'attr': {'class': 'date'}} ) }}</div>
+                                    <div class="span2 right">C&S Aerobic</div>
+                                    <div class="span4">{{ form_widget(form.csaerobic) }}</div>
+
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right"> </div>
+                                    <div class="span4"> </div>
+                                    <div class="span2 right">C&S Anaerobic</div>
+                                    <div class="span4">{{ form_widget(form.csanaerobic) }}</div>
+                                </div>
+
+                                <hr/>
+
+                                <div style="margin: 0 30px;">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active"><a href="#1" data-toggle="tab">Pleural Fluid Analysis</a></li>
+                                        <li class=""><a href="#2" data-toggle="tab">Slide Prepared</a></li>
+                                    </ul>
+
+                                    <div class="tab-content" style="height: 200px;">
+                                        <div class="tab-pane active" id="1">
+
+                                            <table class="table noborder">
+                                                <tbody>
+
+                                                <tr>
+                                                    <td>WBC</td>
+                                                    <td class="w60">{{ form_widget(form.wbc) }}</td>
+                                                    <td class="w60">uL</td>
+                                                    <td style="width: 50px;">&nbsp;</td>
+                                                    <td>Lactate</td>
+                                                    <td class="w60">{{ form_widget(form.lactate) }}</td>
+                                                    <td class="w60">U/L</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>PMN</td>
+                                                    <td class="w60">{{ form_widget(form.pmn) }}</td>
+                                                    <td class="w60">%</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>TRIGLYC</td>
+                                                    <td class="w60">{{ form_widget(form.triglyc) }}</td>
+                                                    <td class="w60">U/L</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Mononucl</td>
+                                                    <td class="w60">{{ form_widget(form.mononucl) }}</td>
+                                                    <td class="w60">%</td>
+                                                    <td>&nbsp;</td>
+                                                    <td>Glucose</td>
+                                                    <td class="w60">{{ form_widget(form.glucose) }}</td>
+                                                    <td class="w60">mg/dL</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>T.P(refrac)</td>
+                                                    <td class="w60">{{ form_widget(form.tprefrac) }}</td>
+                                                    <td class="w60">g/dL</td>
+                                                    <td>&nbsp;</td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                </tbody>
+                                            </table>
+
+
+                                        </div>
+                                        <div class="tab-pane" id="2">
+
+                                            <table class="table noborder">
+                                                <tbody>
+                                                <tr>
+                                                    <td class="w60">{{ form_widget(form.test1) }}</td>
+                                                    <td>PMNS</td>
+                                                    <td class="w60">{{ form_widget(form.test2) }}</td>
+                                                    <td>BACTERIA</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="w60">{{ form_widget(form.test3) }}</td>
+                                                    <td>LYMPHS</td>
+                                                    <td class="w60">{{ form_widget(form.test4) }}</td>
+                                                    <td>COCCI</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="w60">{{ form_widget(form.test5) }} </td>
+                                                    <td>MONOCYTES</td>
+                                                    <td class="w60">{{ form_widget(form.test6) }}</td>
+                                                    <td>RODS</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="w60">{{ form_widget(form.test7) }}</td>
+                                                    <td>MACROPHAGES</td>
+                                                    <td class="w60">{{ form_widget(form.test8) }}</td>
+                                                    <td>INTRA CELLULAR</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td class="w60">{{ form_widget(form.test9) }}</td>
+                                                    <td>EOBINOPHILS</td>
+                                                    <td class="w60">{{ form_widget(form.test10) }}</td>
+                                                    <td>EXTRA CELLULAR</td>
+                                                </tr>
+
+                                                </tbody>
+                                            </table>
+
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row-fluid">
+                                        <div class="span12 ta600" >Comments / Microscopic Evaluation <br />{{ form_widget(form.comments) }}</div>
+                                    </div>
+                                    <hr />
+
+
+
+                                    <div  style="margin: 0 30px;">
+                                        <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                        <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                    </div>
+
+                                    {{ form_row (form._token) }}
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('test_cytology_pfa') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+    <script language="javascript">
+
+        $(document).ready(function() {
+
+            $(':input').keypress(function(e){
+                if (e.which == 13) {
+                    if (!this.form.tabOrder) {
+                        var els = this.form.elements,
+                                ti = [],
+                                rest = [];
+                        for (var i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex > 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                ti.push(els[i]);
+                            }
+                        }
+                        ti.sort(function(a,b){ return a.tabIndex - b.tabIndex; });
+                        for (i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex == 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                rest.push(els[i]);
+                            }
+                        }
+                        this.form.tabOrder = ti.concat(rest);
+                    }
+                    for (var j = 0, jl = this.form.tabOrder.length; j < jl; j++) {
+                        if (this === this.form.tabOrder[j]) {
+                            if (j+1 < jl) {
+                                $(this.form.tabOrder[j+1]).select();
+                            } else {
+                                $(this).blur();
+                            }
+                        }
+
+                    }
+                    return false;
+                }
+            });
+
+        });
+    </script>
+
+{% endblock %}

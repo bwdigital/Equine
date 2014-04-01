@@ -1,0 +1,110 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('test_cytology_ttw') }}">Cytology - TTW Test</a> <span class="divider">/</span></li>
+                        <li class="active">Edit Test</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span8 offset2">
+
+                            <h4>Cytology - TTW Test - Edit</h4>
+
+                            <form action="{{ path('test_cytology_ttw_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+
+                                {{ include('DelmaEquineBundle::testEditExtras.html.twig') }}
+
+                                <hr />
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">Cell Sample Prepared</div>
+                                    <div class="span4">{{ form_widget(edit_form.cellSamplePrep) }}</div>
+                                    <div class="span2 right">C&S Aerobic</div>
+                                    <div class="span4">{{ form_widget(edit_form.csaerobic) }}</div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">Sample Stain</div>
+                                    <div class="span4">{{ form_widget(edit_form.sampleStain) }}</div>
+                                    <div class="span2 right">C&S Anaerobic</div>
+                                    <div class="span4">{{ form_widget(edit_form.csanaerobic) }}</div>
+                                </div>
+                                <hr />
+                                <div class="row-fluid">
+                                    <div class="span2 right">{{ form_widget(edit_form.test1) }}</div>
+                                    <div class="span4 ">PMNS</div>
+                                    <div class="span2 right">{{ form_widget(edit_form.test2) }}</div>
+                                    <div class="span4">MUCOUS</div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">{{ form_widget(edit_form.test3) }}</div>
+                                    <div class="span4">LYMPHS</div>
+                                    <div class="span2 right">{{ form_widget(edit_form.test4) }}</div>
+                                    <div class="span4">BACTERIA</div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span2 right">{{ form_widget(edit_form.test5) }}</div>
+                                    <div class="span4">MONO</div>
+                                    <div class="span2 right">{{ form_widget(edit_form.test6) }}</div>
+                                    <div class="span4">COCCI</div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">{{ form_widget(edit_form.test7) }}</div>
+                                    <div class="span4">MACROPHAGE</div>
+                                    <div class="span2 right">{{ form_widget(edit_form.test8) }}</div>
+                                    <div class="span4">RODS</div>
+                                </div>
+                                <div class="row-fluid">
+                                    <div class="span2 right">{{ form_widget(edit_form.test9) }}</div>
+                                    <div class="span4">RBCS</div>
+                                    <div class="span2 right">{{ form_widget(edit_form.test10) }}</div>
+                                    <div class="span4">INTRA CELLULAR</div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">{{ form_widget(edit_form.test11) }}</div>
+                                    <div class="span4">DEBRIS</div>
+                                    <div class="span2 right">{{ form_widget(edit_form.test12) }}</div>
+                                    <div class="span4">EXTRA CELLULAR</div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right ">Microscopic Evaluation</div>
+                                    <div class="span10">{{ form_widget(edit_form.microscopicEval) }}</div>
+                                </div>
+                                <div  style="margin: 0 30px;">
+                                    <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                    <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                    <a href="{{ path('test_cytology_ttw_new') }}" class="btn btn-success"><i class="icon-plus icon-white"></i> New TTW Test</a>
+                                </div>
+
+                                <input type="hidden" name="_method" value="PUT" />
+                                {{ form_row (edit_form._token) }}
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('test_cytology_ttw') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right">
+                                    <button class="btn btn-danger" onclick="deleteTest('{{ path('test_cytology_ttw_delete', { 'id': entity.id }) }}');" type="button"><i class="icon-trash icon-white"></i> Delete</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,205 @@
+{% extends '::email.html.twig' %}
+
+{% block body -%}
+
+    <table width="700">
+        <tbody>
+        <tr>
+            <td width="700" align="center" style="text-align: center;"><img src="http://192.150.10.123:2080/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" /></td>
+        </tr>
+        <tr>
+            <td width="700" height="40" align="center" style="text-align: center; margin-bottom: 10px; font-size: 16px; font-weight: bold; text-decoration: underline;">LABORATORY REPORT</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <table width="800">
+        <tbody>
+        <tr>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Horse: </td>
+            <td style="width: 350px;">{{ entity.horse.name }}</td>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Date&nbsp;&nbsp;&nbsp;:</td>
+            <td style="width: 350px;">{{ entity.testedDate|date('m-d-Y H:i:s') }}</td>
+        </tr>
+        <tr>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Stable: </td>
+            <td>{{ entity.horse.stable.name }}</td>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Doctor:</td>
+            <td>{{ entity.doctor.name }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Cytology - Joint Fluid Analysis Results</h3>
+
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td bgcolor="#CCCCCC"><table width="700" cellspacing="1" class="table table-bordered width-80">
+                    <tbody>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">Sample Date</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.sampleDate|date('Y-m-d H:i:s') }}</td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">C&S Aerobic</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.csaerobic }}</td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">Slide Prepared</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.slidePrepared == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">C&S Anaerobic</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.csanaerobic }}</td>
+                    </tr>
+                    </tbody>
+                </table></td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td bgcolor="#CCCCCC">
+                <table width="700" cellspacing="1">
+                    <tbody>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">WBC</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.wbc }} U/L</td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">AST</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.ast }} U/L</td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">PMN</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.pmn }} %</td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">CK</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.ck }} U/L</td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">Mononucl</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.mononucl }} %</td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">LD</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.ld }} U/L</td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">T.P (Refrac)</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.tprefrac }} g/dL</td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">ALP</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.alp }} U/L</td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;"> </th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"></td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">GLUCOSE</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.glucose }} mg/dL</td>
+                    </tr>
+                    </tbody>
+                </table></td>
+        </tr>
+    </table>
+
+    <p>&nbsp;</p>
+
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td bgcolor="#CCCCCC"><table width="700" cellspacing="1">
+                    <tbody>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">PMNS</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test1 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">RBC'S</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test2 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">LYMPHS</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test3 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">BACTERIA</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test4 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">MONOCYTES</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test5 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">COCCI</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test6 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">MACROPHAGES</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test7 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">RODS</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test8 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">SYNOVIAL LINING CELLS</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test9 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">INTRA CELLULAR</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test10 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                    </tr>
+                    <tr>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">MUCIN</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test11 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                        <th width="120" bgcolor="#FFFFFF" style="padding: 2px 5px;">EXTRA CELLULAR</th>
+                        <td width="175" bgcolor="#FFFFFF" style="padding: 2px 5px;"> {% if entity.test12 == true %}
+                                &#43;
+                            {% else %}
+                                &#120;
+                            {% endif %} </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <p style="font-weight: bold;">Comments</p>
+
+    <p>{{ entity.comments }}</p>
+
+    <p style="padding: 5% 0 0 100px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+
+{% endblock %}

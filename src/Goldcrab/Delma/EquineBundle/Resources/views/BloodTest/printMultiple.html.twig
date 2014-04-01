@@ -1,0 +1,17 @@
+{% extends '::print-blood-multiple.html.twig' %}
+
+
+{% block body -%}
+    {% if singleHorse == true %}
+        {% include 'DelmaEquineBundle:BloodTest:printMultipleSingleHorse.html.twig' %}
+    {% elseif singleStable == true %}
+        {% include 'DelmaEquineBundle:BloodTest:printMultipleSingleStable.html.twig' %}
+    {% else %}
+        {% include 'DelmaEquineBundle:BloodTest:printMultipleMixed.html.twig' %}
+    {% endif %}
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,143 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li class="active">Blood Test</li>
+                    </ul>
+                    <h4>Blood Test</h4>
+                    <div class="row-fluid">
+                        <div class="span10">
+                            {{ include('DelmaEquineBundle::filter.html.twig') }}
+                        </div>
+                        {% if is_granted("ROLE_SUPER_ADMIN") %}
+                        <div class="span2"><a href="{{ path('test_blood_new') }}" class="btn btn-success"><i class="icon-plus icon-white"></i> New Blood Test</a></div>
+                        {% endif %}
+                    </div>
+                    <form action="{{ path('test_blood_print_multiple') }}" method="post" id="testListingPrintForm" target="_blank">
+                    <table class="table table-bordered table-hover table-condensed table-centered">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center;"><input type="checkbox" id="selectAllBox"></th>
+                            <th style="text-align: center;">Id</th>
+                            <th>Horse Name</th>
+                            <th>Stable</th>
+                            <th>Doctor</th>
+                            <th>Test Date</th>
+                            <th style="text-align: center;">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td style="text-align: center;"><input name="test[]" value="{{ entity.id }}" type="checkbox" class="selectBoxes" onclick="$(this).closest('tr').toggleClass('success')"></td>
+                                <td style="text-align: center;"><a href="{{ path('test_blood_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                <td>{{ entity.horse.name }}</td>
+                                <td>{{ entity.horse.stable.name }}</td>
+                                <td>{{ entity.doctor.name }}</td>
+                                <td>{% if entity.testedDate %}{{ entity.testedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td style="text-align: center;">
+                                    <a class="btn btn-mini" href="{{ path('test_blood_show', { 'id': entity.id }) }}"><i class="icon-eye-open icon-large"></i></a>
+                                    {% if is_granted("ROLE_SUPER_ADMIN") %}
+                                        <a class="btn btn-mini" href="{{ path('test_blood_edit', { 'id': entity.id }) }}"><i class="icon-pencil icon-large"></i></a>
+                                    {% endif %}
+
+
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                        <div class="buttons left" id="selectBoxesButton">
+                            <p>Print Options :</p>
+                            <select name="show">
+                                <option value="all">All</option>
+                                <option value="hema">Hematology</option>
+                                <option value="chem">Chemistry</option>
+                                <option value="elec">Electrolytes</option>
+                            </select>
+                            <a class="btn btn-info" id="testMultiplePrint" ><i class="icon-print icon-white"></i> Print</a>
+
+                            {% if is_granted("ROLE_SUPER_ADMIN") %}
+                                <!--<a class="btn btn-info various" href="#inline"><i class="icon-envelope icon-white"></i> Email</a>-->
+                                <a class="btn btn-danger" id="testMultipleDelete" ><i class="icon-trash icon-white"></i> Delete</a>
+                            {% endif %}
+
+
+
+                            <div id="inline" style="display:none;width:500px;">
+                                <h2>Email Report</h2>
+                                <table width="100%" border="0">
+                                    <tr>
+                                        <td width="30%">To:</td>
+                                        <td width="70%"><input type="text" id="emailToUser" name="toUser" style="width:80%" class="userAutoCompleteSelector"></td>
+                                    </tr>
+                                    <tr>
+                                        <td width="30%">Subject:</td>
+                                        <td width="70%"><input type="text" name="toSubject" value="Blood Test Report"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2">
+                                        <textarea style="width:600px;" cols="600" rows="10" name="toBody">
+                                        Attached the test report you had requested for.
+
+                                        Regards,
+                                        {{ app.user.firstname }}
+                                        </textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <a class="btn btn-info" id="testMultipleEmail" ><i class="icon-envelope icon-white"></i> Email</a>
+                                <a class="btn btn-danger" href="javascript:$.fancybox.close();"><i class="icon-trash icon-white"></i> Close</a>
+                            </div>
+
+                        </div>
+                        <div class="pagination center">
+                            <ul>
+                                {{ knp_pagination_render(pagination) }}
+                            </ul>
+                        </div>
+                    </form>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+
+    <script language="javascript">
+        $(document).ready(function() {
+            $('#testMultiplePrint').click(function(){
+                $('#testListingPrintForm').attr("action", "{{ path('test_blood_print_multiple') }}");
+                $('#testListingPrintForm').attr("target", "_blank");
+                $('#testListingPrintForm').submit();
+            });
+
+            $('#testMultipleEmail').click(function(){
+                var emailToUser  = $('#emailToUser').select2("val");
+                if(emailToUser.length==0){
+                    $("#emailToUser").select2("open");
+                    return;
+                }
+                $.fancybox.close();
+                $('#testListingPrintForm').attr("action", "{{ path('test_blood_email_multiple') }}");
+                $('#testListingPrintForm').attr("target", "_self");
+                $('#testListingPrintForm').submit();
+            });
+
+            $('#testMultipleDelete').click(function(){
+                var r = confirm("Do you want to delete the selected tests?");
+                if (r==true){
+                    $('#testListingPrintForm').attr("action", "{{ path('test_blood_delete_multiple') }}");
+                    $('#testListingPrintForm').attr("target", "_self");
+                    $('#testListingPrintForm').submit();
+                }
+            });
+
+        });
+    </script>
+{% endblock %}

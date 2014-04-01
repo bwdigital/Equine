@@ -1,0 +1,1241 @@
+/* Smashing winery
+   Example site for article at Smashing Magazine
+   by Christian Krammer, ck@css3files.com
+
+   Print style */
+
+/* Reset quotes */
+q {quotes: none}
+q:before, q:after {content: ""}
+
+/* Hide everything unneeded */
+header h1, header nav, footer, img {display: none}
+
+@page {
+    size: A4 landscape;
+    margin: 42pt 12pt;
+}
+
+/* font sizes
+body {
+    font: 8pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+    color: #000;
+}*/
+
+h1 {font-size: 24pt}
+
+h2 {font-size: 14pt; margin-top: 25px}
+
+aside h2 {font-size: 18pt}
+
+
+
+/* Show printer-frindly logo. */
+header .print {display: block}
+
+/* If you like things a little bit easier and more semantic you can alternatively just leave the h1 of the header visible, switch off the margin and make it bigger than the rest of the headlines */
+/*header nav, footer, img {display: none}
+
+header h1 {
+	margin: 0;
+	font-size: 30pt;
+}*/
+
+/* Some browsers like to show a border around images. Switch it off */
+img {border: 0}
+
+/* Mover the header a little bit awy from the content */
+header {margin-bottom: 40px}
+
+/* Display the URL of the site so that the user knows where the printout came from */
+header:after {display: block; }
+
+/* Additionally/optionally a little message could be displayed */
+/*header:before {
+	display: block;
+	content: "Thank your for printing our content at www.smashing-winery.com. Please check back soon for new offers about delicious wine from our winery.";
+	margin-bottom: 10px;
+	border: 1px solid #bbb;
+	padding: 3px 5px;
+	font-style: italic;
+}*/
+
+/* Separate blockquotes a little bit from the rest */
+blockquote {
+    font-size: 13pt;
+    font-style: italic;
+}
+
+/* By default links are blue. For optimal legibility change them to black */
+p a {color: #000}
+
+/* Show the URL after each link, whereby internal links are preceeded by the site's URL */
+p a:after {
+    content: " (http://www.smashing-winery.com/" attr(href) ")";
+    font-size: 80%;
+    word-wrap: break-word;
+}
+
+/* External links don't get this treatment */
+p a[href^="http://"]:after, p a[href^="https://"]:after {
+    content: " (" attr(href) ")";
+}
+
+/* Append the source of the citation */
+q:after {content: " (" attr(cite) ")"}
+
+/* The Sidebar is placed under the content automatically. To distinguish it from the rest a border and a gap is set before */
+aside {
+    border-top: 1px solid #bbb;
+    margin-top: 30px;
+    display: block;
+    /*page-break-before: always; */ /* Moves the sidebar to new page */
+}
+
+
+
+.head-first{
+    float: left;
+}
+.head-last{
+    float: none;
+}
+
+.main{
+    font-size: 14pt;
+    margin: 0 2cm;
+
+}
+
+.main div{
+    float: left;
+    margin-bottom: 20px;
+}
+
+.head-name{
+    width: 75px;
+    font-weight: bold;
+    padding-right: 20px;
+    text-align: right;
+}
+.head-content{
+    width: 350px;
+}
+
+
+.sub-main th, td{
+    width: 75px;
+    float: left;
+
+}
+.s-dv{
+    border-right-style: solid;
+    border-right-width: 1px;
+    float: left;
+    text-align: center;
+    width: 50%;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.clear{
+    clear: both;
+}
+.page {
+    width: 40cm;
+    min-height: 29.7cm;
+    padding: 2cm;
+    margin: 1cm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.subpage {
+    padding: 1cm;
+    border: 5px red solid;
+    height: 256mm;
+    outline: 2cm #FFEAEA solid;
+}
+
+
+.print-table {
+    margin:0px;padding:0px;
+    width:1204px;
+    border:1px solid #000000;
+
+    -moz-border-radius-bottomleft:0px;
+    -webkit-border-bottom-left-radius:0px;
+    border-bottom-left-radius:0px;
+
+    -moz-border-radius-bottomright:0px;
+    -webkit-border-bottom-right-radius:0px;
+    border-bottom-right-radius:0px;
+
+    -moz-border-radius-topright:0px;
+    -webkit-border-top-right-radius:0px;
+    border-top-right-radius:0px;
+
+    -moz-border-radius-topleft:0px;
+    -webkit-border-top-left-radius:0px;
+    border-top-left-radius:0px;
+}.print-table table{
+     width:1204px;
+     height:100%;
+     margin:0px;padding:0px;
+ }.print-table tr:last-child td:last-child {
+      -moz-border-radius-bottomright:0px;
+      -webkit-border-bottom-right-radius:0px;
+      border-bottom-right-radius:0px;
+  }
+.print-table table tr:first-child td:first-child {
+    -moz-border-radius-topleft:0px;
+    -webkit-border-top-left-radius:0px;
+    border-top-left-radius:0px;
+}
+.print-table table tr:first-child td:last-child {
+    -moz-border-radius-topright:0px;
+    -webkit-border-top-right-radius:0px;
+    border-top-right-radius:0px;
+}.print-table tr:last-child td:first-child{
+     -moz-border-radius-bottomleft:0px;
+     -webkit-border-bottom-left-radius:0px;
+     border-bottom-left-radius:0px;
+ }.print-table tr:hover td{
+      background-color:#ffffff;
+
+
+  }
+.print-table td{
+    vertical-align:middle;
+
+    background-color:#ffffff;
+
+    border:1px solid #000000;
+    border-width:0px 1px 1px 0px;
+    text-align:center;
+    padding:7px;
+    font-size:10px;
+    font-family:Arial;
+    font-weight:normal;
+    color:#000000;
+}.print-table tr:last-child td{
+     border-width:0px 1px 0px 0px;
+ }.print-table tr td:last-child{
+      border-width:0px 0px 1px 0px;
+  }.print-table tr:last-child td:last-child{
+       border-width:0px 0px 0px 0px;
+   }
+.print-table tr:first-child td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #ffffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #ffffff) );
+    background:-moz-linear-gradient( center top, #ffffff 5%, #ffffff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff");	background: -o-linear-gradient(top,#ffffff,ffffff);
+
+    background-color:#ffffff;
+    border:0px solid #000000;
+    text-align:center;
+    border-width:0px 0px 1px 1px;
+    font-size:10px;
+    font-family:Arial;
+    font-weight:bold;
+    color:#000000;
+}
+.print-table tr:first-child:hover td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #ffffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #ffffff) );
+    background:-moz-linear-gradient( center top, #ffffff 5%, #ffffff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff");	background: -o-linear-gradient(top,#ffffff,ffffff);
+
+    background-color:#ffffff;
+}
+.print-table tr:first-child td:first-child{
+    border-width:0px 0px 1px 0px;
+}
+.print-table tr:first-child td:last-child{
+    border-width:0px 0px 1px 1px;
+}
+
+------------------
+
+
+
+.print-table {
+    margin:0px;padding:0px;
+    width:1204px;
+    border:1px solid #000000;
+
+    -moz-border-radius-bottomleft:0px;
+    -webkit-border-bottom-left-radius:0px;
+    border-bottom-left-radius:0px;
+
+    -moz-border-radius-bottomright:0px;
+    -webkit-border-bottom-right-radius:0px;
+    border-bottom-right-radius:0px;
+
+    -moz-border-radius-topright:0px;
+    -webkit-border-top-right-radius:0px;
+    border-top-right-radius:0px;
+
+    -moz-border-radius-topleft:0px;
+    -webkit-border-top-left-radius:0px;
+    border-top-left-radius:0px;
+}
+
+.print-table table{
+    width:1204px;
+    height:100%;
+    margin:0px;padding:0px;
+}
+
+.print-table tr:last-child td:last-child {
+    -moz-border-radius-bottomright:0px;
+    -webkit-border-bottom-right-radius:0px;
+    border-bottom-right-radius:0px;
+}
+
+.print-table table tr:first-child td:first-child {
+    -moz-border-radius-topleft:0px;
+    -webkit-border-top-left-radius:0px;
+    border-top-left-radius:0px;
+}
+
+.print-table table tr:first-child td:last-child {
+    -moz-border-radius-topright:0px;
+    -webkit-border-top-right-radius:0px;
+    border-top-right-radius:0px;
+}
+
+.print-table tr:last-child td:first-child{
+    -moz-border-radius-bottomleft:0px;
+    -webkit-border-bottom-left-radius:0px;
+    border-bottom-left-radius:0px;
+}
+
+.print-table tr:hover td{
+    background-color:#ffffff;
+
+
+}
+
+.print-table td{
+    vertical-align:middle;
+
+    background-color:#ffffff;
+
+    border:1px solid #000000;
+    border-width:0px 1px 1px 0px;
+    text-align:center;
+    padding:7px;
+    font-size:10px;
+    font-family:Arial;
+    font-weight:normal;
+    color:#000000;
+}
+
+.print-table tr:last-child td{
+    border-width:0px 1px 0px 0px;
+}
+
+.print-table tr td:last-child{
+    border-width:0px 0px 1px 0px;
+}
+
+.print-table tr:last-child td:last-child{
+    border-width:0px 0px 0px 0px;
+}
+
+.print-table tr:first-child td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #ffffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #ffffff) );
+    background:-moz-linear-gradient( center top, #ffffff 5%, #ffffff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff");	background: -o-linear-gradient(top,#ffffff,ffffff);
+
+    background-color:#ffffff;
+    border:0px solid #000000;
+    text-align:center;
+    border-width:0px 0px 1px 1px;
+    font-size:10px;
+    font-family:Arial;
+    font-weight:bold;
+    color:#000000;
+}
+
+.print-table tr:first-child:hover td{
+    background:-o-linear-gradient(bottom, #ffffff 5%, #ffffff 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #ffffff), color-stop(1, #ffffff) );
+    background:-moz-linear-gradient( center top, #ffffff 5%, #ffffff 100% );
+    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff", endColorstr="#ffffff");	background: -o-linear-gradient(top,#ffffff,ffffff);
+
+    background-color:#ffffff;
+}
+
+.print-table tr:first-child td:first-child{
+    border-width:0px 0px 1px 0px;
+}
+
+.print-table tr:first-child td:last-child{
+    border-width:0px 0px 1px 1px;
+}
+
+---------------------
+
+
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+<div class="container-fluid">
+<div class="row-fluid">
+<div class="span12">
+<section>
+
+                <ul class="breadcrumb">
+<li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                    <li><a href="{{ path('test_blood') }}">Blood Test</a> <span class="divider">/</span></li>
+                    <li class="active">Edit Test</li>
+                </ul>
+
+                    <div class="row show-grid">
+<div class="span8 offset2">
+
+<h4>Blood Test - Edit</h4>
+
+                            <form action="{{ path('test_blood_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+
+<div class="row-fluid">
+<div class="span2 right">Test Date</div>
+                                <div class="span4">{{ form_widget(edit_form.testedDate, {'attr': {'class': 'date'}} ) }}</div>
+                            </div>
+
+                            <div class="row-fluid">
+<div class="span2 right">Horse Name</div>
+                                <div class="span10">{{ form_widget(edit_form.horse) }}</div>
+                            </div>
+
+                            <div class="row-fluid">
+<div class="span2 right">Birth Date</div>
+                                <div class="span4" id="horseTestFormBDay">-----</div>
+                                <div class="span2 right">Gender</div>
+                                <div class="span4" id="horseTestFormGender">----</div>
+                            </div>
+
+                            <div class="row-fluid">
+<div class="span2 right">Breed</div>
+                                <div class="span4" id="horseTestFormBreed">-----</div>
+                                <div class="span2 right">Trainer</div>
+                                <div class="span4" id="horseTestFormTrainer">----</div>
+                            </div>
+
+                            <div class="row-fluid">
+<div class="span2 right">Stable</div>
+                                <div class="span4" id="horseTestFormStable">-----</div>
+                                <div class="span2 right">Test By</div>
+                                <div class="span4">{{ form_widget(edit_form.testedBy) }}</div>
+                            </div>
+
+                            <div class="row-fluid">
+<div class="span2 right">Doctor</div>
+                                <div class="span4">{{ form_widget(edit_form.doctor) }}</div>
+                            </div>
+
+                            <hr />
+
+
+<div style="margin: 0 30px;">
+<ul class="nav nav-tabs">
+<li class="active"><a href="#1" data-toggle="tab">Hematology</a></li>
+                                <li class=""><a href="#2" data-toggle="tab">Chemistry</a></li>
+                                <li class=""><a href="#3" data-toggle="tab">Electrolytes</a></li>
+                            </ul>
+                            <div class="tab-content">
+<div class="tab-pane active" id="1">
+
+<table class="table noborder">
+<tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td> </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align: center;">&</td>
+                                            <td style="text-align: center;">x 10E9/L</td>
+                                            <td></td>
+                                            <td style="text-align: center;">&</td>
+                                            <td style="text-align: center;">x 10E9/L </td>
+                                        </tr>
+                                        <tr>
+                                            <td>WBC</td>
+                                            <td class="w60">{{ form_widget(edit_form.hWbc) }}</td>
+                                            <td>MCV</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMcv) }}</td>
+                                            <td>NEUT</td>
+                                            <td class="w60">{{ form_widget(edit_form.hNeut) }}</td>
+                                            <td class="w60">-</td>
+                                            <td>BASO</td>
+                                            <td class="w60">{{ form_widget(edit_form.hBaso) }}</td>
+                                            <td class="w60">-</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>RBC</td>
+                                            <td class="w60">{{ form_widget(edit_form.hRbc) }} </td>
+                                            <td>MCH</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMch) }}</td>
+                                            <td>LYMPH</td>
+                                            <td class="w60">{{ form_widget(edit_form.hLymph) }}</td>
+                                            <td class="w60"></td>
+                                            <td>BANDS%</td>
+                                            <td class="w60">{{ form_widget(edit_form.hBands) }}</td>
+                                            <td class="w60"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>HB</td>
+                                            <td class="w60">{{ form_widget(edit_form.hHb) }}</td>
+                                            <td>MCHC</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMchc) }}</td>
+                                            <td>MONO</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMono) }}</td>
+                                            <td class="w60"></td>
+                                            <td>PTP</td>
+                                            <td class="w60">{{ form_widget(edit_form.hPtp) }}</td>
+                                            <td class="w60"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>HCT</td>
+                                            <td class="w60">{{ form_widget(edit_form.hHct) }}</td>
+                                            <td>PLT</td>
+                                            <td class="w60">{{ form_widget(edit_form.hPlt) }}</td>
+                                            <td>EOSINO</td>
+                                            <td class="w60">{{ form_widget(edit_form.hEosino) }}</td>
+                                            <td class="w60"></td>
+                                            <td>HpFIB</td>
+                                            <td class="w60">{{ form_widget(edit_form.hHpFib) }}</td>
+                                            <td class="w60"></td>
+                                        </tr>
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane" id="2">
+
+<table class="table noborder">
+<tbody>
+
+                                        <tr>
+                                            <td>ALB</td>
+                                            <td class="w60">{{ form_widget(edit_form.cAlb) }}</td>
+                                            <td>CERA</td>
+                                            <td class="w60">{{ form_widget(edit_form.cCrea) }}</td>
+                                            <td>LD</td>
+                                            <td class="w60">{{ form_widget(edit_form.cLd) }}</td>
+                                            <td>TRIG</td>
+                                            <td class="w60">{{ form_widget(edit_form.cTrig) }}</td>
+                                            <td>SAA</td>
+                                            <td class="w60">{{ form_widget(edit_form.cSaa) }}</td>
+                                            <td>Foal</td>
+                                            <td class="w60">{{ form_widget(edit_form.cFoal) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ALP</td>
+                                            <td class="w60">{{ form_widget(edit_form.cAlp) }}</td>
+                                            <td>D. BIL</td>
+                                            <td class="w60">{{ form_widget(edit_form.cDBil) }}</td>
+                                            <td>T. BIL</td>
+                                            <td class="w60">{{ form_widget(edit_form.cTBil) }}</td>
+                                            <td>Lactate</td>
+                                            <td class="w60">{{ form_widget(edit_form.cLactate) }}</td>
+                                            <td>LAC</td>
+                                            <td class="w60">{{ form_widget(edit_form.cLac) }}</td>
+                                            <td>Phos</td>
+                                            <td class="w60">{{ form_widget(edit_form.cPhos) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>AST</td>
+                                            <td class="w60">{{ form_widget(edit_form.cAst) }}</td>
+                                            <td>GGT</td>
+                                            <td class="w60">{{ form_widget(edit_form.cGct) }}</td>
+                                            <td>STP</td>
+                                            <td class="w60">{{ form_widget(edit_form.cStp) }}</td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td>IRON</td>
+                                            <td class="w60">{{ form_widget(edit_form.cIron) }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>CK</td>
+                                            <td class="w60">{{ form_widget(edit_form.cCk) }}</td>
+                                            <td>GLUC</td>
+                                            <td class="w60">{{ form_widget(edit_form.cGluc) }}</td>
+                                            <td>UN</td>
+                                            <td class="w60">{{ form_widget(edit_form.cUn) }}</td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td>Troponin</td>
+                                            <td class="w60">{{ form_widget(edit_form.cTroponin) }}</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane" id="3">
+
+<table class="table noborder">
+<tbody>
+
+                                        <tr>
+                                            <td>GLUC</td>
+                                            <td class="w60">{{ form_widget(edit_form.eGluc) }}</td>
+                                            <td>HCT</td>
+                                            <td class="w60">{{ form_widget(edit_form.eHct) }}</td>
+                                            <td>CA</td>
+                                            <td class="w60">{{ form_widget(edit_form.eCa) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BUN</td>
+                                            <td class="w60">{{ form_widget(edit_form.eBun) }}</td>
+                                            <td>HB</td>
+                                            <td class="w60">{{ form_widget(edit_form.eHb) }}</td>
+                                            <td>I CA</td>
+                                            <td class="w60">{{ form_widget(edit_form.eIca) }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>NA</td>
+                                            <td class="w60">{{ form_widget(edit_form.eNa) }}</td>
+                                            <td>pH</td>
+                                            <td class="w60">{{ form_widget(edit_form.ePh) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>K</td>
+                                            <td class="w60">{{ form_widget(edit_form.eK) }}</td>
+                                            <td>BICARB</td>
+                                            <td class="w60">{{ form_widget(edit_form.eBicarb) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CL</td>
+                                            <td class="w60">{{ form_widget(edit_form.eCl) }}</td>
+                                            <td>MG</td>
+                                            <td class="w60">{{ form_widget(edit_form.eMg) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+
+                            <div class="controls">
+<button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                            </div>
+
+                            <input type="hidden" name="_method" value="PUT" />
+{{ form_row (edit_form._token) }}
+</form>
+
+                            <hr />
+
+<div style="padding: 0 40px 20px;">
+<div class="btn"><a href="{{ path('test_blood') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                            <div class="pull-right">
+<form action="{{ path('test_blood_delete', { 'id': entity.id }) }}" method="post">
+<input type="hidden" name="_method" value="DELETE" />
+{{ form_widget(delete_form) }}
+<button class="btn btn-danger" type="submit"><i class="icon-trash icon-white"></i> Delete</button>
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+{% endblock %}
+
+
+
+
+{% extends '::print.html.twig' %}
+
+{% block body -%}
+    <div style="text-align: center;"><h3>DUBAI EQUINE HOSPITAL</h3>
+    <p style="text-align: center; margin-bottom: 30px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+    </div>
+
+    <div class="main">
+    <div class="head-name">Horse: </div>
+    <div class="head-content">{{ entity.horse.name }}</div>
+    <div class="head-name">Stable: </div>
+    <div class="head-content">{{ entity.horse.stable.name }}</div>
+    <div class="clear"></div>
+    <div class="head-name">Date: </div>
+    <div class="head-content">{{ entity.testedDate|date('Y-m-d H:i:s') }}</div>
+    <div class="head-name">Doctor:</div>
+    <div class="head-content">{{ entity.doctor.name }}</div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="sub-main">
+
+        <div>
+            <p style="font-weight: bold;">Hematology</p>
+
+            <table class="print-table" style="width: 1206px;">
+                <tr>
+                    <td>WBC</td>
+                    <td>RBC</td>
+                    <td>HB</td>
+                    <td>HCT</td>
+                    <td>MCH</td>
+                    <td>MCV</td>
+                    <td>MCHC</td>
+                    <td>PLT</td>
+                    <td>NEUT</td>
+                    <td>LYMPH</td>
+                    <td>MONO</td>
+                    <td>EOSINO</td>
+                    <td>BASO</td>
+                    <td>BANDS %</td>
+                    <td>PTP</td>
+                    <td>Hp FIB</td>
+                </tr>
+                <tr>
+                    <td>{{ entity.hWbc }}</td>
+                    <td>{{ entity.hRbc }}</td>
+                    <td>{{ entity.hHb }}</td>
+                    <td>{{ entity.hHct }}</td>
+                    <td>{{ entity.hMch }}</td>
+                    <td>{{ entity.hMcv }}</td>
+                    <td>{{ entity.hMchc }}</td>
+                    <td>{{ entity.hPlt }}</td>
+                    <td><div class="s-dv">{{ entity.hNeut }}</div><div>123</div></td>
+                    <td><div class="s-dv">{{ entity.hLymph }}</div><div>123</div></td>
+                    <td><div class="s-dv">{{ entity.hMono }}</div><div>123</div></td>
+                    <td><div class="s-dv">{{ entity.hEosino }}</div><div>123</div></td>
+                    <td><div class="s-dv">{{ entity.hBaso }}</div><div>123</div></td>
+                    <td>{{ entity.hBands }}</td>
+                    <td>{{ entity.hPtp }}</td>
+                    <td>{{ entity.hHpFib }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div>
+            <p style="font-weight: bold;">Chemistry</p>
+            <table class="print-table" style="width: 1056px;">
+                <tr>
+                    <td>ALB</td>
+                    <td>ALP</td>
+                    <td>AST</td>
+                    <td>CK</td>
+                    <td>CREA</td>
+                    <td>D. BIL</td>
+                    <td>GCT</td>
+                    <td>GLUC</td>
+                    <td>LD</td>
+                    <td>T. BIL</td>
+                    <td>STP</td>
+                    <td>UN</td>
+                    <td>TRIG</td>
+                    <td>Lactate</td>
+                </tr>
+                <tr>
+                    <td>{{ entity.cAlb }}</td>
+                    <td>{{ entity.cAlp }}</td>
+                    <td>{{ entity.cAst }}</td>
+                    <td>{{ entity.cCk }}</td>
+                    <td>{{ entity.cCrea }}</td>
+                    <td>{{ entity.cDBil }}</td>
+                    <td>{{ entity.cGct }}</td>
+                    <td>{{ entity.cGluc }}</td>
+                    <td>{{ entity.cLd }}</td>
+                    <td>{{ entity.cTBil }}</td>
+                    <td>{{ entity.cStp }}</td>
+                    <td>{{ entity.cUn }}</td>
+                    <td>{{ entity.cTrig }}</td>
+                    <td>{{ entity.cLactate }}</td>
+                </tr>
+            </table>
+            <br />
+
+            <table class="print-table" style="width: 456px;">
+                <tr>
+                    <td>SAA</td>
+                    <td>LAC</td>
+                    <td>IRON</td>
+                    <td>Troponin</td>
+                    <td>PHJOS</td>
+                    <td>FOAL</td>
+                </tr>
+                <tr>
+                    <td>{{ entity.cSaa }}</td>
+                    <td>{{ entity.cLac }}</td>
+                    <td>{{ entity.cIron }}</td>
+                    <td>{{ entity.cTroponin }}</td>
+                    <td>{{ entity.cPhos }}</td>
+                    <td>{{ entity.cFoal }}</td>
+                </tr>
+            </table>
+        </div>
+
+
+        <div>
+            <p style="font-weight: bold;">Electrolytes</p>
+            <table class="print-table" style="width: 906px;">
+                <tr>
+                    <td>GLUC</td>
+                    <td>BUN</td>
+                    <td>NA</td>
+                    <td>K</td>
+                    <td>CL</td>
+                    <td>HCT</td>
+                    <td>HB</td>
+                    <td>PH</td>
+                    <td>Bicarb</td>
+                    <td>MG</td>
+                    <td>CA</td>
+                    <td>ICA</td>
+                </tr>
+                <tr>
+                    <td>{{ entity.eGluc }}</td>
+                    <td>{{ entity.eBun }}</td>
+                    <td>{{ entity.eNa }}</td>
+                    <td>{{ entity.eK }}</td>
+                    <td>{{ entity.eCl }}</td>
+                    <td>{{ entity.eHct }}</td>
+                    <td>{{ entity.eHb }}</td>
+                    <td>{{ entity.ePh }}</td>
+                    <td>{{ entity.eBicarb }}</td>
+                    <td>{{ entity.eMg }}</td>
+                    <td>{{ entity.eCa }}</td>
+                    <td>{{ entity.eIca }}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+    <script language="javascript">
+        $(document).ready(function() {
+            // window.print();
+        });
+    </script>
+
+{% endblock %}
+
+/* Reset quotes */
+q {quotes: none}
+q:before, q:after {content: ""}
+
+/* Hide everything unneeded */
+header h1, header nav, footer, img {display: none}
+
+@page {
+    size: auto;   /* auto is the initial value */
+
+    /* this affects the margin in the printer settings */
+
+}
+
+body {
+    font: 11pt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+    color: #000;
+}
+
+/* Show printer-frindly logo. */
+header .print {display: block}
+
+@media print {
+    #header, #footer {display:none; visibility: hidden;}
+}
+
+.head-first{
+    float: left;
+}
+.head-last{
+    float: none;
+}
+
+.main{
+    font-size: 12pt;
+
+}
+
+.main div{
+    float: left;
+    margin: 20px 0;
+}
+
+.head-name{
+    width: 75px;
+    font-weight: bold;
+    padding-right: 20px;
+    text-align: right;
+}
+.head-content{
+    width: 350px;
+}
+
+.sub-main th, td{
+    width: 75px;
+
+}
+
+.s-dv{
+    border-right-style: solid;
+    border-right-width: 1px;
+    float: left;
+    text-align: center;
+    width: 50%;
+}
+
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+.clear{
+    clear: both;
+}
+.page {
+    width: 40cm;
+    min-height: 29.7cm;
+    padding: 2cm;
+    margin: 1cm auto;
+    border: 1px #D3D3D3 solid;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+.subpage {
+    padding: 1cm;
+    border: 5px red solid;
+    height: 256mm;
+    outline: 2cm #FFEAEA solid;
+}
+
+table, th, td
+{
+    border-collapse:collapse;
+    border: 1px solid black;
+    text-align:center;
+}
+
+td, th {
+    padding: 5px 10px;
+}
+
+.centr {
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 1000px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+body {
+    font: 1Opt Georgia, "Times New Roman", Times, serif;
+    line-height: 1.3;
+    color: #000;
+}
+
+.main div{
+    float: left;
+    margin: 20px 0;
+}
+
+.head-name{
+    width: 75px;
+    font-weight: bold;
+    padding-right: 20px;
+    text-align: right;
+}
+.head-content{
+    width: 350px;
+}
+
+.clear{
+    clear: both;
+}
+
+table, th, td
+{
+    border-collapse:collapse;
+    border: 1px solid black;
+    text-align:center;
+    font-size: 11px;
+}
+
+td, th {
+    padding: 5px 10px;
+}
+
+
+
+{% block body -%}
+<div class="page">
+<div style="text-align: center;"><h3>DUBAI EQUINE HOSPITAL</h3>
+    <p style="text-align: center; margin-bottom: 30px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+    </div>
+
+    <div class="main">
+<div class="head-name">Horse: </div>
+    <div class="head-content">{{ entity.horse.name }}</div>
+    <div class="head-name">Stable: </div>
+    <div class="head-content">{{ entity.horse.stable.name }}</div>
+    <div class="clear"></div>
+    <div class="head-name">Date: </div>
+    <div class="head-content">{{ entity.testedDate|date('Y-m-d H:i:s') }}</div>
+    <div class="head-name">Doctor:</div>
+    <div class="head-content">{{ entity.doctor.name }}</div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="sub-main">
+
+<div>
+            <p style="font-weight: bold;">Hematology</p>
+
+            <table style="font-size: 11px;">
+<tbody>
+                <tr>
+                    <th>WBC</th>
+                    <th>HCT</th>
+                    <th>HB</th>
+                    <th>RBC</th>
+                    <th>MCV</th>
+                    <th>MCH</th>
+                    <th>MCHC</th>
+                    <th colspan="2">NEUT</th>
+                    <th colspan="2">LYMPH</th>
+                    <th colspan="2">MONO</th>
+                    <th colspan="2">EOSINO</th>
+                    <th colspan="2">BASO</th>
+                    <th>BANDS %</th>
+                    <th>PTP</th>
+                    <th>Hp FIB</th>
+                    <th>PLT</th>
+                </tr>
+                <tr style="font-size: 10px;">
+<td>6 - 12<br />10E9/L</td>
+                    <td>32 - 48<br />%</td>
+                    <td>10 - 18<br />g/dL</td>
+                    <td>6 - 12<br />10E6/UL</td>
+                    <td>34 - 58<br />FL</td>
+                    <td>13 - 19<br />Pg</td>
+                    <td>31 - 37<br />g/gL</td>
+                    <td style="width: 100px;">50-60<br />%</td>
+                    <td>3.0-6-5<br />X10E9/L</td>
+                    <td style="width: 100px;">36-48<br />%</td>
+                    <td>2.0-5.0<br />X10E9/L</td>
+                    <td style="width: 100px;">3-6<br />%</td>
+                    <td>0.2-1.0<br />X10E9/L</td>
+                    <td style="width: 100px;">1-2<br />%</td>
+                    <td>0.1-0.5<br />X10E9/L</td>
+                    <td>0-1<br />%</td>
+                    <td>0-0.9<br />X10E9/L</td>
+                    <td><br />%</td>
+                    <td>6.0-8.5<br />g/dL</td>
+                    <td>100-400<br />mg%</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>{{ entity.hWbc }}</td>
+                    <td>{{ entity.hHct }}</td>
+                    <td>{{ entity.hHb }}</td>
+                    <td>{{ entity.hRbc }}</td>
+                    <td>{{ entity.hMcv }}</td>
+                    <td>{{ entity.hMch }}</td>
+                    <td>{{ entity.hMchc }}</td>
+                    <td>{{ entity.hNeut }}</td>
+                    <td>{{ entity.hNeut2 }}</td>
+                    <td>{{ entity.hLymph }}</td>
+                    <td>{{ entity.hLymph2 }}</td>
+                    <td>{{ entity.hMono }}</td>
+                    <td>{{ entity.hMono2 }}</td>
+                    <td>{{ entity.hEosino }}</td>
+                    <td>{{ entity.hEosino2 }}</td>
+                    <td>{{ entity.hBaso }}</td>
+                    <td>{{ entity.hBaso2 }}</td>
+                    <td>{{ entity.hBands }}</td>
+                    <td>{{ entity.hPtp }}</td>
+                    <td>{{ entity.hHpFib }}</td>
+                    <td>{{ entity.hPlt }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div>
+            <p style="font-weight: bold;">Chemistry</p>
+
+            <table style="font-size: 11px;">
+<tbody>
+                <tr>
+                    <th>AST</th>
+                    <th>CK</th>
+                    <th>LDH</th>
+                    <th>GGT</th>
+                    <th>ALP</th>
+                    <th>T.BIL</th>
+                    <th>STP</th>
+                    <th>ALB</th>
+                    <th>CREA</th>
+                    <th>UN</th>
+                    <th>GLUC</th>
+                    <th>D.BIL</th>
+                    <th>SAA</th>
+                    <th>LAC</th>
+                    <th>TRIG</th>
+                    <th>IRON</th>
+                    <th>Tropo</th>
+                    <th>PHOS</th>
+                    {% if entity.cExtra == true %}
+<th>FOAL</th>
+                    {% endif %}
+</tr>
+
+                <tr style="font-size: 10px;">
+<td>150-500<br />U/L</td>
+                    <td>90-350<br />U/L</td>
+                    <td>160-490<br />U/L</td>
+                    <td>11-40<br />U/L</td>
+                    <td>149-395<br />U/L</td>
+                    <td>0.3-3.0<br />mg/dL</td>
+                    <td>5.7-7.9<br />g/dL</td>
+                    <td>2.3-3.9<br />g/dL</td>
+                    <td>1-3<br />mg/dL</td>
+                    <td>10-25<br />mg/dL</td>
+                    <td>50-115<br />mg/dL</td>
+                    <td><br />mg/dL</td>
+                    <td>0-12<br />mg/ml</td>
+                    <td>1.11-1.78<br />mmol/L</td>
+                    <td>50-200<br />mg/dL</td>
+                    <td>14-31<br />mmol/L</td>
+                    <td>0-0.06<br />ng/ml</td>
+                    <td>2.5-4.6<br />mg/dL</td>
+                    {% if entity.cExtra == true %}
+<td><br />lgG</td>
+                    {% endif %}
+</tr>
+
+                <tr>
+                    <td>{{ entity.cAst }}</td>
+                    <td>{{ entity.cCk }}</td>
+                    <td>{{ entity.cLd }}</td>
+                    <td>{{ entity.cGct }}</td>
+                    <td>{{ entity.cAlp }}</td>
+                    <td>{{ entity.cTBil }}</td>
+                    <td>{{ entity.cStp }}</td>
+                    <td>{{ entity.cAlb }}</td>
+                    <td>{{ entity.cCrea }}</td>
+                    <td>{{ entity.cUn }}</td>
+                    <td>{{ entity.cGluc }}</td>
+                    <td>{{ entity.cDBil }}</td>
+                    <td>{{ entity.cSaa }}</td>
+                    <td>{{ entity.cLac }}</td>
+                    <td>{{ entity.cTrig }}</td>
+                    <td>{{ entity.cIron }}</td>
+                    <td>{{ entity.cTroponin }}</td>
+                    <td>{{ entity.cPhos }}</td>
+                    {% if entity.cExtra == true %}
+<td>{{ entity.cFoal }}</td>
+                    {% endif %}
+</tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div>
+            <p style="font-weight: bold;">Electrolytes</p>
+
+            <table style="font-size: 11px;">
+<tbody>
+                <tr>
+                    <th>NA</th>
+                    <th>K</th>
+                    <th>CL</th>
+                    <th>Bicarb</th>
+                    <th>MG</th>
+                    <th>CA</th>
+                    <th>ICA</th>
+                    <th>PH</th>
+                    <th>BUN</th>
+                    <th>GLUC</th>
+                    <th>HB</th>
+                    <th>HCT</th>
+                </tr>
+
+                <tr style="font-size: 10px;">
+<td>132-147<br />mmol/L</td>
+                    <td>2.8-4.7<br />mmol/L</td>
+                    <td>95-110<br />mmol/L</td>
+                    <td>20.7-28.9<br />mmol/L</td>
+                    <td>1.3-3.2<br />mg/dL</td>
+                    <td>9.1-13.4<br />mg/dL</td>
+                    <td>1.25-1.75<br />mmol/L</td>
+                    <td>7.32-7.44</td>
+                    <td>10-25<br />mg/dL</td>
+                    <td>50-115<br />mg/dL</td>
+                    <td>10-18<br />g/dL</td>
+                    <td>32-48<br />%</td>
+                </tr>
+
+                <tr>
+                    <td>{{ entity.eNa }}</td>
+                    <td>{{ entity.eK }}</td>
+                    <td>{{ entity.eCl }}</td>
+                    <td>{{ entity.eBicarb }}</td>
+                    <td>{{ entity.eMg }}</td>
+                    <td>{{ entity.eCa }}</td>
+                    <td>{{ entity.eIca }}</td>
+                    <td>{{ entity.ePh }}</td>
+                    <td>{{ entity.eBun }}</td>
+                    <td>{{ entity.eGluc }}</td>
+                    <td>{{ entity.eHb }}</td>
+                    <td>{{ entity.eHct }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    </div>
+{% endblock %}

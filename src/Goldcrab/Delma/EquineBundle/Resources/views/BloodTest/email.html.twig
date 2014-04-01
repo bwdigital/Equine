@@ -1,0 +1,336 @@
+{% extends '::email.html.twig' %}
+{% block body -%}
+
+    <table width="1000">
+        <tbody>
+        <tr>
+            <td width="1000" align="center" style="text-align: center;"><img src="http://192.150.10.123:2080/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" /></td>
+        </tr>
+        <tr>
+            <td width="1000" height="40" align="center" style="text-align: center; margin-bottom: 10px; font-size: 16px; font-weight: bold; text-decoration: underline;">LABORATORY REPORT</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <table width="700">
+        <tbody>
+        <tr>
+            <td style="width: 75px; font-weight: bold; padding-right: 20px; text-align: right;">Horse: </td>
+            <td style="width: 500px;">{{ entity.horse.name }}</td>
+            <td style="width: 75px; font-weight: bold; padding-right: 20px; text-align: right;">Date&nbsp;&nbsp;&nbsp;:</td>
+            <td style="width: 500px;">{{ entity.testedDate|date('m-d-Y H:i:s') }}</td>
+        </tr>
+        <tr>
+            <td style="width: 75px; font-weight: bold; padding-right: 20px; text-align: right;">Stable: </td>
+            <td>{{ entity.horse.stable.name }}</td>
+            <td style="width: 75px; font-weight: bold; padding-right: 20px; text-align: right;">Doctor:</td>
+            <td>{{ entity.doctor.name }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <p style="font-weight: bold;">Hematology</p>
+
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td bgcolor="#CCCCCC"><table width="100%" border="0" align="center" cellpadding="10" cellspacing="1">
+                    <tbody>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <th width="30" bgcolor="#FFFFFF" style="padding: 2px 5px;">WBC</th>
+                        <th width="35" bgcolor="#FFFFFF" style="padding: 2px 5px;">HCT</th>
+                        <th width="35" bgcolor="#FFFFFF" style="padding: 2px 5px;">HB</th>
+                        <th width="35" bgcolor="#FFFFFF" style="padding: 2px 5px;">RBC</th>
+                        <th width="30" bgcolor="#FFFFFF" style="padding: 2px 5px;">MCV</th>
+                        <th width="30" bgcolor="#FFFFFF" style="padding: 2px 5px;">MCH</th>
+                        <th width="30" bgcolor="#FFFFFF" style="padding: 2px 5px;">MCHC</th>
+                        <th width="60" colspan="2" bgcolor="#FFFFFF">NEUT</th>
+                        <th width="60" colspan="2" bgcolor="#FFFFFF">LYMPH</th>
+                        <th width="60" colspan="2" bgcolor="#FFFFFF">MONO</th>
+                        <th width="60" colspan="2" bgcolor="#FFFFFF">EOSINO</th>
+                        <th width="60" colspan="2" bgcolor="#FFFFFF">BASO</th>
+                        <th width="40" nowrap bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">BANDS %</th>
+                        <th width="35" bgcolor="#FFFFFF" style="padding: 2px 5px;">PTP</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">Hp FIB</th>
+                        {% if entity.hPlt != 0 %}
+                            <th width="35" bgcolor="#FFFFFF" style="padding: 2px 5px;">PLT</th>
+                        {% endif %} </tr>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >6 - 12<br />
+                            10E9/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >32 - 48<br />
+                            %</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >10 - 18<br />
+                            g/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >6 - 12<br />
+                            10E6/UL</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >34 - 58<br />
+                            FL</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >13 - 19<br />
+                            Pg</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >31 - 37<br />
+                            g/gL</td>
+                        <td width="30" bgcolor="#FFFFFF" style=" white-space: nowrap;">50-60<br />
+                            %</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >3.0-6-5<br />
+                            X10E9/L</td>
+                        <td width="30" bgcolor="#FFFFFF" style=" white-space: nowrap;">36-48<br />
+                            %</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >2.0-5.0<br />
+                            X10E9/L</td>
+                        <td width="30" bgcolor="#FFFFFF" style=" white-space: nowrap;">3-6<br />
+                            %</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >0.2-1.0<br />
+                            X10E9/L</td>
+                        <td width="30" bgcolor="#FFFFFF" style=" white-space: nowrap;">1-2<br />
+                            %</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >0.1-0.5<br />
+                            X10E9/L</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >0-1<br />
+                            %</td>
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >0-0.9<br />
+                            X10E9/L</td>
+                        <td width="40" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" ><br />
+                            %</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >6.0-8.5<br />
+                            g/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >100-400<br />
+                            mg%</td>
+                        {% if entity.hPlt != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >100-350<br />
+                                10E9/L</td>
+                        {% endif %} </tr>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <td width="30" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.hWbc }}</td>
+                        <td width="35" bgcolor="#FFFFFF">{{ entity.hHct }}</td>
+                        <td width="35" bgcolor="#FFFFFF">{{ entity.hHb }}</td>
+                        <td width="35" bgcolor="#FFFFFF">{{ entity.hRbc }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hMcv }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hMch }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hMchc }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hNeut }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hNeut2 }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hLymph }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hLymph2 }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hMono }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hMono2 }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hEosino }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hEosino2 }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hBaso }}</td>
+                        <td width="30" bgcolor="#FFFFFF">{{ entity.hBaso2 }}</td>
+                        <td width="40" bgcolor="#FFFFFF">{{ entity.hBands }}</td>
+                        <td width="35" bgcolor="#FFFFFF">{{ entity.hPtp }}</td>
+                        <td width="35" bgcolor="#FFFFFF">{{ entity.hHpFib }}</td>
+                        {% if entity.hPlt != 0 %}
+                            <td width="35" bgcolor="#FFFFFF">{{ entity.hPlt }}</td>
+                        {% endif %} </tr>
+                    </tbody>
+                </table></td>
+        </tr>
+    </table>
+
+
+    <p style="font-weight: bold;">Chemistry</p>
+
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td bgcolor="#CCCCCC"><table cellspacing="1" style="font-size: 11px;">
+                    <tbody>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >AST</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >CK</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >LDH</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >GGT</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >ALP</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >T. BIL</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >STP</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >ALB</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >CREA</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >UN</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >GLUC</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >D. BIL</th>
+                        {% if entity.cSaa != -1 %}
+                            <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >SAA</th>
+                        {% endif %}
+                        {% if entity.cLac != 0 %}
+                            <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >LAC</th>
+                        {% endif %}
+                        {% if entity.cTrig != 0 %}
+                            <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >TRIG</th>
+                        {% endif %}
+                        {% if entity.cIron != 0 %}
+                            <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >IRON</th>
+                        {% endif %}
+                        {% if entity.cTroponin != -1 %}
+                            <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >Troponin</th>
+                        {% endif %}
+                        {% if entity.cPhos != 0 %}
+                            <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >PHOS</th>
+                        {% endif %}
+                        {% if entity.cFoal != 0 %}
+                            <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >FOAL</th>
+                        {% endif %} </tr>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >150-500<br />
+                            U/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >90-350<br />
+                            U/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >160-490<br />
+                            U/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >11-40<br />
+                            U/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >149-395<br />
+                            U/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >0.3-3.0<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >5.7-7.9<br />
+                            g/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >2.3-3.9<br />
+                            g/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >1-3<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >10-25<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >50-115<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" ><br />
+                            mg/dL</td>
+                        {% if entity.cSaa != -1 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >0-12<br />
+                                µg/ml</td>
+                        {% endif %}
+                        {% if entity.cLac != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >1.11-1.78<br />
+                                mmol/L</td>
+                        {% endif %}
+                        {% if entity.cTrig != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >50-200<br />
+                                mg/dL</td>
+                        {% endif %}
+                        {% if entity.cIron != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >14-31<br />
+                                µmol/L</td>
+                        {% endif %}
+                        {% if entity.cTroponin != -1 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >0-0.06<br />
+                                ng/ml</td>
+                        {% endif %}
+                        {% if entity.cPhos != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >2.5-4.6<br />
+                                mg/dL</td>
+                        {% endif %}
+                        {% if entity.cFoal != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" ><br />
+                                lgG</td>
+                        {% endif %} </tr>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cAst }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cCk }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cLd }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cGct }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cAlp }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cTBil }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cStp }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cAlb }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cCrea }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cUn }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cGluc }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cDBil }}</td>
+                        {% if entity.cSaa != -1 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cSaa }}</td>
+                        {% endif %}
+                        {% if entity.cLac != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cLac }}</td>
+                        {% endif %}
+                        {% if entity.cTrig != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cTrig }}</td>
+                        {% endif %}
+                        {% if entity.cIron != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cIron }}</td>
+                        {% endif %}
+                        {% if entity.cTroponin != -1 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cTroponin }}</td>
+                        {% endif %}
+                        {% if entity.cPhos != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cPhos }}</td>
+                        {% endif %}
+                        {% if entity.cFoal != 0 %}
+                            <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;" >{{ entity.cFoal }}</td>
+                        {% endif %} </tr>
+                    </tbody>
+                </table></td>
+        </tr>
+    </table>
+
+    <p style="font-weight: bold;">Electrolytes</p>
+
+    <table width="700" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+            <td bgcolor="#CCCCCC">
+                <table cellspacing="1" style="font-size: 11px;">
+                    <tbody>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">NA</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">K</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">CL</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">Bicarb</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">MG</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">CA</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">ICA</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">PH</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">BUN</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">GLUC</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">HB</th>
+                        <th width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">HCT</th>
+                    </tr>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">132-147<br />
+                            mmol/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">2.8-4.7<br />
+                            mmol/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">95-110<br />
+                            mmol/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">20.7-28.9<br />
+                            mmol/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">1.3-3.2<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">9.1-13.4<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">1.25-1.75<br />
+                            mmol/L</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">7.32-7.44</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">10-25<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">50-115<br />
+                            mg/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">10-18<br />
+                            g/dL</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">32-48<br />
+                            %</td>
+                    </tr>
+                    <tr style="font-size: 10px; text-align: center;">
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eNa }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eK }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eCl }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eBicarb }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eMg }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eCa }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eIca }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.ePh }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eBun }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eGluc }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eHb }}</td>
+                        <td width="35" bgcolor="#FFFFFF" style="white-space: nowrap; padding: 2px 5px;">{{ entity.eHct }}</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+    <p style="width: 100%;">{{ entity.comments }}</p>
+
+    <p style="padding-left: 250px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+
+{% endblock %}

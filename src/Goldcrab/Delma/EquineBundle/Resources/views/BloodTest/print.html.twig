@@ -1,0 +1,288 @@
+{% extends '::print.html.twig' %}
+
+
+{% block body -%}
+    <div class="page">
+    <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
+        <p class="labt">LABORATORY REPORT</p>
+    </div>
+
+    <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
+    <div class="head-name">Horse: </div>
+    <div class="head-content-R1">{{ entity.horse.name }}</div>
+    <div class="head-name">Stable: </div>
+    <div class="head-content-R2">{{ entity.horse.stable.name }}</div>
+        <div class="clear"></div>
+    <div class="head-name">Date&nbsp;&nbsp;&nbsp;: </div>
+    <div class="head-content-R1">{{ entity.testedDate|date('m-d-Y H:i:s') }}</div>
+    <div class="head-name">Doctor:</div>
+    <div class="head-content-R2">{{ entity.doctor.name }}</div>
+    </div>
+    <div class="clear"></div>
+
+    <div class="sub-main">
+
+        <div>
+            <p style="font-weight: bold;">Hematology</p>
+
+            <table style="font-size: 11px;">
+                <tbody>
+                <tr style="font-size: 10px;">
+                    <th>WBC</th>
+                    <th>HCT</th>
+                    <th>HB</th>
+                    <th>RBC</th>
+                    <th>MCV</th>
+                    <th>MCH</th>
+                    <th>MCHC</th>
+                    <th colspan="2">NEUT</th>
+                    <th colspan="2">LYMPH</th>
+                    <th colspan="2">MONO</th>
+                    <th colspan="2">EOSINO</th>
+                    <th colspan="2">BASO</th>
+                    <th style="white-space: nowrap;">BANDS %</th>
+                    <th>PTP</th>
+                    <th style="white-space: nowrap;">Hp FIB</th>
+                    {% if entity.hPlt != 0 %}
+                    <th>PLT</th>
+                    {% endif %}
+                </tr>
+                <tr style="font-size: 10px;">
+                    <td style="white-space: nowrap;">6 - 12<br />10E9/L</td>
+                    <td style="white-space: nowrap;">32 - 48<br />%</td>
+                    <td style="white-space: nowrap;">10 - 18<br />g/dL</td>
+                    <td style="white-space: nowrap;">6 - 12<br />10E6/UL</td>
+                    <td style="white-space: nowrap;">34 - 58<br />FL</td>
+                    <td style="white-space: nowrap;">13 - 19<br />Pg</td>
+                    <td style="white-space: nowrap;">31 - 37<br />g/gL</td>
+                    <td style="width: 100px; white-space: nowrap;">50-60<br />%</td>
+                    <td style="white-space: nowrap;">3.0-6-5<br />X10E9/L</td>
+                    <td style="width: 100px; white-space: nowrap;">36-48<br />%</td>
+                    <td style="white-space: nowrap;">2.0-5.0<br />X10E9/L</td>
+                    <td style="width: 100px; white-space: nowrap;">3-6<br />%</td>
+                    <td style="white-space: nowrap;">0.2-1.0<br />X10E9/L</td>
+                    <td style="width: 100px; white-space: nowrap;">1-2<br />%</td>
+                    <td style="white-space: nowrap;">0.1-0.5<br />X10E9/L</td>
+                    <td style="white-space: nowrap;">0-1<br />%</td>
+                    <td style="white-space: nowrap;">0-0.9<br />X10E9/L</td>
+                    <td style="white-space: nowrap;"><br />%</td>
+                    <td style="white-space: nowrap;">6.0-8.5<br />g/dL</td>
+                    <td style="white-space: nowrap;">100-400<br />mg%</td>
+                    {% if entity.hPlt != 0 %}
+                        <td style="white-space: nowrap;">100-350<br />10E9/L</td>
+                    {% endif %}
+                </tr>
+                <tr>
+                    <td>{{ entity.hWbc }}</td>
+                    <td>{{ entity.hHct }}</td>
+                    <td>{{ entity.hHb }}</td>
+                    <td>{{ entity.hRbc }}</td>
+                    <td>{{ entity.hMcv }}</td>
+                    <td>{{ entity.hMch }}</td>
+                    <td>{{ entity.hMchc }}</td>
+                    <td>{{ entity.hNeut }}</td>
+                    <td>{{ entity.hNeut2 }}</td>
+                    <td>{{ entity.hLymph }}</td>
+                    <td>{{ entity.hLymph2 }}</td>
+                    <td>{{ entity.hMono }}</td>
+                    <td>{{ entity.hMono2 }}</td>
+                    <td>{{ entity.hEosino }}</td>
+                    <td>{{ entity.hEosino2 }}</td>
+                    <td>{{ entity.hBaso }}</td>
+                    <td>{{ entity.hBaso2 }}</td>
+                    <td>{{ entity.hBands }}</td>
+                    <td>{{ entity.hPtp }}</td>
+                    <td>{{ entity.hHpFib }}</td>
+                    {% if entity.hPlt != 0 %}
+                    <td>{{ entity.hPlt }}</td>
+                    {% endif %}
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div>
+            <p style="font-weight: bold;">Chemistry</p>
+
+            <table style="font-size: 11px;">
+                <tbody>
+                <tr style="font-size: 10px;">
+                    <th>AST</th>
+                    <th>CK</th>
+                    <th>LDH</th>
+                    <th>GGT</th>
+                    <th>ALP</th>
+                    <th>T. BIL</th>
+                    <th>STP</th>
+                    <th>ALB</th>
+                    <th>CREA</th>
+                    <th>UN</th>
+                    <th>GLUC</th>
+                    <th>D. BIL</th>
+                    {% if entity.cSaa != -1 %}
+                        <th>SAA</th>
+                    {% endif %}
+                    {% if entity.cLac != 0 %}
+                        <th>LAC</th>
+                    {% endif %}
+                    {% if entity.cTrig != 0 %}
+                        <th>TRIG</th>
+                    {% endif %}
+                    {% if entity.cIron != 0 %}
+                        <th>IRON</th>
+                    {% endif %}
+                    {% if entity.cTroponin != -1 %}
+                        <th>Troponin</th>
+                    {% endif %}
+                    {% if entity.cPhos != 0 %}
+                        <th>PHOS</th>
+                    {% endif %}
+                    {% if entity.cFoal != 0 %}
+                        <th>FOAL</th>
+                    {% endif %}
+
+                </tr>
+
+                <tr style="font-size: 10px;">
+                    <td style="white-space: nowrap;">150-500<br />U/L</td>
+                    <td style="white-space: nowrap;">90-350<br />U/L</td>
+                    <td style="white-space: nowrap;">160-490<br />U/L</td>
+                    <td style="white-space: nowrap;">11-40<br />U/L</td>
+                    <td style="white-space: nowrap;">149-395<br />U/L</td>
+                    <td style="white-space: nowrap;">0.3-3.0<br />mg/dL</td>
+                    <td style="white-space: nowrap;">5.7-7.9<br />g/dL</td>
+                    <td style="white-space: nowrap;">2.3-3.9<br />g/dL</td>
+                    <td style="white-space: nowrap;">1-3<br />mg/dL</td>
+                    <td style="white-space: nowrap;">10-25<br />mg/dL</td>
+                    <td style="white-space: nowrap;">50-115<br />mg/dL</td>
+                    <td style="white-space: nowrap;"><br />mg/dL</td>
+
+                    {% if entity.cSaa != -1 %}
+                        <td style="white-space: nowrap;">0-12<br />µg/ml</td>
+                    {% endif %}
+                    {% if entity.cLac != 0 %}
+                        <td style="white-space: nowrap;">1.11-1.78<br />mmol/L</td>
+                    {% endif %}
+                    {% if entity.cTrig != 0 %}
+                        <td style="white-space: nowrap;">50-200<br />mg/dL</td>
+                    {% endif %}
+                    {% if entity.cIron != 0 %}
+                        <td style="white-space: nowrap;">14-31<br />µmol/L</td>
+                    {% endif %}
+                    {% if entity.cTroponin != -1 %}
+                        <td style="white-space: nowrap;">0-0.06<br />ng/ml</td>
+                    {% endif %}
+                    {% if entity.cPhos != 0 %}
+                        <td style="white-space: nowrap;">2.5-4.6<br />mg/dL</td>
+                    {% endif %}
+                    {% if entity.cFoal != 0 %}
+                        <td style="white-space: nowrap;"><br />lgG</td>
+                    {% endif %}
+
+                </tr>
+
+                <tr>
+                    <td>{{ entity.cAst }}</td>
+                    <td>{{ entity.cCk }}</td>
+                    <td>{{ entity.cLd }}</td>
+                    <td>{{ entity.cGct }}</td>
+                    <td>{{ entity.cAlp }}</td>
+                    <td>{{ entity.cTBil }}</td>
+                    <td>{{ entity.cStp }}</td>
+                    <td>{{ entity.cAlb }}</td>
+                    <td>{{ entity.cCrea }}</td>
+                    <td>{{ entity.cUn }}</td>
+                    <td>{{ entity.cGluc }}</td>
+                    <td>{{ entity.cDBil }}</td>
+                    {% if entity.cSaa != -1 %}
+                        <td>{{ entity.cSaa }}</td>
+                    {% endif %}
+                    {% if entity.cLac != 0 %}
+                        <td>{{ entity.cLac }}</td>
+                    {% endif %}
+                    {% if entity.cTrig != 0 %}
+                        <td>{{ entity.cTrig }}</td>
+                    {% endif %}
+                    {% if entity.cIron != 0 %}
+                        <td>{{ entity.cIron }}</td>
+                    {% endif %}
+                    {% if entity.cTroponin != -1 %}
+                        <td>{{ entity.cTroponin }}</td>
+                    {% endif %}
+                    {% if entity.cPhos != 0 %}
+                        <td>{{ entity.cPhos }}</td>
+                    {% endif %}
+                    {% if entity.cFoal != 0 %}
+                        <td>{{ entity.cFoal }}</td>
+                    {% endif %}
+
+
+
+                </tr>
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div>
+            <p style="font-weight: bold;">Electrolytes</p>
+
+            <table style="font-size: 11px;">
+                <tbody>
+                <tr>
+                    <th>NA</th>
+                    <th>K</th>
+                    <th>CL</th>
+                    <th>Bicarb</th>
+                    <th>MG</th>
+                    <th>CA</th>
+                    <th>ICA</th>
+                    <th>PH</th>
+                    <th>BUN</th>
+                    <th>GLUC</th>
+                    <th>HB</th>
+                    <th>HCT</th>
+                </tr>
+
+                <tr style="font-size: 10px;">
+                    <td style="white-space: nowrap;">132-147<br />mmol/L</td>
+                    <td style="white-space: nowrap;">2.8-4.7<br />mmol/L</td>
+                    <td style="white-space: nowrap;">95-110<br />mmol/L</td>
+                    <td style="white-space: nowrap;">20.7-28.9<br />mmol/L</td>
+                    <td style="white-space: nowrap;">1.3-3.2<br />mg/dL</td>
+                    <td style="white-space: nowrap;">9.1-13.4<br />mg/dL</td>
+                    <td style="white-space: nowrap;">1.25-1.75<br />mmol/L</td>
+                    <td style="white-space: nowrap;">7.32-7.44</td>
+                    <td style="white-space: nowrap;">10-25<br />mg/dL</td>
+                    <td style="white-space: nowrap;">50-115<br />mg/dL</td>
+                    <td style="white-space: nowrap;">10-18<br />g/dL</td>
+                    <td style="white-space: nowrap;">32-48<br />%</td>
+                </tr>
+
+                <tr>
+                    <td>{{ entity.eNa }}</td>
+                    <td>{{ entity.eK }}</td>
+                    <td>{{ entity.eCl }}</td>
+                    <td>{{ entity.eBicarb }}</td>
+                    <td>{{ entity.eMg }}</td>
+                    <td>{{ entity.eCa }}</td>
+                    <td>{{ entity.eIca }}</td>
+                    <td>{{ entity.ePh }}</td>
+                    <td>{{ entity.eBun }}</td>
+                    <td>{{ entity.eGluc }}</td>
+                    <td>{{ entity.eHb }}</td>
+                    <td>{{ entity.eHct }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <p style="width: 100%;">{{ entity.comments }}</p>
+            </div>
+        </div>
+        <div class="divFooter"><p style="padding-left: 250px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+    </div>
+    </div>
+{% endblock %}

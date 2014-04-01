@@ -1,0 +1,35 @@
+<table class="table table-bordered width-80">
+    <tbody>
+    <tr>
+        <th>Id</th>
+        <td>{{ entity.id }}</td>
+        <th>Date</th>
+        <td>{{ entity.testedDate|date('Y-m-d H:i:s') }}</td>
+    </tr>
+    <tr>
+        <th>Horse</th>
+        <td>{{ entity.horse.name }}</td>
+        <th>DOB</th>
+        <td>{{ entity.horse.dob|date('Y-m-d') }}</td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td>{{ entity.horse.gender }}</td>
+        <th>Breed</th>
+        <td>{% if entity.horse.breed %} {{ entity.horse.breed.name }} {% endif %}</td>
+    </tr>
+    <tr>
+        <th>Trainer</th>
+        <td>{% if entity.horse.trainer %}{{ entity.horse.trainer.name }}{% endif %}</td>
+        <th>Stable</th>
+        <td>{% if entity.horse.stable %}{{ entity.horse.stable.name }}{% endif %}</td>
+    </tr>
+    <tr>
+        <th>Doctor</th>
+        <td>{% if entity.doctor %}{{ entity.doctor.name }}{% endif %}</td>
+        <th>Tested by</th>
+        <td>{% if entity.testedBy %}{{ entity.testedBy.name }}{% endif %}</td>
+    </tr>
+
+    </tbody>
+</table>

@@ -1,0 +1,112 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('antibiotic') }}">Antibiotic Test</a> <span class="divider">/</span></li>
+                        <li class="active">Antibiotic New</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span6 offset3">
+
+                            <h4>Antibiotic Test - New</h4>
+
+                            <form class="form-horizontal" action="{{ path('antibiotic_create') }}" method="post" {{ form_enctype(form) }}>
+                                <div class="control-group">
+                                    {% if form_errors(form.name) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.name) }}
+                                        </div>
+                                    {% endif %}
+
+                                    <label class="control-label" for="">{{ form_label(form.name, 'Code' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.code) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(form.name) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.name) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.name, 'Antibiotic Name' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.name) }}</div>
+
+                                </div>
+                                <div class="controls">
+                                    <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                    <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                </div>
+
+                                {{ form_row (form._token) }}
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('antibiotic') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+<script language="javascript">
+
+        $(document).ready(function() {
+
+            $(':input').keypress(function(e){
+                if (e.which == 13) {
+                    if (!this.form.tabOrder) {
+                        var els = this.form.elements,
+                                ti = [],
+                                rest = [];
+                        for (var i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex > 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                ti.push(els[i]);
+                            }
+                        }
+                        ti.sort(function(a,b){ return a.tabIndex - b.tabIndex; });
+                        for (i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex == 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                rest.push(els[i]);
+                            }
+                        }
+                        this.form.tabOrder = ti.concat(rest);
+                    }
+                    for (var j = 0, jl = this.form.tabOrder.length; j < jl; j++) {
+                        if (this === this.form.tabOrder[j]) {
+                            if (j+1 < jl) {
+                                $(this.form.tabOrder[j+1]).select();
+                            } else {
+                                $(this).blur();
+                            }
+                        }
+
+                    }
+                    return false;
+                }
+            });
+
+        });
+</script>
+{% endblock %}
+

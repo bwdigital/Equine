@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Dubai Equine Hospital - Lab Management - {% block title %}Home{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <script language="JavaScript">
+        var siteURL = '{{ url('delma_home') }}';
+    </script>
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="/css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="/css/docs.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/ui-lightness/jquery-ui-1.10.3.custom.min.css" />
+    <script src="/js/jquery-1.9.1.js"></script>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+    <script src="/js/html5shiv.js"></script>
+    <![endif]-->
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('/img/favicon.ico') }}" />
+</head>
+
+<body>
+
+{% include('::menu.html.twig') %}
+
+{% if app.request.get('_msg') or app.request.get('_emsg') %}
+<div class="container-fluid">
+    {% if app.request.get('_msg') %}
+        <div class="alert alert-success alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ app.request.get('_msg') }}
+        </div>
+    {% endif %}
+    {% if app.request.get('_emsg') %}
+        <div class="alert alert-danger alert-dismissable">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            {{ app.request.get('_emsg') }}
+        </div>
+    {% endif %}
+</div>
+{% endif %}
+
+{% block body %}{% endblock %}
+
+<footer>
+
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="navbar-inner">
+            <p style="padding: 5px 0px; text-align: center; color: #f1f1f1;">2013 &copy; Dubai Equine Hospital</p>
+        </div>
+    </div>
+
+</footer>
+
+
+{% block javascripts %}
+    <script src="/js/jquery-ui-1.10.3.custom.min.js"></script>
+    <script src="/js/bootstrap-dropdown.js"></script>
+    <script src="/js/bootstrap-transition.js"></script>
+    <script src="/js/bootstrap-alert.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+    <script src="/js/bootstrap-scrollspy.js"></script>
+    <script src="/js/bootstrap-tab.js"></script>
+    <script src="/js/bootstrap-tooltip.js"></script>
+    <script src="/js/bootstrap-popover.js"></script>
+    <script src="/js/bootstrap-button.js"></script>
+    <script src="/js/bootstrap-collapse.js"></script>
+    <script src="/js/bootstrap-carousel.js"></script>
+    <script src="/js/bootstrap-typeahead.js"></script>
+
+    <link rel="stylesheet" href="/js//fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+    <script type="text/javascript" src="/js//fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+    <script type="text/javascript" src="/js/datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+    <link type="text/css" href="/js/datetimepicker/css/datetimepicker.css" rel="stylesheet" />
+
+
+    <script src="/js/moment/moment.min.js"></script>
+    <link href="/js/select2/select2.css" rel="stylesheet"/>
+    <script src="/js/select2/select2.js"></script>
+    <script src="/js/autoNumeric.js"></script>
+
+
+    <script src="/js/forms.js"></script>
+
+    {% if form is defined %}
+        {{ form_javascript(form) }}
+    {% endif %}
+    {% if edit_form is defined %}
+        {{ form_javascript(edit_form) }}
+    {% endif %}
+    {% if filterForm is defined %}
+        {{ form_javascript(filterForm) }}
+    {% endif %}
+
+
+{% endblock %}
+</body>
+</html>

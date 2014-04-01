@@ -1,0 +1,67 @@
+
+
+    <div class="centr">
+
+        <div style="text-align: center;"><h3>DUBAI EQUINE HOSPITAL</h3>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+        </div>
+
+        <h1 style="text-align: center;">Bacteria Test</h1>
+
+        <hr />
+
+        <div class="main">
+
+            <div class="head-name">Horse: </div>
+            <div class="head-content">{{ entity.horse.name }}</div>
+            <div class="head-name">Stable: </div>
+            <div class="head-content">{{ entity.horse.stable.name }}</div>
+            <div class="clear"></div>
+            <div class="head-name">Date: </div>
+            <div class="head-content">{{ entity.testedDate|date('Y-m-d H:i:s') }}</div>
+            <div class="head-name">Doctor:</div>
+            <div class="head-content">{{ entity.doctor.name }}</div>
+        </div>
+        <div class="clear"></div>
+        <hr />
+
+        <div>
+
+            <h3>Test Results</h3>
+
+            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+            <table class="table table-bordered width-802" style="width: 800px;">
+                <tbody>
+                <tr>
+                    <th>Antibiotics</th>
+                    <th>Code</th>
+                    <th>Test 1</th>
+                    <th>Test 2</th>
+                    <th>Test 3</th>
+                    <th>Test 4</th>
+                    <th>Test 5</th>
+                </tr>
+                {% for testValue in entity.testValues %}
+                    <tr>
+                        <td>{{ testValue.antibiotics}}</td>
+                        <td align="center">{{ testValue.code}}</td>
+                        <td align="center">{{ testValue.test1}}</td>
+                        <td align="center">{{ testValue.test2}}</td>
+                        <td align="center">{{ testValue.test3}}</td>
+                        <td align="center">{{ testValue.test4}}</td>
+                        <td align="center">{{ testValue.test5}}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+            <div>
+                <p style="font-weight: bold;">Comments</p>
+                <p style="width: 400px;">{{ entity.comments }}</p>
+            </div>
+
+        </div>
+    </div>

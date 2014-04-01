@@ -1,0 +1,181 @@
+{% extends '::print.html.twig' %}
+
+{% block body -%}
+
+    <div class="">
+
+        <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
+            <p class="labt">LABORATORY REPORT</p>
+        </div>
+
+        <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
+            <div class="head-name">Horse: </div>
+            <div class="head-content-R11">{{ entity.horse.name }}</div>
+            <div class="head-name">Date&nbsp;&nbsp;&nbsp;: </div>
+            <div class="head-content-R22">{{ entity.testedDate|date('m-d-Y H:i:s') }}</div>
+            <div class="clear"></div>
+            <div class="head-name">Stable: </div>
+            <div class="head-content-R11">{{ entity.horse.stable.name }}</div>
+            <div class="head-name">Doctor:</div>
+            <div class="head-content-R22">{{ entity.doctor.name }}</div>
+        </div>
+        <div class="clear"></div>
+
+        <div>
+
+            <h3>Cytology - General Test Results</h3>
+
+            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+            <table class="table table-bordered width-801">
+                <tbody>
+                <tr>
+                    <th>Cell Sample Prep</th>
+                    <td>{{ entity.cellSamplePrep }}</td>
+                    <th>CS Aerobic</th>
+                    <td>{{ entity.csaerobic }}</td>
+                </tr>
+                <tr>
+                    <th>Sample Stain</th>
+                    <td>{{ entity.sampleStain }}</td>
+                    <th>CS Anaerobic</th>
+                    <td>{{ entity.csanaerobic }}</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+            <table class="table table-bordered width-801">
+                <tbody>
+
+                <tr>
+                    <th>PMNS</th>
+                    <td>
+                        {% if entity.test1 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+
+                    <th style="width: 200px;">MUCOUS</th>
+                    <td>
+                        {% if entity.test2 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>LYMPHS</th>
+                    <td>
+                        {% if entity.test3 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+
+                    <th>BACTERIA</th>
+                    <td>
+                        {% if entity.test4 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>MONO</th>
+                    <td>
+                        {% if entity.test5 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+
+                    <th>COCCI</th>
+                    <td>
+                        {% if entity.test6 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>MACROPHAGE</th>
+                    <td>
+                        {% if entity.test7 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+
+                    <th>RODS</th>
+                    <td>
+                        {% if entity.test8 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>RBCS</th>
+                    <td>
+                        {% if entity.test9 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+
+                    <th>INTRA CELLULAR</th>
+                    <td>
+                        {% if entity.test10 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+                </tr>
+                <tr>
+                    <th>DEBRIS</th>
+                    <td>
+                        {% if entity.test11 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+
+                    <th>EXTRA CELLULAR</th>
+                    <td>
+                        {% if entity.test12 == true %}
+                            &#10003;
+                        {% else %}
+                            &#120;
+                        {% endif %}
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+            <div>
+                <p style="font-weight: bold;">Comments / Microscopic Evaluation</p>
+                <p>{{ entity.microscopicEval }}</p>
+            </div>
+
+        </div>
+        <div class="divFooter"><p style="padding-left: 100px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+    </div>
+{% endblock %}

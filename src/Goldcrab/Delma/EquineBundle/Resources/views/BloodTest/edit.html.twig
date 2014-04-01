@@ -1,0 +1,419 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                <ul class="breadcrumb">
+                    <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                    <li><a href="{{ path('test_blood') }}">Blood Test</a> <span class="divider">/</span></li>
+                    <li class="active">Edit Test</li>
+                </ul>
+
+                    <div class="row show-grid">
+                        <div class="span8 offset2">
+
+                            <h4>Blood Test - Edit</h4>
+
+                            <form action="{{ path('test_blood_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+
+                            {{ include('DelmaEquineBundle::testEditExtras.html.twig') }}
+
+                            <hr />
+
+
+                            <div style="margin: 0 30px;">
+                            <ul class="nav nav-tabs">
+                                <li class="active"><a href="#1" data-toggle="tab">Hematology</a></li>
+                                <li class=""><a href="#2" data-toggle="tab">Chemistry</a></li>
+                                <li class=""><a href="#3" data-toggle="tab">Electrolytes</a></li>
+                            </ul>
+                            <div class="tab-content" style="height: 270px;">
+                                <div class="tab-pane active" id="1">
+
+                                    <table class="table noborder">
+                                        <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td> </td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td style="text-align: center;">&</td>
+                                            <td style="text-align: center;">x 10E9/L</td>
+                                            <td></td>
+                                            <td style="text-align: center;">&</td>
+                                            <td style="text-align: center;">x 10E9/L </td>
+                                        </tr>
+                                        <tr>
+                                            <td>WBC</td>
+                                            <td class="w60">{{ form_widget(edit_form.hWbc) }}</td>
+                                            <td>MCV</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMcv) }}</td>
+                                            <td>NEUT</td>
+                                            <td class="w60">{{ form_widget(edit_form.hNeut) }}</td>
+                                            <td class="w60">{{ form_widget(edit_form.hNeut2) }}</td>
+                                            <td>BASO</td>
+                                            <td class="w60">{{ form_widget(edit_form.hBaso) }}</td>
+                                            <td class="w60">{{ form_widget(edit_form.hBaso2) }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>RBC</td>
+                                            <td class="w60">{{ form_widget(edit_form.hRbc) }} </td>
+                                            <td>MCH</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMch) }}</td>
+                                            <td>LYMPH</td>
+                                            <td class="w60">{{ form_widget(edit_form.hLymph) }}</td>
+                                            <td class="w60">{{ form_widget(edit_form.hLymph2) }}</td>
+                                            <td>BANDS%</td>
+                                            <td class="w60">{{ form_widget(edit_form.hBands) }}</td>
+                                            <td class="w60"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>HB</td>
+                                            <td class="w60">{{ form_widget(edit_form.hHb) }}</td>
+                                            <td>MCHC</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMchc) }}</td>
+                                            <td>MONO</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMono) }}</td>
+                                            <td class="w60">{{ form_widget(edit_form.hMono2) }}</td>
+                                            <td>PTP</td>
+                                            <td class="w60">{{ form_widget(edit_form.hPtp) }}</td>
+                                            <td class="w60"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>HCT</td>
+                                            <td class="w60">{{ form_widget(edit_form.hHct) }}</td>
+                                            <td>PLT</td>
+                                            <td class="w60">{{ form_widget(edit_form.hPlt) }}</td>
+                                            <td>EOSINO</td>
+                                            <td class="w60">{{ form_widget(edit_form.hEosino) }}</td>
+                                            <td class="w60">{{ form_widget(edit_form.hEosino2) }}</td>
+                                            <td>HpFIB</td>
+                                            <td class="w60">{{ form_widget(edit_form.hHpFib) }}</td>
+                                            <td class="w60"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="tab-pane" id="2">
+
+                                    <table class="table noborder">
+                                        <tbody>
+
+                                        <tr>
+                                            <td>ALB</td>
+                                            <td class="w60">{{ form_widget(edit_form.cAlb) }}</td>
+                                            <td>CERA</td>
+                                            <td class="w60">{{ form_widget(edit_form.cCrea) }}</td>
+                                            <td>LD</td>
+                                            <td class="w60">{{ form_widget(edit_form.cLd) }}</td>
+                                            <td>TRIG</td>
+                                            <td class="w60">{{ form_widget(edit_form.cTrig) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>ALP</td>
+                                            <td class="w60">{{ form_widget(edit_form.cAlp) }}</td>
+                                            <td>D. BIL</td>
+                                            <td class="w60">{{ form_widget(edit_form.cDBil) }}</td>
+                                            <td>T. BIL</td>
+                                            <td class="w60">{{ form_widget(edit_form.cTBil) }}</td>
+                                            <td>Lactate</td>
+                                            <td class="w60">{{ form_widget(edit_form.cLactate) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>AST</td>
+                                            <td class="w60">{{ form_widget(edit_form.cAst) }}</td>
+                                            <td>GGT</td>
+                                            <td class="w60">{{ form_widget(edit_form.cGct) }}</td>
+                                            <td>STP</td>
+                                            <td class="w60">{{ form_widget(edit_form.cStp) }}</td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>CK</td>
+                                            <td class="w60">{{ form_widget(edit_form.cCk) }}</td>
+                                            <td>GLUC</td>
+                                            <td class="w60">{{ form_widget(edit_form.cGluc) }}</td>
+                                            <td>UN</td>
+                                            <td class="w60">{{ form_widget(edit_form.cUn) }}</td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                    {{ form_widget(edit_form.cExtra) }} Show extra fields
+
+                                    <div id="bloodChemistryExtraFields">
+                                        <table style="width: 70%; margin-top:10px;">
+                                            <tbody>
+                                            <tr>
+                                                <td>SAA</td>
+                                                <td class="w60">{{ form_widget(edit_form.cSaa) }}</td>
+                                                <td>Foal</td>
+                                                <td class="w60">{{ form_widget(edit_form.cFoal) }}</td>
+                                                <td>LAC</td>
+                                                <td class="w60">{{ form_widget(edit_form.cLac) }}</td>
+                                                <td>Phos</td>
+                                                <td class="w60">{{ form_widget(edit_form.cPhos) }}</td>
+                                                <td>IRON</td>
+                                                <td class="w60">{{ form_widget(edit_form.cIron) }}</td>
+                                                <td>Troponin</td>
+                                                <td class="w60">{{ form_widget(edit_form.cTroponin) }}</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="3">
+
+                                    <table class="table noborder">
+                                        <tbody>
+
+                                        <tr>
+                                            <td>GLUC</td>
+                                            <td class="w60">{{ form_widget(edit_form.eGluc) }}</td>
+                                            <td>HCT</td>
+                                            <td class="w60">{{ form_widget(edit_form.eHct) }}</td>
+                                            <td>CA</td>
+                                            <td class="w60">{{ form_widget(edit_form.eCa) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>BUN</td>
+                                            <td class="w60">{{ form_widget(edit_form.eBun) }}</td>
+                                            <td>HB</td>
+                                            <td class="w60">{{ form_widget(edit_form.eHb) }}</td>
+                                            <td>I CA</td>
+                                            <td class="w60">{{ form_widget(edit_form.eIca) }}</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>NA</td>
+                                            <td class="w60">{{ form_widget(edit_form.eNa) }}</td>
+                                            <td>pH</td>
+                                            <td class="w60">{{ form_widget(edit_form.ePh) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>K</td>
+                                            <td class="w60">{{ form_widget(edit_form.eK) }}</td>
+                                            <td>BICARB</td>
+                                            <td class="w60">{{ form_widget(edit_form.eBicarb) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td>CL</td>
+                                            <td class="w60">{{ form_widget(edit_form.eCl) }}</td>
+                                            <td>MG</td>
+                                            <td class="w60">{{ form_widget(edit_form.eMg) }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                            <td></td>
+                                            <td class="w60"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                            <div class="row-fluid">
+                                <div class="span12 ta600" style="padding: 0px;"><b>Comments</b> <br />{{ form_widget(edit_form.comments) }}</div>
+                            </div>
+
+                            <div class="controls">
+                                <button class="btn btn-primary" name="submitButton" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                <button class="btn btn-primary"  name="submitButton" type="submit" value="Save & New" ><i class="icon-ok-sign icon-white"></i> Save & New</button>
+                                <button class="btn btn-primary"  name="submitButton" type="submit" value="Save & List" ><i class="icon-ok-sign icon-white"></i> Save & List</button>
+                                <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                <a href="{{ path('test_blood_new') }}" class="btn btn-success"><i class="icon-plus icon-white"></i> New Blood Test</a>
+                            </div>
+
+                            <input type="hidden" name="_method" value="PUT" />
+                            {{ form_row (edit_form._token) }}
+                            </form>
+
+                            <hr />
+
+                        <div style="padding: 0 40px 20px;">
+                            <div class="btn"><a href="{{ path('test_blood') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                            <div class="pull-right">
+                                <button class="btn btn-danger" onclick="deleteTest('{{ path('test_blood_delete', { 'id': entity.id }) }}');" type="button"><i class="icon-trash icon-white"></i> Delete</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+    <script language="javascript">
+        function calculateValues(){
+            var wbc = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hWbc').val() );
+            var rbc = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hRbc').val() );
+            var hb = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hHb').val() );
+            var hct = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hHct').val() );
+
+            var neut = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hNeut').val() );
+            var lymph = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hLymph').val() );
+            var mono = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hMono').val() );
+            var eosino = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hEosino').val() );
+            var baso = parseFloat( $('#goldcrab_delma_equinebundle_bloodtesttype_hBaso').val() );
+
+            if( hct > 0 && rbc > 0){
+                var mcv = ( hct * 10 ) / rbc;
+                mcv = Math.round( mcv * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hMcv').val( mcv );
+            }
+
+            if( hb > 0 && rbc > 0){
+                var mch = ( hb * 10 ) / rbc;
+                mch = Math.round( mch * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hMch').val( mch );
+            }
+
+            if( hb > 0 && hct > 0){
+                var mchc = ( hb * 100 ) / hct;
+                mchc = Math.round( mchc * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hMchc').val( mchc );
+            }
+
+            if ( wbc > 0 && neut > 0 ){
+                var neut2 = ( neut * wbc ) / 100;
+                neut2 = Math.round( neut2 * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hNeut2').val( neut2 );
+            }
+
+            if ( wbc > 0 && lymph > 0 ){
+                var lymph2 = ( lymph * wbc ) / 100;
+                lymph2 = Math.round( lymph2 * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hLymph2').val( lymph2 );
+            }
+
+            if ( wbc > 0 && mono > 0 ){
+                var mono2 = ( mono * wbc ) / 100;
+                mono2 = Math.round( mono2 * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hMono2').val( mono2 );
+            }
+            if ( wbc > 0 && eosino > 0 ){
+                var eosino2 = ( eosino * wbc ) / 100;
+                eosino2 = Math.round( eosino2 * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hEosino2').val( eosino2 );
+            }
+            if ( wbc > 0 && baso > 0 ){
+                var baso2 = ( baso * wbc ) / 100;
+                baso2 = Math.round( baso2 * 10 ) / 10;
+                $('#goldcrab_delma_equinebundle_bloodtesttype_hBaso2').val( baso2 );
+            }
+        }
+
+        $(document).ready(function() {
+            if($('#goldcrab_delma_equinebundle_bloodtesttype_cExtra').prop('checked')){
+                $('#bloodChemistryExtraFields').show();
+            }else{
+                $('#bloodChemistryExtraFields').hide();
+            }
+            $('#goldcrab_delma_equinebundle_bloodtesttype_cExtra').change(function(){
+                if(this.checked){
+                    $('#bloodChemistryExtraFields').show();
+                }else{
+                    $('#bloodChemistryExtraFields').hide();
+                }
+            });
+
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hWbc').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hRbc').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hHb').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hHct').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hNeut').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hLymph').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hMono').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hEosino').focusout(function(){
+                calculateValues();
+            });
+            $('#goldcrab_delma_equinebundle_bloodtesttype_hBaso').focusout(function(){
+                calculateValues();
+            });
+        });
+    </script>
+
+    <script language="javascript">
+
+
+        $(document).ready(function() {
+
+
+            $(':input').keypress(function(e){
+                if (e.which == 13) {
+                    if (!this.form.tabOrder) {
+                        var els = this.form.elements,
+                                ti = [],
+                                rest = [];
+                        for (var i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex > 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                ti.push(els[i]);
+                            }
+                        }
+                        ti.sort(function(a,b){ return a.tabIndex - b.tabIndex; });
+                        for (i = 0, il = els.length; i < il; i++) {
+                            if (els[i].tabIndex == 0 &&
+                                    !els[i].disabled &&
+                                    !els[i].hidden &&
+                                    !els[i].readOnly &&
+                                    els[i].type !== 'hidden') {
+                                rest.push(els[i]);
+                            }
+                        }
+                        this.form.tabOrder = ti.concat(rest);
+                    }
+                    for (var j = 0, jl = this.form.tabOrder.length; j < jl; j++) {
+                        if (this === this.form.tabOrder[j]) {
+                            if (j+1 < jl) {
+                                $(this.form.tabOrder[j+1]).select();
+                            } else {
+                                $(this).blur();
+                            }
+                        }
+
+                    }
+                    return false;
+                }
+            });
+
+        });
+    </script>
+
+{% endblock %}

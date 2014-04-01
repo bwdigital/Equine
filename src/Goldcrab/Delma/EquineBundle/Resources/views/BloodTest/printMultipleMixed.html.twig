@@ -1,0 +1,293 @@
+<div class="pager">
+{% if showHema == true %}
+    <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
+        <p style="text-align: center; margin-bottom: 10px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+        <p style="text-align: center; margin-bottom: 10px; font-size: 14px;">LABORATORY REPORT</p>
+    </div>
+
+    <div class="page-number"><span>Page Number: <span id="pageNumber"></span></span></div>
+{% endif %}
+<div class="sub-main">
+<div>
+    {% if showHema == true %}
+        <table class="table table-bordered table-hover table-condensed table-centered">
+            <thead>
+
+            <tr style="font-size: 10px;">
+                <h3>Hematology</h3>
+                <th style="width:500px;"></th>
+                <th colspan="7">CBC</th>
+                <th colspan="13">DIFFERENTIAL</th>
+            </tr>
+
+            <tr style="font-size: 10px;">
+                <th style="width:500px;" >Horse Name</th>
+                <th>WBC</th>
+                <th>HCT</th>
+                <th>HB</th>
+                <th>RBC</th>
+                <th>MCV</th>
+                <th>MCH</th>
+                <th>MCHC</th>
+                <th colspan="2">NEUT</th>
+                <th colspan="2">LYMPH</th>
+                <th colspan="2">MONO</th>
+                <th colspan="2">EOSINO</th>
+                <th colspan="2">BASO</th>
+                <th style="white-space: nowrap;">BANDS %</th>
+                <th>PTP</th>
+                <th style="white-space: nowrap;">Hp FIB</th>
+            </tr>
+
+            <tr style="font-size: 10px;">
+                <td></td>
+                <td style="white-space: nowrap;">6 - 12<br />10E9/L</td>
+                <td style="white-space: nowrap;">32 - 48<br />%</td>
+                <td style="white-space: nowrap;">10 - 18<br />g/dL</td>
+                <td style="white-space: nowrap;">6 - 12<br />10E6/UL</td>
+                <td style="white-space: nowrap;">34 - 58<br />FL</td>
+                <td style="white-space: nowrap;">13 - 19<br />Pg</td>
+                <td style="white-space: nowrap;">31 - 37<br />g/gL</td>
+                <td style="width: 100px; white-space: nowrap;">50-60<br />%</td>
+                <td style="white-space: nowrap;">3.0-6-5<br />X10E9/L</td>
+                <td style="width: 100px; white-space: nowrap;">36-48<br />%</td>
+                <td style="white-space: nowrap;">2.0-5.0<br />X10E9/L</td>
+                <td style="width: 100px; white-space: nowrap;">3-6<br />%</td>
+                <td style="white-space: nowrap;">0.2-1.0<br />X10E9/L</td>
+                <td style="width: 100px; white-space: nowrap;">1-2<br />%</td>
+                <td style="white-space: nowrap;">0.1-0.5<br />X10E9/L</td>
+                <td style="white-space: nowrap;">0-1<br />%</td>
+                <td style="white-space: nowrap;">0-0.9<br />X10E9/L</td>
+                <td style="white-space: nowrap;"><br />%</td>
+                <td style="white-space: nowrap;">6.0-8.5<br />g/dL</td>
+                <td style="white-space: nowrap;">100-400<br />mg%</td>
+
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td style="white-space: nowrap; text-align: left;">{{ entity.horse.name }}</td>
+                    <td>{{ entity.hWbc }}</td>
+                    <td>{{ entity.hHct }}</td>
+                    <td>{{ entity.hHb }}</td>
+                    <td>{{ entity.hRbc }}</td>
+                    <td>{{ entity.hMcv }}</td>
+                    <td>{{ entity.hMch }}</td>
+                    <td>{{ entity.hMchc }}</td>
+                    <td>{{ entity.hNeut }}</td>
+                    <td>{{ entity.hNeut2 }}</td>
+                    <td>{{ entity.hLymph }}</td>
+                    <td>{{ entity.hLymph2 }}</td>
+                    <td>{{ entity.hMono }}</td>
+                    <td>{{ entity.hMono2 }}</td>
+                    <td>{{ entity.hEosino }}</td>
+                    <td>{{ entity.hEosino2 }}</td>
+                    <td>{{ entity.hBaso }}</td>
+                    <td>{{ entity.hBaso2 }}</td>
+                    <td>{{ entity.hBands }}</td>
+                    <td>{{ entity.hPtp }}</td>
+                    <td>{{ entity.hHpFib }}</td>
+                </tr>
+
+                {% if loop.index % 10 == 0 %}
+                </tbody>
+                </table>
+                <div class="page-break"></div>
+                <table class="table table-bordered table-hover table-condensed table-centered">
+                <thead>
+                    <tr style="font-size: 10px; page-break-after:always;">
+                        <th style="width:500px;" >Horse Name</th>
+                        <th>WBC</th>
+                        <th>HCT</th>
+                        <th>HB</th>
+                        <th>RBC</th>
+                        <th>MCV</th>
+                        <th>MCH</th>
+                        <th>MCHC</th>
+                        <th colspan="2">NEUT</th>
+                        <th colspan="2">LYMPH</th>
+                        <th colspan="2">MONO</th>
+                        <th colspan="2">EOSINO</th>
+                        <th colspan="2">BASO</th>
+                        <th style="white-space: nowrap;">BANDS %</th>
+                        <th>PTP</th>
+                        <th style="white-space: nowrap;">Hp FIB</th>
+                    </tr>
+
+                    <tr style="font-size: 10px;">
+                        <td></td>
+                        <td style="white-space: nowrap;">6 - 12<br />10E9/L</td>
+                        <td style="white-space: nowrap;">32 - 48<br />%</td>
+                        <td style="white-space: nowrap;">10 - 18<br />g/dL</td>
+                        <td style="white-space: nowrap;">6 - 12<br />10E6/UL</td>
+                        <td style="white-space: nowrap;">34 - 58<br />FL</td>
+                        <td style="white-space: nowrap;">13 - 19<br />Pg</td>
+                        <td style="white-space: nowrap;">31 - 37<br />g/gL</td>
+                        <td style="width: 100px; white-space: nowrap;">50-60<br />%</td>
+                        <td style="white-space: nowrap;">3.0-6-5<br />X10E9/L</td>
+                        <td style="width: 100px; white-space: nowrap;">36-48<br />%</td>
+                        <td style="white-space: nowrap;">2.0-5.0<br />X10E9/L</td>
+                        <td style="width: 100px; white-space: nowrap;">3-6<br />%</td>
+                        <td style="white-space: nowrap;">0.2-1.0<br />X10E9/L</td>
+                        <td style="width: 100px; white-space: nowrap;">1-2<br />%</td>
+                        <td style="white-space: nowrap;">0.1-0.5<br />X10E9/L</td>
+                        <td style="white-space: nowrap;">0-1<br />%</td>
+                        <td style="white-space: nowrap;">0-0.9<br />X10E9/L</td>
+                        <td style="white-space: nowrap;"><br />%</td>
+                        <td style="white-space: nowrap;">6.0-8.5<br />g/dL</td>
+                        <td style="white-space: nowrap;">100-400<br />mg%</td>
+
+                    </tr>
+                </thead>
+                <tbody>
+
+                {% endif %}
+
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+{% if showChem == true %}
+    <div class="page-break"></div>
+    <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
+        <p style="text-align: center; margin-bottom: 10px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+        <p style="text-align: center; margin-bottom: 10px; font-size: 14px;">LABORATORY REPORT</p>
+    </div>
+
+    <div class="page-number"><span>Page Number: <span id="pageNumber"></span></span></div>
+    <div class="clear"></div>
+{% endif %}
+<div>
+    {% if showChem == true %}
+        <table class="table table-bordered table-hover table-condensed table-centered">
+            <thead>
+            <tr style="font-size: 10px;">
+                <h3>Chemistry</h3>
+                <th style="width:500px;">Horse Name</th>
+                <th>AST</th>
+                <th>CK</th>
+                <th>LDH</th>
+                <th>GGT</th>
+                <th>ALP</th>
+                <th>T. BIL</th>
+                <th>STP</th>
+                <th>ALB</th>
+                <th>CREA</th>
+                <th>UN</th>
+                <th>GLUC</th>
+                <th>D. BIL</th>
+                <th>SAA</th>
+            </tr>
+            <tr style="font-size: 10px;">
+                <td></td>
+                <td style="white-space: nowrap;">150-500<br />U/L</td>
+                <td style="white-space: nowrap;">90-350<br />U/L</td>
+                <td style="white-space: nowrap;">160-490<br />U/L</td>
+                <td style="white-space: nowrap;">11-40<br />U/L</td>
+                <td style="white-space: nowrap;">149-395<br />U/L</td>
+                <td style="white-space: nowrap;">0.3-3.0<br />mg/dL</td>
+                <td style="white-space: nowrap;">5.7-7.9<br />g/dL</td>
+                <td style="white-space: nowrap;">2.3-3.9<br />g/dL</td>
+                <td style="white-space: nowrap;">1-3<br />mg/dL</td>
+                <td style="white-space: nowrap;">10-25<br />mg/dL</td>
+                <td style="white-space: nowrap;">50-115<br />mg/dL</td>
+                <td style="white-space: nowrap;"><br />mg/dL</td>
+                <td style="white-space: nowrap;">0-12<br />µg/ml</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td style="white-space: nowrap; text-align: left;">{{ entity.horse.name }}</td>
+                    <td>{{ entity.cAst }}</td>
+                    <td>{{ entity.cCk }}</td>
+                    <td>{{ entity.cLd }}</td>
+                    <td>{{ entity.cGct }}</td>
+                    <td>{{ entity.cAlp }}</td>
+                    <td>{{ entity.cTBil }}</td>
+                    <td>{{ entity.cStp }}</td>
+                    <td>{{ entity.cAlb }}</td>
+                    <td>{{ entity.cCrea }}</td>
+                    <td>{{ entity.cUn }}</td>
+                    <td>{{ entity.cGluc }}</td>
+                    <td>{{ entity.cDBil }}</td>
+                    <td>{{ entity.cSaa }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+{% if showElec == true %}
+    <div class="page-break"></div>
+    <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
+        <p style="text-align: center; margin-bottom: 10px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+        <p style="text-align: center; margin-bottom: 10px; font-size: 14px;">LABORATORY REPORT</p>
+    </div>
+
+    <div class="page-number"><span>Page Number: <span id="pageNumber"></span></span></div>z
+    <div class="clear"></div>
+{% endif %}
+<div>
+    {% if showElec == true %}
+        <table class="table table-bordered table-hover table-condensed table-centered">
+            <thead>
+            <tr style="font-size: 10px;">
+                <h3>Electrolytes</h3>
+                <th>Horse Name</th>
+                <th>NA</th>
+                <th>K</th>
+                <th>CL</th>
+                <th>Bicarb</th>
+                <th>MG</th>
+                <th>CA</th>
+                <th>ICA</th>
+                <th>PH</th>
+                <th>BUN</th>
+                <th>GLUC</th>
+                <th>HB</th>
+                <th>HCT</th>
+            </tr>
+            <tr style="font-size: 10px;">
+                <td></td>
+                <td style="white-space: nowrap;">132-147<br />mmol/L</td>
+                <td style="white-space: nowrap;">2.8-4.7<br />mmol/L</td>
+                <td style="white-space: nowrap;">95-110<br />mmol/L</td>
+                <td style="white-space: nowrap;">20.7-28.9<br />mmol/L</td>
+                <td style="white-space: nowrap;">1.3-3.2<br />mg/dL</td>
+                <td style="white-space: nowrap;">9.1-13.4<br />mg/dL</td>
+                <td style="white-space: nowrap;">1.25-1.75<br />mmol/L</td>
+                <td style="white-space: nowrap;">7.32-7.44</td>
+                <td style="white-space: nowrap;">10-25<br />mg/dL</td>
+                <td style="white-space: nowrap;">50-115<br />mg/dL</td>
+                <td style="white-space: nowrap;">10-18<br />g/dL</td>
+                <td style="white-space: nowrap;">32-48<br />%</td>
+            </tr>
+            </thead>
+            <tbody>
+            {% for entity in entities %}
+                <tr>
+                    <td style="white-space: nowrap; text-align: left;">{{ entity.horse.name }}</td>
+                    <td>{{ entity.eNa }}</td>
+                    <td>{{ entity.eK }}</td>
+                    <td>{{ entity.eCl }}</td>
+                    <td>{{ entity.eBicarb }}</td>
+                    <td>{{ entity.eMg }}</td>
+                    <td>{{ entity.eCa }}</td>
+                    <td>{{ entity.eIca }}</td>
+                    <td>{{ entity.ePh }}</td>
+                    <td>{{ entity.eBun }}</td>
+                    <td>{{ entity.eGluc }}</td>
+                    <td>{{ entity.eHb }}</td>
+                    <td>{{ entity.eHct }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+<div class="divFooter"><p style="padding-left: 250px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+</div>
+</div>

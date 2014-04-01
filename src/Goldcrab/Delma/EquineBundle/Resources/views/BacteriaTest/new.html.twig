@@ -1,0 +1,102 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('test_bacteria_create') }}">Bacteria Test</a> <span class="divider">/</span></li>
+                        <li class="active">New Test</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span8 offset2">
+
+                            <h4>Bacteria Test - New</h4>
+                            <form action="{{ path('test_bacteria_create') }}" method="post" {{ form_enctype(form) }}>
+
+                                {{ include('DelmaEquineBundle::testAddExtras.html.twig') }}
+
+                                <hr />
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">Sample Date</div>
+                                    <div class="span4">{{ form_widget(form.sampleDate) }}</div>
+                                    <div class="span2 right">Swab Source</div>
+                                    <div class="span4">{{ form_widget(form.swabSource) }}</div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">Gram Stain</div>
+                                    <div class="span4">{{ form_widget(form.gramStain) }}</div>
+                                    <div class="span2 right">Bacteria Isolation</div>
+                                    <div class="span4">{{ form_widget(form.bacteriaIsolation) }}</div>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span2 right">Fungi Isolation</div>
+                                    <div class="span4">{{ form_widget(form.fungiIsolation) }}</div>
+                                    <div class="span2 right"></div>
+                                    <div class="span4"></div>
+                                </div>
+
+                                <hr />
+
+                                <div class="row-fluid" style="width:100%;">
+
+                                    <table cellspacing="5" cellpadding="5" border="1" width="80%" style="margin: 0 auto;">
+                                        <tr>
+                                            <th>Antibiotics</th>
+                                            <th>Code</th>
+                                            <th>Test 1</th>
+                                            <th>Test 2</th>
+                                            <th>Test 3</th>
+                                            <th>Test 4</th>
+                                            <th>Test 5</th>
+                                        </tr>
+                                        {% for tvalues in form.testValues %}
+                                            <tr>
+                                                <td>{{ form_widget(tvalues.antibiotics) }}</td>
+                                                <td align="center">{{ form_widget(tvalues.code) }}</td>
+                                                <td align="center">{{ form_widget(tvalues.test1) }}</td>
+                                                <td align="center">{{ form_widget(tvalues.test2) }}</td>
+                                                <td align="center">{{ form_widget(tvalues.test3) }}</td>
+                                                <td align="center">{{ form_widget(tvalues.test4) }}</td>
+                                                <td align="center">{{ form_widget(tvalues.test5) }}</td>
+                                            </tr>
+                                        {% endfor %}
+                                    </table>
+                                </div>
+
+                                <div class="row-fluid">
+                                    <div class="span12 ta600" >Comments<br />{{ form_widget(form.comments) }}</div>
+                                </div>
+
+                                <hr />
+
+                                <div  style="margin: 0 30px;">
+                                    <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                    <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                </div>
+
+
+                                {{ form_row (form._token) }}
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('test_bacteria') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

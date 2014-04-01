@@ -1,0 +1,96 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('stable') }}">Stable</a> <span class="divider">/</span></li>
+                        <li class="active">Edit</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span6 offset3">
+
+                            <h4>Stable - Edit</h4>
+
+                            <form class="form-horizontal" action="{{ path('stable_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+
+                                {#{{ form_errors(edit_form) }}#}
+
+
+                                <div class="control-group">
+                                    {{ form_errors(edit_form.name) }}
+                                    <label class="control-label" for=""> {{ form_label(edit_form.name, 'Name') }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.name, {'attr': {'class': ''}}) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form_errors(edit_form.sgroup) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.sgroup, 'Group') }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.sgroup, {'attr': {'class': ''}}) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form_errors(edit_form.phone) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.phone, 'Phone', {'attr': {'class': ''}})  }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.phone, {'attr': {'class': ''}}) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form_errors(edit_form.fax) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.fax, 'Fax', {'attr': {'class': ''}})  }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.fax, {'attr': {'class': ''}}) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form_errors(edit_form.address) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.address, 'Address', {'attr': {'class': ''}})  }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.address, {'attr': {'class': ''}}) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form_errors(edit_form.city) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.city, 'City', {'attr': {'class': ''}})  }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.city, {'attr': {'class': ''}}) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {{ form_errors(edit_form.country) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.country, 'Country', {'attr': {'class': ''}})  }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.country, {'attr': {'class': ''}}) }}</div>
+                                </div>
+
+                                <div class="controls">
+                                    <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                    <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                </div>
+
+                                <input type="hidden" name="_method" value="PUT" />
+                                {{ form_row (edit_form._token) }}
+
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('stable') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                    <div class="pull-right">
+                                        <form action="{{ path('stable_delete', { 'id': entity.id }) }}" method="post">
+                                            <input type="hidden" name="_method" value="DELETE" />
+                                            {{ form_widget(delete_form) }}
+                                            <button class="btn btn-danger" type="submit"><i class="icon-trash icon-white"></i> Delete</button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                            </div>
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+{% endblock %}

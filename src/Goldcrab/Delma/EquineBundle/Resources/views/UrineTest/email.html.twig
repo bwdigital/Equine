@@ -1,0 +1,89 @@
+{% extends '::email.html.twig' %}
+
+{% block body -%}
+
+    <table width="700">
+        <tbody>
+        <tr>
+            <td width="700" align="center" style="text-align: center;"><img src="http://192.150.10.123:2080/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" /></td>
+        </tr>
+        <tr>
+            <td width="700" height="40" align="center" style="text-align: center; margin-bottom: 10px; font-size: 16px; font-weight: bold; text-decoration: underline;">LABORATORY REPORT</td>
+        </tr>
+        </tbody>
+    </table>
+
+
+    <table width="800">
+        <tbody>
+        <tr>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Horse: </td>
+            <td style="width: 350px;">{{ entity.horse.name }}</td>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Date&nbsp;&nbsp;&nbsp;:</td>
+            <td style="width: 350px;">{{ entity.testedDate|date('m-d-Y H:i:s') }}</td>
+        </tr>
+        <tr>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Stable: </td>
+            <td>{{ entity.horse.stable.name }}</td>
+            <td style="width: 50px; font-weight: bold; padding-right: 20px; text-align: right;">Doctor:</td>
+            <td>{{ entity.doctor.name }}</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Urine Analysis Results</h3>
+
+    <table width="400" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+            <td bgcolor="#CCCCCC"><table cellspacing="1">
+                    <tbody>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Glucose</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.glucose }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Bilirubin</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.bilirubin }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Ketones</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.ketones }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">S.Gravity</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.sgravity }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Blood Sang</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.bloodsang }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">pH</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.ph }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Protein</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.protein }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Urobilinogen</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.urobilinogen }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Nitrates</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.Nitrates }}</td>
+                    </tr>
+                    <tr>
+                        <th width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">Leukocytes</th>
+                        <td width="200" bgcolor="#FFFFFF" style="padding: 2px 5px;">{{ entity.leukocytes }}</td>
+                    </tr>
+                    </tbody>
+                </table></td>
+        </tr>
+    </table>
+
+    <p style="font-weight: bold;">Comments</p>
+    <p style="width: 400px;">{{ entity.comments }}</p>
+
+    <p style="padding: 5% 0 0 100px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p>
+{% endblock %}

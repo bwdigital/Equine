@@ -1,0 +1,87 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li class="active">Cytology - Pleural Fluid Analysis Test</li>
+                    </ul>
+
+                    <h4>Cytology - Pleural Fluid Analysis Test</h4>
+
+                    <div class="row-fluid">
+                        <div class="span10">
+                            {{ include('DelmaEquineBundle::filter.html.twig') }}
+                        </div>
+                        {% if is_granted("ROLE_SUPER_ADMIN") %}
+                        <div class="span2"><a href="{{ path('test_cytology_pfa_new') }}" class="btn btn-success"><i class="icon-plus icon-white"></i> New PFA Test</a></div>
+                        {% endif %}
+                    </div>
+
+                    <form action="" method="post" id="testListingPrintForm">
+                        <table class="table table-bordered table-hover table-condensed table-centered">
+                            <thead>
+                            <tr>
+                                <th style="text-align: center;"><input type="checkbox" id="selectAllBox"></th>
+                                <th style="text-align: center;">Id</th>
+                                <th>Horse Name</th>
+                                <th>Stable</th>
+                                <th>Doctor</th>
+                                <th>Test Date</th>
+                                <th style="text-align: center;">Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for entity in entities %}
+                                <tr>
+                                    <td style="text-align: center;"><input name="test[]" value="{{ entity.id }}" type="checkbox" class="selectBoxes" onclick="$(this).closest('tr').toggleClass('success')"></td>
+                                    <td style="text-align: center;"><a href="{{ path('test_cytology_pfa_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                    <td>{{ entity.horse.name }}</td>
+                                    <td>{{ entity.horse.stable.name }}</td>
+                                    <td>{{ entity.doctor.name }}</td>
+                                    <td>{% if entity.testedDate %}{{ entity.testedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td style="text-align: center;">
+                                        <a class="btn btn-mini" href="{{ path('test_cytology_pfa_show', { 'id': entity.id }) }}"><i class="icon-eye-open icon-large"></i></a>
+                                        {% if is_granted("ROLE_SUPER_ADMIN") %}
+                                            <a class="btn btn-mini" href="{{ path('test_cytology_pfa_edit', { 'id': entity.id }) }}"><i class="icon-pencil icon-large"></i></a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                        {% if is_granted("ROLE_SUPER_ADMIN") %}
+                        <div class="buttons left" id="selectBoxesButton">
+                            <a class="btn btn-danger" id="testMultipleDelete" ><i class="icon-trash icon-white"></i> Delete</a>
+                        </div>
+                        {% endif %}
+
+                        <div class="pagination center">
+                            <ul>
+                                {{ knp_pagination_render(pagination) }}
+                            </ul>
+                        </div>
+                    </form>
+
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+    <script language="javascript">
+        $(document).ready(function() {
+            $('#testMultipleDelete').click(function(){
+                var r = confirm("Do you want to delete the selected tests?");
+                if (r==true){
+                    $('#testListingPrintForm').attr("action", "{{ path('test_cytology_pfa_delete_multiple') }}");
+                    $('#testListingPrintForm').attr("target", "_self");
+                    $('#testListingPrintForm').submit();
+                }
+            });
+        });
+    </script>
+{% endblock %}

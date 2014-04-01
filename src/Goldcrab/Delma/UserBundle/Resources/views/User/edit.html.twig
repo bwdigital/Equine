@@ -1,0 +1,188 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li><a href="{{ path('user') }}">User</a> <span class="divider">/</span></li>
+                        <li class="active">Edit User</li>
+                    </ul>
+
+                    <div class="row show-grid">
+                        <div class="span6 offset3">
+
+                            <h4>User - Edit</h4>
+
+                            <form class="form-horizontal" action="{{ path('user_update', { 'id': entity.id }) }}" method="post" {{ form_enctype(edit_form) }}>
+                                <input type="hidden" name="_method" value="PUT" />
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.firstname) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.firstname) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.firstname, 'First Name' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.firstname) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.lastname) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.lastname) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.lastname, 'Last Name' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.lastname) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.email) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.email) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.email, 'Email' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.email) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.plainPassword) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.plainPassword) }}
+                                        </div>
+                                    {% endif %}
+                                    <div class="controls">{{ form_widget(edit_form.plainPassword) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.address) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.address) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.address, 'address' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.address) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.mobile) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.mobile) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.mobile, 'Mobile' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.mobile) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.city) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.city) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.city, 'City' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.city) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.country) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.country) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.country, 'Country' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.country) }}</div>
+                                </div>
+
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.type) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.type) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.type, 'User Type' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.type) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.enabled) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.enabled) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.enabled, 'Enabled' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.enabled) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.locked) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.locked) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.locked, 'Locked' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.locked) }}</div>
+                                </div>
+
+                                <div class="control-group">
+                                    {% if form_errors(edit_form.adminType) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(edit_form.adminType) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(edit_form.adminType, 'User Mode' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.adminType) }}</div>
+                                </div>
+
+                                <div class="controls">
+                                    <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
+                                    <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>
+                                </div>
+
+                                {{ form_row (edit_form._token) }}
+
+
+                            </form>
+
+                            <hr />
+                            <div style="padding: 0 40px 20px;">
+                                <div class="btn"><a href="{{ path('user') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
+                                <div class="pull-right">
+                                    <form action="{{ path('user_delete', { 'id': entity.id }) }}" method="post">
+                                        <input type="hidden" name="_method" value="DELETE" />
+                                        {{ form_widget(delete_form) }}
+                                        <button class="btn btn-danger" type="submit"><i class="icon-trash icon-white"></i> Delete</button>
+                                    </form></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+{% endblock %}

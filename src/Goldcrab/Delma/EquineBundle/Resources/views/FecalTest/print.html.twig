@@ -1,0 +1,62 @@
+{% extends '::print.html.twig' %}
+
+{% block body -%}
+
+    <div class="">
+
+        <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
+            <p class="labt">LABORATORY REPORT</p>
+        </div>
+
+        <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
+            <div class="head-name">Horse: </div>
+            <div class="head-content-R11">{{ entity.horse.name }}</div>
+            <div class="head-name">Date&nbsp;&nbsp;&nbsp;: </div>
+            <div class="head-content-R22">{{ entity.testedDate|date('m-d-Y H:i:s') }}</div>
+            <div class="clear"></div>
+            <div class="head-name">Stable: </div>
+            <div class="head-content-R11">{{ entity.horse.stable.name }}</div>
+            <div class="head-name">Doctor:</div>
+            <div class="head-content-R22">{{ entity.doctor.name }}</div>
+        </div>
+        <div class="clear"></div>
+
+        <div>
+            <p>&nbsp;</p>
+            <h3>Faecal Test Results</h3>
+            <table>
+                <tbody>
+                <tr>
+                    <th>Anoplocephala</th>
+                    <td>{{ entity.anoplocephala }}</td>
+                </tr><tr>
+                    <th>Strongyle</th>
+                    <td>{{ entity.strongyle }}</td>
+                </tr>
+                <tr>
+                    <th>Parascaris</th>
+                    <td>{{ entity.parascaris }}</td>
+                </tr>
+                <tr>
+                    <th>Occult</th>
+                    <td>{{ entity.occult }}</td>
+                </tr><tr>
+                    <th>Clostridium</th>
+                    <td>{{ entity.clostridium }}</td>
+                </tr>
+                </tbody>
+            </table>
+
+            <p style="padding-left: 50px; font-weight: bold;"> </p>
+
+            <div>
+                <p>&nbsp;</p>
+                <p style="font-weight: bold;">Comments / Microscopic Evaluation</p>
+                <p>{{ entity.comments }}</p>
+
+            </div>
+
+        </div>
+        <div class="divFooter"><p style="padding-left: 100px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+    </div>
+{% endblock %}

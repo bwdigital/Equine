@@ -1,0 +1,46 @@
+<div class="row-fluid">
+    <div class="span2 right">Horse Name</div>
+    <div class="span4">
+        {{ form_widget(edit_form.horse) }}
+        {{ form_errors(edit_form.horse) }}
+    </div>
+    <div class="span2 right">Test Date</div>
+    <div class="span4">
+        {{ form_widget(edit_form.testedDate, {'attr': {'class': 'date'}} ) }}
+        {{ form_errors(edit_form.testedDate) }}
+    </div>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 right">Birth Date</div>
+    <div class="span4" id="horseTestFormBDay">-----</div>
+    <div class="span2 right">Gender</div>
+    <div class="span4" id="horseTestFormGender">----</div>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 right">Breed</div>
+    <div class="span4" id="horseTestFormBreed">-----</div>
+    <div class="span2 right">Trainer</div>
+    <div class="span4" id="horseTestFormTrainer">----</div>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 right">Stable</div>
+    <div class="span4" id="horseTestFormStable">-----</div>
+    <div class="span2 right">Owner</div>
+    <div class="span4" id="horseTestFormOwner">-----</div>
+</div>
+
+<div class="row-fluid">
+    <div class="span2 right">Doctor</div>
+    <div class="span4">
+        {{ form_widget(edit_form.doctor) }}
+        {{ form_errors(edit_form.doctor) }}
+    </div>
+    <div class="span2 right">Test By</div>
+    <div class="span4">
+        {{ form_widget(edit_form.testedBy) }}
+        {{ form_errors(edit_form.testedBy) }}
+    </div>
+</div>

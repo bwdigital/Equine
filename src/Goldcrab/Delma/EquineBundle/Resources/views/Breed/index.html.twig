@@ -1,0 +1,64 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+
+
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span12">
+                <section>
+
+                    <ul class="breadcrumb">
+                        <li><a href="{{ path('delma_home') }}">Dashboard</a> <span class="divider">/</span></li>
+                        <li class="active">Breed</li>
+                    </ul>
+
+                    <h4>Breed list</h4>
+
+                    <div class="row-fluid">
+                        <div class="span10">
+                            <form action="{{ path(app.request.attributes.get('_route')) }}" method="get"  class="well form-search">
+                                {{ form_widget(filterForm.searchText) }}
+                                {{ form_row (filterForm._token) }}
+                                {{ form_widget(filterForm.filter) }}
+                            </form>
+                        </div>
+                        {% if is_granted("ROLE_SUPER_ADMIN") %}
+                        <div class="span2"><a href="{{ path('breed_new') }}" class="btn btn-success"><i class="icon-plus icon-white"></i> New Breed</a></div>
+                        {% endif %}
+                    </div>
+
+                    <table class="table table-bordered table-hover table-condensed table-centered">
+                        <thead>
+                        <tr>
+                            <th style="text-align: center;">Id</th>
+                            <th>Breed Name</th>
+                            <th style="text-align: center;">Actions</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for entity in entities %}
+                            <tr>
+                                <td style="text-align: center;"><a href="{{ path('breed_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                                <td>{{ entity.name }}</td>
+                                <td style="text-align: center;">
+                                    <a class="btn btn-mini" href="{{ path('breed_show', { 'id': entity.id }) }}"><i class="icon-eye-open icon-large"></i></a>
+                                    <a class="btn btn-mini" href="{{ path('breed_edit', { 'id': entity.id }) }}"><i class="icon-pencil icon-large"></i></a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                    <div class="pagination center">
+                        <ul>
+                            {{ knp_pagination_render(pagination) }}
+                        </ul>
+                    </div>
+
+                </section>
+            </div><!--/span-->
+        </div><!--/row-->
+    </div><!--/.fluid-container-->
+{% endblock %}
+
