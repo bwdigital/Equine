@@ -192,6 +192,11 @@ class HorseController extends Controller
             $em->persist($entity);
             $em->flush();
 
+            if($request->get('submitButton')=='Save & New'){
+                return $this->redirect($this->generateUrl('horse_new',array('_msg'=>'Horse created successfully!')));
+                exit();
+            }
+
             return $this->redirect($this->generateUrl('horse_show', array('id' => $entity->getId())));
         }
 
