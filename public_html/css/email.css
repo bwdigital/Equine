@@ -120,26 +120,6 @@ a:hover { color: green; }
 
 */
 
-
-/***************************************************
-
-****************************************************
-
-MOBILE TARGETING
-
-
-Use @media queries with care.  You should not bring these styles inline -- so it's recommended to apply them AFTER you bring the other stlying inline.
-
-
-Note: test carefully with Yahoo.
-
-Note 2: Don't bring anything below this line inline.
-
-****************************************************
-
-***************************************************/
-
-
 /* NOTE: To properly use @media queries and play nice with yahoo mail, use attribute selectors in place of class, id declarations.
 
 table[class=classname]
