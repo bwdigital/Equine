@@ -73,26 +73,26 @@
                     {% endif %}
                 </tr>
                 <tr>
-                    <td>{{ entity.hWbc }}</td>
-                    <td>{{ entity.hHct }}</td>
-                    <td>{{ entity.hHb }}</td>
-                    <td>{{ entity.hRbc }}</td>
-                    <td>{{ entity.hMcv }}</td>
-                    <td>{{ entity.hMch }}</td>
-                    <td>{{ entity.hMchc }}</td>
-                    <td>{{ entity.hNeut }}</td>
-                    <td>{{ entity.hNeut2 }}</td>
-                    <td>{{ entity.hLymph }}</td>
-                    <td>{{ entity.hLymph2 }}</td>
-                    <td>{{ entity.hMono }}</td>
-                    <td>{{ entity.hMono2 }}</td>
-                    <td>{{ entity.hEosino }}</td>
-                    <td>{{ entity.hEosino2 }}</td>
-                    <td>{{ entity.hBaso }}</td>
-                    <td>{{ entity.hBaso2 }}</td>
-                    <td>{{ entity.hBands }}</td>
-                    <td>{{ entity.hPtp }}</td>
-                    <td>{{ entity.hHpFib }}</td>
+                    <td>{{ entity.hWbc|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hHct|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hHb|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hRbc|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hMcv|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hMch|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hMchc|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hNeut|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hNeut2|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hLymph|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hLymph2|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hMono|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hMono2|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hEosino|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hEosino2|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hBaso|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hBaso2|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hBands|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hPtp|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hHpFib|number_format(1, '.', '') }}</td>
                     {% if entity.hPlt != 0 %}
                     <td>{{ entity.hPlt }}</td>
                     {% endif %}
