@@ -140,7 +140,7 @@
                         <th>PHOS</th>
                     {% endif %}
                     {% if entity.cFoal != 0 %}
-                        <th>FOAL</th>
+                        <th>IgG</th>
                     {% endif %}
 
                 </tr>
@@ -178,7 +178,7 @@
                         <td style="white-space: nowrap;">2.5-4.6<br />mg/dL</td>
                     {% endif %}
                     {% if entity.cFoal != 0 %}
-                        <td style="white-space: nowrap;"><br />lgG</td>
+                        <td style="white-space: nowrap;"><br /></td>
                     {% endif %}
 
                 </tr>
@@ -209,7 +209,7 @@
                         <td>{{ entity.cIron }}</td>
                     {% endif %}
                     {% if entity.cTroponin != -1 %}
-                        <td>{{ entity.cTroponin }}</td>
+                        <td>{{ entity.cTroponin|number_format(1, '.', '') }}</td>
                     {% endif %}
                     {% if entity.cPhos != 0 %}
                         <td>{{ entity.cPhos }}</td>
@@ -217,8 +217,6 @@
                     {% if entity.cFoal != 0 %}
                         <td>{{ entity.cFoal }}</td>
                     {% endif %}
-
-
 
                 </tr>
 
