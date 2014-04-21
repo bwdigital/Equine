@@ -80,21 +80,22 @@
                     <td>{{ entity.hMcv|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hMch|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hMchc|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hNeut|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hNeut2|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hLymph|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hLymph2|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hMono|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hMono2|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hEosino|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hEosino2|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hBaso|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hBaso2|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hBands|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hNeut|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hNeut2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hLymph|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hLymph2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hMono|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hMono2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hEosino|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hEosino2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hBaso|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hBaso2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hBands|number_format(0, '.', '') }}</td>
                     <td>{{ entity.hPtp|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.hHpFib|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.hHpFib|number_format(0, '.', '') }}</td>
                     {% if entity.hPlt != 0 %}
                     <td>{{ entity.hPlt }}</td>
+
                     {% endif %}
                 </tr>
                 </tbody>
@@ -263,18 +264,18 @@
                 </tr>
 
                 <tr>
-                    <td>{{ entity.eNa }}</td>
-                    <td>{{ entity.eK }}</td>
-                    <td>{{ entity.eCl }}</td>
-                    <td>{{ entity.eBicarb }}</td>
-                    <td>{{ entity.eMg }}</td>
-                    <td>{{ entity.eCa }}</td>
-                    <td>{{ entity.eIca }}</td>
-                    <td>{{ entity.ePh }}</td>
-                    <td>{{ entity.eBun }}</td>
-                    <td>{{ entity.eGluc }}</td>
-                    <td>{{ entity.eHb }}</td>
-                    <td>{{ entity.eHct }}</td>
+                    <td>{{ entity.eNa|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.eK|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.eCl|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.eBicarb|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.eMg|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.eCa|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.eIca|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.ePh|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.eBun|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.eGluc|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.eHb|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.eHct|number_format(1, '.', '') }}</td>
                 </tr>
                 </tbody>
             </table>
