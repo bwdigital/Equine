@@ -112,6 +112,7 @@ class BacteriaTestController extends TestController
         $queryBuilder = $repository->createQueryBuilder('A')
             ->select(array('A'))
             ->andWhere(' 1=1 ');
+        $queryBuilder->addOrderBy('A.order','ASC');
         $query = $queryBuilder->getQuery();
         $antibiotics = $query->getResult();
 

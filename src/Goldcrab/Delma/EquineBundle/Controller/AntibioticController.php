@@ -32,7 +32,7 @@ class AntibioticController extends Controller
         $queryBuilder = $repository->createQueryBuilder('a')
             ->select('a')
             ->andWhere(' 1=1 ');
-
+        $queryBuilder->addOrderBy('a.order','ASC');
         $filterForm = $this->getFilterForm();
         $filterForm->handleRequest($request);
         if ($filterForm->get('filter')->isClicked()) {

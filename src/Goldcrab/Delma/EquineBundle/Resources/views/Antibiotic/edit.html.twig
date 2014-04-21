@@ -24,16 +24,23 @@
                                 <input type="hidden" name="_method" value="PUT" />
 
                                 <div class="control-group">
+                                    {{ form_errors(edit_form.code) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.code, 'Antibiotic Code' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.code) }}</div>
+                                </div>
+
+                                <div class="control-group">
                                     {{ form_errors(edit_form.name) }}
                                     <label class="control-label" for="">{{ form_label(edit_form.name, 'Antibiotic Name' ) }}</label>
                                     <div class="controls">{{ form_widget(edit_form.name) }}</div>
                                 </div>
 
                                 <div class="control-group">
-                                    {{ form_errors(edit_form.code) }}
-                                    <label class="control-label" for="">{{ form_label(edit_form.code, 'Antibiotic Code' ) }}</label>
-                                    <div class="controls">{{ form_widget(edit_form.code) }}</div>
+                                    {{ form_errors(edit_form.order) }}
+                                    <label class="control-label" for="">{{ form_label(edit_form.order, 'Order' ) }}</label>
+                                    <div class="controls">{{ form_widget(edit_form.order) }}</div>
                                 </div>
+
 
                                 <div class="controls">
                                     <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>

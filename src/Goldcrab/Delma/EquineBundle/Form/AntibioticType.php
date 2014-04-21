@@ -17,6 +17,7 @@ class AntibioticType extends AbstractType
         $builder
             ->add('code')
             ->add('name')
+            ->add('order')
         ;
     }
     

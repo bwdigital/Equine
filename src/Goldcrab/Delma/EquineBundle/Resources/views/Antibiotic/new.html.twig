@@ -41,6 +41,18 @@
                                     <div class="controls">{{ form_widget(form.name) }}</div>
 
                                 </div>
+                                <div class="control-group">
+                                    {% if form_errors(form.order) %}
+                                        <div class="alert alert-error">
+                                            <a class="close" data-dismiss="alert">&times;</a>
+                                            {{ form_errors(form.order) }}
+                                        </div>
+                                    {% endif %}
+                                    <label class="control-label" for="">{{ form_label(form.order, 'Order' ) }}</label>
+                                    <div class="controls">{{ form_widget(form.order) }}</div>
+
+                                </div>
+
                                 <div class="controls">
                                     <button class="btn btn-primary" type="submit" value="Save" ><i class="icon-ok-sign icon-white"></i> Save</button>
                                     <button class="btn btn-warning" type="reset" value="Reset"><i class="icon-refresh icon-white"></i> Refresh</button>

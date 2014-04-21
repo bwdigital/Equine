@@ -37,6 +37,13 @@ class Antibiotic
 
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="antibiotic_order", type="integer", nullable=true)
+     */
+    private $order = 0;
+
+    /**
      * Get id
      *
      * @return integer 
@@ -90,5 +97,28 @@ class Antibiotic
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * Set order
+     *
+     * @param integer $order
+     * @return Antibiotic
+     */
+    public function setOrder($order)
+    {
+        $this->order = $order;
+    
+        return $this;
+    }
+
+    /**
+     * Get order
+     *
+     * @return integer 
+     */
+    public function getOrder()
+    {
+        return $this->order;
     }
 }
