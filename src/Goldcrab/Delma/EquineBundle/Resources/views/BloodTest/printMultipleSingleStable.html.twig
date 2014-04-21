@@ -69,27 +69,27 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td style="white-space: nowrap; text-align: left;">{{ entity.horse.name }}</td>
-            <td>{{ entity.hWbc }}</td>
-            <td>{{ entity.hHct }}</td>
-            <td>{{ entity.hHb }}</td>
-            <td>{{ entity.hRbc }}</td>
-            <td>{{ entity.hMcv }}</td>
-            <td>{{ entity.hMch }}</td>
-            <td>{{ entity.hMchc }}</td>
-            <td>{{ entity.hNeut }}</td>
-            <td>{{ entity.hNeut2 }}</td>
-            <td>{{ entity.hLymph }}</td>
-            <td>{{ entity.hLymph2 }}</td>
-            <td>{{ entity.hMono }}</td>
-            <td>{{ entity.hMono2 }}</td>
-            <td>{{ entity.hEosino }}</td>
-            <td>{{ entity.hEosino2 }}</td>
-            <td>{{ entity.hBaso }}</td>
-            <td>{{ entity.hBaso2 }}</td>
-            <td>{{ entity.hBands }}</td>
-            <td>{{ entity.hPtp }}</td>
-            <td>{{ entity.hHpFib }}</td>
+            <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
+            <td>{{ entity.hWbc|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hHct|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hHb|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hRbc|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hMcv|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hMch|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hMchc|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hNeut|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hNeut2|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hLymph|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hLymph2|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hMono|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hMono2|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hEosino|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hEosino2|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hBaso|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hBaso2|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hBands|number_format(0, '.', '') }}</td>
+            <td>{{ entity.hPtp|number_format(1, '.', '') }}</td>
+            <td>{{ entity.hHpFib|number_format(0, '.', '') }}</td>
         </tr>
         {% if loop.index % 25 == 0 and loop.last != true %}
             </tbody>
@@ -229,7 +229,7 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td style="white-space: nowrap; text-align: left;">{{ entity.horse.name }}</td>
+            <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
             <td>{{ entity.cAst }}</td>
             <td>{{ entity.cCk }}</td>
             <td>{{ entity.cLd }}</td>
@@ -366,19 +366,19 @@
     <tbody>
     {% for entity in entities %}
         <tr>
-            <td style="white-space: nowrap; text-align: left;">{{ entity.horse.name }}</td>
-            <td>{{ entity.eNa }}</td>
-            <td>{{ entity.eK }}</td>
-            <td>{{ entity.eCl }}</td>
-            <td>{{ entity.eBicarb }}</td>
-            <td>{{ entity.eMg }}</td>
-            <td>{{ entity.eCa }}</td>
-            <td>{{ entity.eIca }}</td>
-            <td>{{ entity.ePh }}</td>
-            <td>{{ entity.eBun }}</td>
-            <td>{{ entity.eGluc }}</td>
-            <td>{{ entity.eHb }}</td>
-            <td>{{ entity.eHct }}</td>
+            <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
+            <td>{{ entity.eNa|number_format(0, '.', '') }}</td>
+            <td>{{ entity.eK|number_format(1, '.', '') }}</td>
+            <td>{{ entity.eCl|number_format(0, '.', '') }}</td>
+            <td>{{ entity.eBicarb|number_format(1, '.', '') }}</td>
+            <td>{{ entity.eMg|number_format(1, '.', '') }}</td>
+            <td>{{ entity.eCa|number_format(1, '.', '') }}</td>
+            <td>{{ entity.eIca|number_format(0, '.', '') }}</td>
+            <td>{{ entity.ePh|number_format(0, '.', '') }}</td>
+            <td>{{ entity.eBun|number_format(0, '.', '') }}</td>
+            <td>{{ entity.eGluc|number_format(0, '.', '') }}</td>
+            <td>{{ entity.eHb|number_format(1, '.', '') }}</td>
+            <td>{{ entity.eHct|number_format(1, '.', '') }}</td>
         </tr>
         {% if loop.index % 25 == 0 and loop.last != true %}
             </tbody>

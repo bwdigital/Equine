@@ -17,7 +17,7 @@
             <div class="head-name">Stable: </div>
             <div class="head-content-R11">{{ entity.horse.stable.name }}</div>
             <div class="head-name">Doctor:</div>
-            <div class="head-content-R22">{{ entity.doctor.name }}</div>
+            <div class="head-content-R22">{{ entity.Doctor.name }}</div>
         </div>
         <div class="clear"></div>
 
@@ -29,6 +29,10 @@
 
             <table class="table table-bordered width-801">
                 <tbody>
+                <tr>
+                    <th>Sample Site</th>
+                    <td colspan="3" style="text-align: left; padding-left: 20px;">{{ entity.source }}</td>
+                </tr>
                 <tr>
                     <th>Cell Sample Prep</th>
                     <td>{{ entity.cellSamplePrep }}</td>
@@ -171,13 +175,11 @@
             <p style="padding-left: 50px; font-weight: bold;"> </p>
 
             <div>
-                <p style="font-weight: bold;">Source</p>
-                <p>{{ entity.source }}</p>
-            </div>
-            <div>
                 <p style="font-weight: bold;">Comments / Microscopic Evaluation</p>
                 <p>{{ entity.microscopicEval }}</p>
             </div>
+
+            <div style="font-size: 14px; padding-top: 25px;"><b>Tested by:</b> {{ entity.testedBy.name }}</div>
 
         </div>
         <div class="divFooter"><p style="padding-left: 100px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>

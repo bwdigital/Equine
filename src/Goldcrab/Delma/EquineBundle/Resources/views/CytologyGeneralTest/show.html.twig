@@ -24,6 +24,10 @@
                             <table class="table table-bordered width-801">
                                 <tbody>
                                 <tr>
+                                    <th>Sample Site</th>
+                                    <td colspan="3">{{ entity.source }}</td>
+                                </tr>
+                                <tr>
                                     <th >Cell Sample Prepared</th>
                                     <td>{{ entity.cellSamplePrep }}</td>
                                     <th>CS Aerobic</th>
@@ -166,9 +170,6 @@
 
                             <table class="table table-bordered width-80">
                                 <tbody>
-                                <tr>
-                                    <td><b>Source</b><br />{{ entity.source }}</td>
-                                </tr>
                                 <tr>
                                     <td><b>Comments / Microscopic Evaluation</b><br />{{ entity.microscopicEval }}</td>
                                 </tr>
