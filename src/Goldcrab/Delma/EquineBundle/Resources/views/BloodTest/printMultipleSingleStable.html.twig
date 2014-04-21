@@ -68,7 +68,7 @@
     </thead>
     <tbody>
     {% for entity in entities %}
-        <tr>
+        <tr style="height: 20px;">
             <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
             <td>{{ entity.hWbc|number_format(1, '.', '') }}</td>
             <td>{{ entity.hHct|number_format(1, '.', '') }}</td>
@@ -228,7 +228,7 @@
     </thead>
     <tbody>
     {% for entity in entities %}
-        <tr>
+        <tr style="height: 20px;">
             <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
             <td>{{ entity.cAst }}</td>
             <td>{{ entity.cCk }}</td>
@@ -365,7 +365,7 @@
     </thead>
     <tbody>
     {% for entity in entities %}
-        <tr>
+        <tr style="height: 20px;">
             <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
             <td>{{ entity.eNa|number_format(0, '.', '') }}</td>
             <td>{{ entity.eK|number_format(1, '.', '') }}</td>

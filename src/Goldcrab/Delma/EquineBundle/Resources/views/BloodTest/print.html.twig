@@ -72,7 +72,7 @@
                         <td style="white-space: nowrap;">100-350<br />10E9/L</td>
                     {% endif %}
                 </tr>
-                <tr>
+                <tr style="height: 30px;">
                     <td>{{ entity.hWbc|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hHct|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hHb|number_format(1, '.', '') }}</td>
@@ -118,7 +118,7 @@
                     <th>STP</th>
                     <th>ALB</th>
                     <th>CREA</th>
-                    <th>UN</th>
+                    <th>BUN</th>
                     <th>GLUC</th>
                     <th>D. BIL</th>
                     {% if entity.cSaa != -1 %}
@@ -139,7 +139,7 @@
                     {% if entity.cPhos != 0 %}
                         <th>PHOS</th>
                     {% endif %}
-                    {% if entity.cFoal != 0 %}
+                    {% if entity.cFoal != "" %}
                         <th>IgG</th>
                     {% endif %}
 
@@ -177,13 +177,13 @@
                     {% if entity.cPhos != 0 %}
                         <td style="white-space: nowrap;">2.5-4.6<br />mg/dL</td>
                     {% endif %}
-                    {% if entity.cFoal != 0 %}
+                    {% if entity.cFoal != "" %}
                         <td style="white-space: nowrap;"><br /></td>
                     {% endif %}
 
                 </tr>
 
-                <tr>
+                <tr style="height: 30px;">
                     <td>{{ entity.cAst }}</td>
                     <td>{{ entity.cCk }}</td>
                     <td>{{ entity.cLd }}</td>
@@ -214,7 +214,7 @@
                     {% if entity.cPhos != 0 %}
                         <td>{{ entity.cPhos }}</td>
                     {% endif %}
-                    {% if entity.cFoal != 0 %}
+                    {% if entity.cFoal != "" %}
                         <td>{{ entity.cFoal }}</td>
                     {% endif %}
 
@@ -261,7 +261,7 @@
                     <td style="white-space: nowrap;">32-48<br />%</td>
                 </tr>
 
-                <tr>
+                <tr style="height: 30px;">
                     <td>{{ entity.eNa|number_format(0, '.', '') }}</td>
                     <td>{{ entity.eK|number_format(1, '.', '') }}</td>
                     <td>{{ entity.eCl|number_format(0, '.', '') }}</td>
