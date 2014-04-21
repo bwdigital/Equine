@@ -60,6 +60,13 @@ class CytologyGeneralTest
     /**
      * @var string
      *
+     * @ORM\Column(name="cytology_general_source", type="string", length=255, nullable=true)
+     */
+    private $source;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="cytology_general_cellSamplePrep", type="string", length=255, nullable=true)
      */
     private $cellSamplePrep;
@@ -647,5 +654,28 @@ class CytologyGeneralTest
     public function getTest12()
     {
         return $this->test12;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     * @return CytologyGeneralTest
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+    
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string 
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 }

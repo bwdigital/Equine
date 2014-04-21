@@ -78,6 +78,7 @@ class CytologyGeneralTestType extends AbstractType
         );
 
         $builder
+            ->add('source')
             ->add('microscopicEval')
             ->add('test1')
             ->add('test2')
