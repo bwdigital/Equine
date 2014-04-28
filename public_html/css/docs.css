@@ -77,6 +77,14 @@ background-color: #DDDDDD;
 
 }
 
+.span12 h4 {
+    background: none repeat scroll 0 0 #2071a1;
+    border-radius: 10px 10px 0 0;
+    color: white;
+    margin: 0 0 40px;
+    padding: 10px 30px;
+}
+
 .span6 h4 {
     background: none repeat scroll 0 0 #2071a1;
     border-radius: 10px 10px 0 0;
