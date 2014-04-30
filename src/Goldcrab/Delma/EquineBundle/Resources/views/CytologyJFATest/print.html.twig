@@ -73,7 +73,7 @@
                 <tr>
                     <th>Mononucl</th>
                     <td>{{ entity.mononucl }} %</td>
-                    <th>LD</th>
+                    <th>LDH</th>
                     <td>{{ entity.ld }} U/L</td>
                 </tr>
                 <tr>
@@ -216,11 +216,13 @@
             <p style="padding-left: 50px; font-weight: bold;"> </p>
 
             <div>
-                <p style="font-weight: bold;">Comments</p>
+                <p style="font-weight: bold;">Comments:-</p>
                 <p>{{ entity.comments }}</p>
             </div>
 
+            <div style="font-size: 14px; padding-top: 25px;"><b>Tested by:</b> {{ entity.testedBy.name }}</div>
+
         </div>
-    <div class="divFooter"><p style="padding-left: 100px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+    <div class="divFooter"><p style="padding-left: 150px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
     </div>
 {% endblock %}

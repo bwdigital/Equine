@@ -42,7 +42,7 @@
         <th colspan="2">BASO</th>
         <th width="0" style="white-space: nowrap;">BANDS %</th>
         <th width="0">PTP</th>
-        <th width="0" style="white-space: nowrap;">Hp FIB</th>
+        <th width="0" style="white-space: nowrap;">FIB</th>
     </tr>
     <tr style="font-size: 10px;">
         <td></td>
@@ -140,7 +140,7 @@
                 <th colspan="2">BASO</th>
                 <th width="0" style="white-space: nowrap;">BANDS %</th>
                 <th width="0">PTP</th>
-                <th width="0" style="white-space: nowrap;">Hp FIB</th>
+                <th width="0" style="white-space: nowrap;">FIB</th>
             </tr>
             <tr style="font-size: 10px;">
                 <td></td>
@@ -209,7 +209,7 @@
         <th>STP</th>
         <th>ALB</th>
         <th>CREA</th>
-        <th>UN</th>
+        <th>BUN</th>
         <th>GLUC</th>
         <th>D. BIL</th>
         <th>SAA</th>
@@ -240,13 +240,13 @@
             <td>{{ entity.cLd }}</td>
             <td>{{ entity.cGct }}</td>
             <td>{{ entity.cAlp }}</td>
-            <td>{{ entity.cTBil }}</td>
-            <td>{{ entity.cStp }}</td>
-            <td>{{ entity.cAlb }}</td>
-            <td>{{ entity.cCrea }}</td>
+            <td>{{ entity.cTBil|number_format(1, '.', '') }}</td>
+            <td>{{ entity.cStp|number_format(1, '.', '') }}</td>
+            <td>{{ entity.cAlb|number_format(1, '.', '') }}</td>
+            <td>{{ entity.cCrea|number_format(1, '.', '') }}</td>
             <td>{{ entity.cUn }}</td>
             <td>{{ entity.cGluc }}</td>
-            <td>{{ entity.cDBil }}</td>
+            <td>{{ entity.cDBil|number_format(1, '.', '') }}</td>
             <td>{% if entity.cSaa == -1.0 %}-{% else %}{{ entity.cSaa }}{% endif %}</td>
         </tr>
         {% if loop.index % 25 == 0 and loop.last != true %}
@@ -287,7 +287,7 @@
                 <th>STP</th>
                 <th>ALB</th>
                 <th>CREA</th>
-                <th>UN</th>
+                <th>BUN</th>
                 <th>GLUC</th>
                 <th>D. BIL</th>
                 <th>SAA</th>
@@ -345,16 +345,16 @@
         <th>Date/Time</th>
         <th>Na</th>
         <th>K</th>
-        <th>CL</th>
+        <th>Cl</th>
         <th>Bicarb</th>
-        <th>MG</th>
-        <th>CA</th>
-        <th>ICA</th>
-        <th>PH</th>
-        <th>BUN</th>
-        <th>GLUC</th>
-        <th>HB</th>
-        <th>HCT</th>
+        <th>Mg</th>
+        <th>Ca</th>
+        <th>iCa</th>
+        <th>pH</th>
+        <th>Bun</th>
+        <th>Gluc</th>
+        <th>Hb</th>
+        <th>Hct</th>
     </tr>
     <tr style="font-size: 10px;">
         <td></td>
@@ -382,8 +382,8 @@
             <td>{{ entity.eBicarb|number_format(1, '.', '') }}</td>
             <td>{{ entity.eMg|number_format(1, '.', '') }}</td>
             <td>{{ entity.eCa|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eIca|number_format(0, '.', '') }}</td>
-            <td>{{ entity.ePh|number_format(0, '.', '') }}</td>
+            <td>{{ entity.eIca|number_format(2, '.', '') }}</td>
+            <td>{{ entity.ePh|number_format(3, '.', '') }}</td>
             <td>{{ entity.eBun|number_format(0, '.', '') }}</td>
             <td>{{ entity.eGluc|number_format(0, '.', '') }}</td>
             <td>{{ entity.eHb|number_format(1, '.', '') }}</td>
@@ -429,7 +429,7 @@
                 <th>BUN</th>
                 <th>GLUC</th>
                 <th>HB</th>
-                <th>HCT</th>
+                <th>Hct</th>
             </tr>
             <tr style="font-size: 10px;">
                 <td></td>

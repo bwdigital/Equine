@@ -8,7 +8,7 @@
             <p class="labt">LABORATORY REPORT</p>
         </div>
 
-        <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
+        <div class="main" style="font-size: 14px; display: block; font-weight: bold;">
             <div class="head-name">Horse: </div>
             <div class="head-content-R11">{{ entity.horse.name }}</div>
             <div class="head-name">Date&nbsp;&nbsp;&nbsp;: </div>
@@ -23,7 +23,7 @@
 
         <div>
 
-            <h3>Cytology - PFA Test Results</h3>
+            <h3>Cytology - Pleural Fluid Analysis Results</h3>
 
             <table class="table table-bordered width-80">
                 <tbody>
@@ -50,13 +50,13 @@
                     <td>{{ entity.wbc }} U/L</td>
 
                     <th>LACTATE</th>
-                    <td>{{ entity.lactate }}</td>
+                    <td>{{ entity.lactate }} mmol/L</td>
                 </tr>
                 <tr>
                     <th>PMN</th>
                     <td>{{ entity.pmn }} %</td>
 
-                    <th>TRIGLYC</th>
+                    <th>TRIG</th>
                     <td>{{ entity.triglyc }} mg/dL</td>
                 </tr>
                 <tr>
@@ -183,11 +183,13 @@
             <p style="padding-left: 50px; font-weight: bold;"> </p>
 
             <div>
-                <p style="font-weight: bold;">Comments</p>
+                <p style="font-weight: bold;">Comments:-</p>
                 <p>{{ entity.comments }}</p>
             </div>
 
+            <div style="font-size: 14px; padding-top: 25px;"><b>Tested by:</b> {{ entity.testedBy.name }}</div>
+
         </div>
-        <div class="divFooter"><p style="padding-left: 100px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+        <div class="divFooter"><p style="padding-left: 150px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
     </div>
 {% endblock %}

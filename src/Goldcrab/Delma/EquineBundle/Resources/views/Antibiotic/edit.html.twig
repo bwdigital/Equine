@@ -54,19 +54,17 @@
 
                             <hr />
 
-
-
                             <div style="padding: 0 40px 20px;">
                                 <div class="btn"><a href="{{ path('antibiotic') }}"><i class="icon-arrow-left"></i> Back to the list</a></div>
                                 <div class="pull-right">
                                     <form action="{{ path('antibiotic_delete', { 'id': entity.id }) }}" method="post">
                                         <input type="hidden" name="_method" value="DELETE" />
                                         {{ form_widget(delete_form) }}
-                                        <button class="btn btn-danger" type="submit"><i class="icon-trash icon-white"></i>Delete</button>
+                                        <button class="btn btn-danger" type="submit"><i class="icon-trash icon-white"></i> Delete</button>
                                     </form>
-
                                 </div>
                             </div>
+
 
                         </div>
                     </div>

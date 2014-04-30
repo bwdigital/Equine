@@ -42,7 +42,7 @@
                     <th colspan="2">BASO</th>
                     <th style="white-space: nowrap;">BANDS %</th>
                     <th>PTP</th>
-                    <th style="white-space: nowrap;">Hp FIB</th>
+                    <th style="white-space: nowrap;">FIB</th>
                     {% if entity.hPlt != 0 %}
                     <th>PLT</th>
                     {% endif %}
@@ -189,13 +189,13 @@
                     <td>{{ entity.cLd }}</td>
                     <td>{{ entity.cGct }}</td>
                     <td>{{ entity.cAlp }}</td>
-                    <td>{{ entity.cTBil }}</td>
-                    <td>{{ entity.cStp }}</td>
-                    <td>{{ entity.cAlb }}</td>
-                    <td>{{ entity.cCrea }}</td>
+                    <td>{{ entity.cTBil|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.cStp|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.cAlb|number_format(1, '.', '') }}</td>
+                    <td>{{ entity.cCrea|number_format(1, '.', '') }}</td>
                     <td>{{ entity.cUn }}</td>
                     <td>{{ entity.cGluc }}</td>
-                    <td>{{ entity.cDBil }}</td>
+                    <td>{{ entity.cDBil|number_format(1, '.', '') }}</td>
                     {% if entity.cSaa != -1 %}
                         <td>{{ entity.cSaa }}</td>
                     {% endif %}
@@ -234,16 +234,16 @@
                 <tr>
                     <th>Na</th>
                     <th>K</th>
-                    <th>CL</th>
+                    <th>Cl</th>
                     <th>Bicarb</th>
-                    <th>MG</th>
-                    <th>CA</th>
-                    <th>ICA</th>
-                    <th>PH</th>
-                    <th>BUN</th>
-                    <th>GLUC</th>
-                    <th>HB</th>
-                    <th>HCT</th>
+                    <th>Mg</th>
+                    <th>Ca</th>
+                    <th>iCa</th>
+                    <th>pH</th>
+                    <th>Bun</th>
+                    <th>Gluc</th>
+                    <th>Hb</th>
+                    <th>Hct</th>
                 </tr>
 
                 <tr style="font-size: 10px;">
@@ -268,8 +268,8 @@
                     <td>{{ entity.eBicarb|number_format(1, '.', '') }}</td>
                     <td>{{ entity.eMg|number_format(1, '.', '') }}</td>
                     <td>{{ entity.eCa|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.eIca|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.ePh|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.eIca|number_format(2, '.', '') }}</td>
+                    <td>{{ entity.ePh|number_format(3, '.', '') }}</td>
                     <td>{{ entity.eBun|number_format(0, '.', '') }}</td>
                     <td>{{ entity.eGluc|number_format(0, '.', '') }}</td>
                     <td>{{ entity.eHb|number_format(1, '.', '') }}</td>

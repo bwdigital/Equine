@@ -172,7 +172,7 @@ class CytologyAFATestType extends AbstractType
                 'attr' => array(
                     'class' => 'formatInput',
                     'data-vMin' => '0.0',
-                    'data-vMax' => '99.9',
+                    'data-vMax' => '999.9',
                     'tabindex' => 11
                 )
             )
