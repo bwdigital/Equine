@@ -32,14 +32,14 @@
                 <tr>
                     <th>Sample Date</th>
                     <td>{{ entity.sampleDate|date('Y-m-d H:i:s') }}</td>
-                    <th>Swab Source</th>
-                    <td>{{ entity.swabSource }}</td>
+                    <th>Sample Source</th>
+                    <td style="text-align: left;">{{ entity.swabSource }}</td>
                 </tr>
                 <tr>
                     <th>Gram Stain</th>
                     <td>{{ entity.gramStain }}</td>
                     <th>Fungi Isolation</th>
-                    <td>{{ entity.fungiIsolation }}</td>
+                    <td style="text-align: left;">{{ entity.fungiIsolation }}</td>
                 </tr>
                 <tr>
                     <th>Bacteria Isolation</th>
@@ -85,6 +85,6 @@
             <div style="font-size: 14px; padding-top: 25px;"><b>Tested by:</b> {{ entity.testedBy.name }}</div>
 
         </div>
-        <div class="divFooter"><p style="padding-left: 160px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+        <div class="divFooter"><p style="padding-left: 160px; font-size: 10px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
     </div>
 {% endblock %}
