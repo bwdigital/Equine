@@ -162,13 +162,13 @@
             <td>{{ entity.cDBil }}</td>
 
             {% if entity.cExtra == true %}
-            <td>{% if entity.cSaa == -1.0 %}-{% else %}{{ entity.cSaa }}{% endif %}</td>
-            <td>{{ entity.cLac }}</td>
-            <td>{{ entity.cTrig }}</td>
-            <td>{{ entity.cIron }}</td>
-            <td>{% if entity.cTroponin == -1.0 %}-{% else %}{{ entity.cTroponin }}{% endif %}</td>
-            <td>{{ entity.cPhos }}</td>
-            <td>{{ entity.cFoal }}</td>
+            <td>{% if entity.cSaa == -1.0 %} {% else %}{{ entity.cSaa }}{% endif %}</td>
+            <td>{% if entity.cLac == -1.0 %} {% else %}{{ entity.cLac }}{% endif %}</td>
+            <td>{% if entity.cTrig == -1.0 %} {% else %}{{ entity.cTrig }}{% endif %}</td>
+            <td>{% if entity.cIron == -1.0 %} {% else %}{{ entity.cIron }}{% endif %}</td>
+            <td>{% if entity.cTroponin == -1.0 %} {% else %}{{ entity.cTroponin }}{% endif %}</td>
+            <td>{% if entity.cPhos == -1.0 %} {% else %}{{ entity.cPhos }}{% endif %}</td>
+            <td>{% if entity.cFoal == "" %} {% else %}{{ entity.cFoal }}{% endif %}</td>
             {% endif %}
         </tr>
 
@@ -214,18 +214,18 @@
         </tr>
 
         <tr>
-            <td>{{ entity.eNa }}</td>
-            <td>{{ entity.eK }}</td>
-            <td>{{ entity.eCl }}</td>
-            <td>{{ entity.eBicarb }}</td>
-            <td>{{ entity.eMg }}</td>
-            <td>{{ entity.eCa }}</td>
-            <td>{{ entity.eIca }}</td>
-            <td>{{ entity.ePh }}</td>
-            <td>{{ entity.eBun }}</td>
-            <td>{{ entity.eGluc }}</td>
-            <td>{{ entity.eHb }}</td>
-            <td>{{ entity.eHct }}</td>
+            <td>{% if entity.eNa == -1.0 %}&nbsp;{% else %}{{ entity.eNa }}{% endif %}</td>
+            <td>{% if entity.eK == -1.0 %} {% else %}{{ entity.eK }}{% endif %}</td>
+            <td>{% if entity.eCl == -1.0 %} {% else %}{{ entity.eCl }}{% endif %}</td>
+            <td>{% if entity.eBicarb == -1.0 %} {% else %}{{ entity.eBicarb }}{% endif %}</td>
+            <td>{% if entity.eMg == -1.0 %} {% else %}{{ entity.eMg }}{% endif %}</td>
+            <td>{% if entity.eCa == -1.0 %} {% else %}{{ entity.eCa }}{% endif %}</td>
+            <td>{% if entity.eIca == -1.0 %} {% else %}{{ entity.eIca }}{% endif %}</td>
+            <td>{% if entity.ePh == -1.0 %} {% else %}{{ entity.ePh }}{% endif %}</td>
+            <td>{% if entity.eBun == -1.0 %} {% else %}{{ entity.eBun }}{% endif %}</td>
+            <td>{% if entity.eGluc == -1.0 %} {% else %}{{ entity.eGluc }}{% endif %}</td>
+            <td>{% if entity.eHb == -1.0 %} {% else %}{{ entity.eHb }}{% endif %}</td>
+            <td>{% if entity.eHct == -1.0 %} {% else %}{{ entity.eHct }}{% endif %}</td>
         </tr>
         </tbody>
     </table>

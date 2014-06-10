@@ -43,7 +43,7 @@
                                     <td>{{ entity.horse.name }}</td>
                                     <td>{{ entity.horse.stable.name }}</td>
                                     <td>{{ entity.doctor.name }}</td>
-                                    <td>{% if entity.testedDate %}{{ entity.testedDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td>{% if entity.testedDate %}{{ entity.testedDate|date('m-d-Y H:i:s') }}{% endif %}</td>
                                     <td style="text-align: center;">
                                         <a class="btn btn-mini" href="{{ path('test_coagulation_show', { 'id': entity.id }) }}"><i class="icon-eye-open icon-large"></i></a>
                                         {% if is_granted("ROLE_SUPER_ADMIN") %}

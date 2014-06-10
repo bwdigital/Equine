@@ -294,14 +294,14 @@ class BloodTest
      *
      * @ORM\Column(name="blood_c_trig", type="float", nullable=true)
      */
-    private $cTrig = 0.0;
+    private $cTrig = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_lactate", type="float", nullable=true)
      */
-    private $cLactate = 0.0;
+    private $cLactate = -1.0;
 
     /**
      * @var float
@@ -315,14 +315,14 @@ class BloodTest
      *
      * @ORM\Column(name="blood_c_lac", type="float", nullable=true)
      */
-    private $cLac = 0.0;
+    private $cLac = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_iron", type="float", nullable=true)
      */
-    private $cIron = 0.0;
+    private $cIron = -1.0;
 
     /**
      * @var float
@@ -336,7 +336,7 @@ class BloodTest
      *
      * @ORM\Column(name="blood_c_phos", type="float", nullable=true)
      */
-    private $cPhos = 0.0;
+    private $cPhos = -1.0;
 
     /**
      * @var float
@@ -357,84 +357,84 @@ class BloodTest
      *
      * @ORM\Column(name="blood_e_gluc", type="float", nullable=true)
      */
-    private $eGluc = 0.0;
+    private $eGluc = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_bun", type="float", nullable=true)
      */
-    private $eBun = 0.0;
+    private $eBun = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_na", type="float", nullable=true)
      */
-    private $eNa = 0.0;
+    private $eNa = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_k", type="float", nullable=true)
      */
-    private $eK = 0.0;
+    private $eK = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_cl", type="float", nullable=true)
      */
-    private $eCl = 0.0;
+    private $eCl = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_hct", type="float", nullable=true)
      */
-    private $eHct = 0.0;
+    private $eHct = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_hb", type="float", nullable=true)
      */
-    private $eHb = 0.0;
+    private $eHb = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_ph", type="float", nullable=true)
      */
-    private $ePh = 0.0;
+    private $ePh = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_bicarb", type="float", nullable=true)
      */
-    private $eBicarb = 0.0;
+    private $eBicarb = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_mg", type="float", nullable=true)
      */
-    private $eMg = 0.0;
+    private $eMg = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_ca", type="float", nullable=true)
      */
-    private $eCa = 0.0;
+    private $eCa = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_e_ica", type="float", nullable=true)
      */
-    private $eIca = 0.0;
+    private $eIca = -1.0;
 
     /**
      * @var string

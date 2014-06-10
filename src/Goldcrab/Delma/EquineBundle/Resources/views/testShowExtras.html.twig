@@ -4,13 +4,13 @@
         <th>Id</th>
         <td>{{ entity.id }}</td>
         <th>Date</th>
-        <td>{{ entity.testedDate|date('Y-m-d H:i:s') }}</td>
+        <td>{{ entity.testedDate|date('m-d-Y H:i:s') }}</td>
     </tr>
     <tr>
         <th>Horse</th>
         <td>{{ entity.horse.name }}</td>
         <th>DOB</th>
-        <td>{{ entity.horse.dob|date('Y-m-d') }}</td>
+        <td>{{ entity.horse.dob|date('m-d-Y') }}</td>
     </tr>
     <tr>
         <th>Gender</th>

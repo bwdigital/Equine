@@ -124,19 +124,19 @@
                     {% if entity.cSaa != -1 %}
                         <th>SAA</th>
                     {% endif %}
-                    {% if entity.cLac != 0 %}
+                    {% if entity.cLac != -1 %}
                         <th>LAC</th>
                     {% endif %}
-                    {% if entity.cTrig != 0 %}
+                    {% if entity.cTrig != -1 %}
                         <th>TRIG</th>
                     {% endif %}
-                    {% if entity.cIron != 0 %}
+                    {% if entity.cIron != -1 %}
                         <th>IRON</th>
                     {% endif %}
                     {% if entity.cTroponin != -1 %}
                         <th>Troponin</th>
                     {% endif %}
-                    {% if entity.cPhos != 0 %}
+                    {% if entity.cPhos != -1 %}
                         <th>PHOS</th>
                     {% endif %}
                     {% if entity.cFoal != "" %}
@@ -162,19 +162,19 @@
                     {% if entity.cSaa != -1 %}
                         <td style="white-space: nowrap;">0-12<br />µg/ml</td>
                     {% endif %}
-                    {% if entity.cLac != 0 %}
+                    {% if entity.cLac != -1 %}
                         <td style="white-space: nowrap;">1.11-1.78<br />mmol/L</td>
                     {% endif %}
-                    {% if entity.cTrig != 0 %}
+                    {% if entity.cTrig != -1 %}
                         <td style="white-space: nowrap;">50-200<br />mg/dL</td>
                     {% endif %}
-                    {% if entity.cIron != 0 %}
+                    {% if entity.cIron != -1 %}
                         <td style="white-space: nowrap;">14-31<br />µmol/L</td>
                     {% endif %}
                     {% if entity.cTroponin != -1 %}
                         <td style="white-space: nowrap;">0-0.06<br />ng/ml</td>
                     {% endif %}
-                    {% if entity.cPhos != 0 %}
+                    {% if entity.cPhos != -1 %}
                         <td style="white-space: nowrap;">2.5-4.6<br />mg/dL</td>
                     {% endif %}
                     {% if entity.cFoal != "" %}
@@ -199,19 +199,19 @@
                     {% if entity.cSaa != -1 %}
                         <td>{{ entity.cSaa }}</td>
                     {% endif %}
-                    {% if entity.cLac != 0 %}
+                    {% if entity.cLac != -1 %}
                         <td>{{ entity.cLac|number_format(2, '.', '')  }}</td>
                     {% endif %}
-                    {% if entity.cTrig != 0 %}
+                    {% if entity.cTrig != -1 %}
                         <td>{{ entity.cTrig }}</td>
                     {% endif %}
-                    {% if entity.cIron != 0 %}
+                    {% if entity.cIron != -1 %}
                         <td>{{ entity.cIron }}</td>
                     {% endif %}
                     {% if entity.cTroponin != -1 %}
                         <td>{{ entity.cTroponin|number_format(2, '.', '') }}</td>
                     {% endif %}
-                    {% if entity.cPhos != 0 %}
+                    {% if entity.cPhos != -1 %}
                         <td>{{ entity.cPhos }}</td>
                     {% endif %}
                     {% if entity.cFoal != "" %}
@@ -262,18 +262,18 @@
                 </tr>
 
                 <tr style="height: 30px;">
-                    <td>{{ entity.eNa|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.eK|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.eCl|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.eBicarb|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.eMg|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.eCa|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.eIca|number_format(2, '.', '') }}</td>
-                    <td>{{ entity.ePh|number_format(3, '.', '') }}</td>
-                    <td>{{ entity.eBun|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.eGluc|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.eHb|number_format(1, '.', '') }}</td>
-                    <td>{{ entity.eHct|number_format(1, '.', '') }}</td>
+                    <td>{% if entity.eNa == -1.0 %}&nbsp;{% else %}{{ entity.eNa|number_format(0, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eK == -1.0 %}&nbsp;{% else %}{{ entity.eK|number_format(1, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eCl == -1.0 %}&nbsp;{% else %}{{ entity.eCl|number_format(0, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eBicarb == -1.0 %}&nbsp;{% else %}{{ entity.eBicarb|number_format(1, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eMg == -1.0 %}&nbsp;{% else %}{{ entity.eMg|number_format(1, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eCa == -1.0 %}&nbsp;{% else %}{{ entity.eCa|number_format(1, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eIca == -1.0 %}&nbsp;{% else %}{{ entity.eIca|number_format(2, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.ePh == -1.0 %}&nbsp;{% else %}{{ entity.ePh|number_format(3, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eBun == -1.0 %}&nbsp;{% else %}{{ entity.eBun|number_format(0, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eGluc == -1.0 %}&nbsp;{% else %}{{ entity.eGluc|number_format(0, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eHb == -1.0 %}&nbsp;{% else %}{{ entity.eHb|number_format(1, '.', '') }}{% endif %} </td>
+                    <td>{% if entity.eHct == -1.0 %}&nbsp;{% else %}{{ entity.eHct|number_format(1, '.', '') }}{% endif %} </td>
                 </tr>
                 </tbody>
             </table>
@@ -281,7 +281,7 @@
                 <p style="width: 100%;">{{ entity.comments }}</p>
             </div>
         </div>
-        <div class="divFooter"><p style="padding-left: 250px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+        <div class="divFooter"><p style="padding-left: 250px; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 3366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
     </div>
     </div>
 {% endblock %}

@@ -514,7 +514,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '0000',
+                    'data-vMin' => '-1',
                     'data-vMax' => '9999',
                     'tabindex' => 50
                 )
@@ -553,7 +553,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '00.00',
+                    'data-vMin' => '-1.00',
                     'data-vMax' => '99.99',
                     'tabindex' => 50
                 )
@@ -566,7 +566,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '00.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 50
                 )
@@ -592,7 +592,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '00.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 50
                 )
@@ -617,7 +617,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '000',
+                    'data-vMin' => '-1',
                     'data-vMax' => '999',
                     'tabindex' => 33
                 )
@@ -630,7 +630,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '000',
+                    'data-vMin' => '-1',
                     'data-vMax' => '999',
                     'tabindex' => 34
                 )
@@ -643,7 +643,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '000',
+                    'data-vMin' => '-1',
                     'data-vMax' => '999',
                     'tabindex' => 35
                 )
@@ -656,7 +656,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '0.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 36
                 )
@@ -669,7 +669,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '000',
+                    'data-vMin' => '-1',
                     'data-vMax' => '999',
                     'tabindex' => 37
                 )
@@ -684,7 +684,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '0.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 38
                 )
@@ -697,7 +697,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '0.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 39
                 )
@@ -710,7 +710,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '00.000',
+                    'data-vMin' => '-1.00',
                     'data-vMax' => '99.999',
                     'tabindex' => 40
                 )
@@ -723,7 +723,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '000',
+                    'data-vMin' => '-1',
                     'data-vMax' => '999',
                     'tabindex' => 41
                 )
@@ -736,7 +736,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '0.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 42
                 )
@@ -749,7 +749,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '0.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 43
                 )
@@ -762,7 +762,7 @@ class BloodTestType extends AbstractType
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
-                    'data-vMin' => '0.0',
+                    'data-vMin' => '-1.0',
                     'data-vMax' => '9.99',
                     'tabindex' => 44
                 )

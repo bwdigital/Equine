@@ -171,7 +171,7 @@
     {% endfor %}
     </tbody>
     </table>
-    <div class="divFooter"><p style=" text-align:center; font-size: 12px;">xxxxxxxxxP O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
+    <div class="divFooter"><p style="text-align:center; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 366666, Fax: 3359575 | Lab Fax: 3366797</p></div>
     <div class="page-break"></div>
 {% endif %}
 
@@ -213,6 +213,7 @@
         <th>GLUC</th>
         <th>D. BIL</th>
         <th>SAA</th>
+        <th>IRON</th>
     </tr>
     <tr style="font-size: 10px;">
         <td></td>
@@ -229,6 +230,7 @@
         <td width="50" style="white-space: nowrap;">50-115<br />mg/dL</td>
         <td width="50" style="white-space: nowrap;"><br />mg/dL</td>
         <td width="50" style="white-space: nowrap;">0-12<br />µg/ml</td>
+        <td width="50" style="white-space: nowrap;">14-31<br />µmol/L</td>
     </tr>
     </thead>
     <tbody>
@@ -247,7 +249,8 @@
             <td>{{ entity.cUn }}</td>
             <td>{{ entity.cGluc }}</td>
             <td>{{ entity.cDBil|number_format(1, '.', '') }}</td>
-            <td>{% if entity.cSaa == -1.0 %}-{% else %}{{ entity.cSaa }}{% endif %}</td>
+            <td>{% if entity.cSaa == -1.0 %}&nbsp;{% else %}{{ entity.cSaa }}{% endif %}</td>
+            <td>{% if entity.cIron == -1.0 %}&nbsp;{% else %}{{ entity.cIron }}{% endif %}</td>
         </tr>
         {% if loop.index % 25 == 0 and loop.last != true %}
             </tbody>
@@ -376,18 +379,18 @@
     {% for entity in entities %}
         <tr>
             <td style="white-space: nowrap; text-align: left;">{{ entity.testedDate|date('m-d-Y H:i:s') }}</td>
-            <td>{{ entity.eNa|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eK|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eCl|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eBicarb|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eMg|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eCa|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eIca|number_format(2, '.', '') }}</td>
-            <td>{{ entity.ePh|number_format(3, '.', '') }}</td>
-            <td>{{ entity.eBun|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eGluc|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eHb|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eHct|number_format(1, '.', '') }}</td>
+            <td>{% if entity.eNa == -1.0 %}&nbsp;{% else %}{{ entity.eNa|number_format(0, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eK == -1.0 %}&nbsp;{% else %}{{ entity.eK|number_format(1, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eCl == -1.0 %}&nbsp;{% else %}{{ entity.eCl|number_format(0, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eBicarb == -1.0 %}&nbsp;{% else %}{{ entity.eBicarb|number_format(1, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eMg == -1.0 %}&nbsp;{% else %}{{ entity.eMg|number_format(1, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eCa == -1.0 %}&nbsp;{% else %}{{ entity.eCa|number_format(1, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eIca == -1.0 %}&nbsp;{% else %}{{ entity.eIca|number_format(2, '.', '') }}{% endif %} </td>
+            <td>{% if entity.ePh == -1.0 %}&nbsp;{% else %}{{ entity.ePh|number_format(3, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eBun == -1.0 %}&nbsp;{% else %}{{ entity.eBun|number_format(0, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eGluc == -1.0 %}&nbsp;{% else %}{{ entity.eGluc|number_format(0, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eHb == -1.0 %}&nbsp;{% else %}{{ entity.eHb|number_format(1, '.', '') }}{% endif %} </td>
+            <td>{% if entity.eHct == -1.0 %}&nbsp;{% else %}{{ entity.eHct|number_format(1, '.', '') }}{% endif %} </td>
         </tr>
         {% if loop.index % 25 == 0 and loop.last != true %}
             </tbody>
