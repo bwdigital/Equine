@@ -92,13 +92,13 @@
     </div>
 
 <script language="javascript">
-
-
     $(document).ready(function() {
-
-
         $(':input').keypress(function(e){
             if (e.which == 13) {
+                var tagType = $(e.target).prop('tagName');
+                if(tagType.toLowerCase()=='textarea'){
+                    return true;
+                }
                 if (!this.form.tabOrder) {
                     var els = this.form.elements,
                             ti = [],
