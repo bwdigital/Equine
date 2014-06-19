@@ -90,6 +90,7 @@ class FecalTestType extends AbstractType
                 'Negative' => 'Negative',
                 'Positive' => 'Positive'
             ),
+            'required' => false,
             'empty_value' => ''
         ));
 
@@ -98,6 +99,7 @@ class FecalTestType extends AbstractType
                 'Negative' => 'Negative',
                 'Positive' => 'Positive'
             ),
+            'required' => false,
             'empty_value' => ''
         ));
 
