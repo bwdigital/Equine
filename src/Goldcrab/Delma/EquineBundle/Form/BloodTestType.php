@@ -724,7 +724,7 @@ class BloodTestType extends AbstractType
                 'attr' => array(
                     'class' => 'formatInput',
                     'data-vMin' => '-1',
-                    'data-vMax' => '999',
+                    'data-vMax' => '99.99',
                     'tabindex' => 41
                 )
             )

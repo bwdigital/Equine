@@ -119,7 +119,7 @@ class HorseController extends Controller
         $queryBuilder = $repository->createQueryBuilder('h')
             ->select('h.id,h.name,h.alternateName')
             ->add('orderBy', 'h.name ASC')
-            ->setMaxResults(10);
+            ->setMaxResults(100);
 
 
         if ($request->query->has('q')) {
