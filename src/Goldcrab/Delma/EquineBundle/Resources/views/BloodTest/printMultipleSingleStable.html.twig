@@ -208,6 +208,7 @@
         <th>GLUC</th>
         <th>D. BIL</th>
         <th>SAA</th>
+        <th>IRON</th>
     </tr>
     <tr style="font-size: 10px;">
         <td></td>
@@ -224,6 +225,7 @@
         <td style="white-space: nowrap;">50-115<br>mg/dL</td>
         <td style="white-space: nowrap;"><br>mg/dL</td>
         <td style="white-space: nowrap;">0-12<br>µg/ml</td>
+        <td width="50" style="white-space: nowrap;">14-31<br />µmol/L</td>
     </tr>
     </thead>
     <tbody>
@@ -242,7 +244,8 @@
             <td>{{ entity.cUn }}</td>
             <td>{{ entity.cGluc }}</td>
             <td>{{ entity.cDBil|number_format(1, '.', '') }}</td>
-            <td>{% if entity.cSaa == -1.0 %}-{% else %}{{ entity.cSaa }}{% endif %}</td>
+            <td>{% if entity.cSaa == -1.0 %}&nbsp;{% else %}{{ entity.cSaa }}{% endif %}</td>
+            <td>{% if entity.cIron == -1.0 %}&nbsp;{% else %}{{ entity.cIron }}{% endif %}</td>
         </tr>
         {% if loop.index % 25 == 0 and loop.last != true %}
             </tbody>
@@ -284,6 +287,7 @@
                 <th>GLUC</th>
                 <th>D. BIL</th>
                 <th>SAA</th>
+                <th>IRON</th>
             </tr>
             <tr style="font-size: 10px;">
                 <td></td>
@@ -300,6 +304,7 @@
                 <td style="white-space: nowrap;">50-115<br>mg/dL</td>
                 <td style="white-space: nowrap;"><br>mg/dL</td>
                 <td style="white-space: nowrap;">0-12<br>µg/ml</td>
+                <td width="50" style="white-space: nowrap;">14-31<br />µmol/L</td>
             </tr>
             </thead>
             <tbody>

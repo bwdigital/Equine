@@ -65,14 +65,16 @@ header .print {display: block}
 }
 
 .head-name{
-    width: 75px;
+    /*width: 75px;*/
     font-weight: bold;
     padding-right: 20px;
     text-align: right;
+    font-size: 13px;
 }
 .head-content{
     /*width: 350px;*/
     padding-right: 50px;
+    font-size: 13px;
 }
 
 .head-content-R1{
