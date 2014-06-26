@@ -85,6 +85,9 @@ class HorseController extends Controller
         ));
 
         $builder->add('stable', 'genemu_jqueryselect2_entity', array(
+            'attr' => array(
+                'style' => "width:80%",
+            ),
             'class' => 'DelmaEquineBundle:Stable',
             'property' => 'name',
             'required' => false,
