@@ -230,7 +230,7 @@
         </tbody>
     </table>
     <div>
-        <p style="padding: 10px 0 0 60px;">{{ entity.comments }}</p>
+        <p style="padding: 10px 0 0 60px;">{{ entity.comments|nl2br }}</p>
     </div>
     <div  style="padding: 20px 0 0 50px;">
         {% if is_granted("ROLE_SUPER_ADMIN") %}
