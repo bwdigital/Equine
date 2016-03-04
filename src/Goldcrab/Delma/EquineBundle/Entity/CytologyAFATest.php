@@ -200,6 +200,13 @@ class CytologyAFATest
     /**
      * @var float
      *
+     * @ORM\Column(name="cytology_afa_lactate", type="float", nullable=true)
+     */
+    private $lactate;
+
+    /**
+     * @var float
+     *
      * @ORM\Column(name="cytology_afa_ck", type="float", nullable=true)
      */
     private $ck;
@@ -858,4 +865,21 @@ class CytologyAFATest
     {
         return $this->comments;
     }
+
+    /**
+     * @return float
+     */
+    public function getLactate()
+    {
+        return $this->lactate;
+    }
+
+    /**
+     * @param float $lactate
+     */
+    public function setLactate($lactate)
+    {
+        $this->lactate = $lactate;
+    }
+
 }

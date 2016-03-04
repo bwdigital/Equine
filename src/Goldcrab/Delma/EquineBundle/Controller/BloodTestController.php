@@ -236,6 +236,12 @@ class BloodTestController extends TestController
         }else if($printShowTabs=='chem'){
             $showHema = false;
             $showElec = false;
+        }else if($printShowTabs=='hemachem'){
+            $showElec = false;
+        }else if($printShowTabs=='hemaelec'){
+            $showChem = false;
+        }else if($printShowTabs=='chemelec'){
+            $showHema = false;
         }else if($printShowTabs=='elec'){
             $showHema = false;
             $showChem = false;

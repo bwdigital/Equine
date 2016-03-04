@@ -139,20 +139,20 @@ class CytologyAFATestType extends AbstractType
             )
         );
 
-        $builder->add('ast','text',
+        $builder->add('lactate','text',
             array(
                 'max_length'=>100,
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
                     'data-vMin' => '0.0',
-                    'data-vMax' => '99.9',
+                    'data-vMax' => '999.9',
                     'tabindex' => 9
                 )
             )
         );
 
-        $builder->add('ck','text',
+        $builder->add('ast','text',
             array(
                 'max_length'=>100,
                 'required' => false,
@@ -165,6 +165,19 @@ class CytologyAFATestType extends AbstractType
             )
         );
 
+        $builder->add('ck','text',
+            array(
+                'max_length'=>100,
+                'required' => false,
+                'attr' => array(
+                    'class' => 'formatInput',
+                    'data-vMin' => '0.0',
+                    'data-vMax' => '99.9',
+                    'tabindex' => 11
+                )
+            )
+        );
+
         $builder->add('glucose','text',
             array(
                 'max_length'=>100,
@@ -173,7 +186,7 @@ class CytologyAFATestType extends AbstractType
                     'class' => 'formatInput',
                     'data-vMin' => '0.0',
                     'data-vMax' => '999.9',
-                    'tabindex' => 11
+                    'tabindex' => 12
                 )
             )
         );
@@ -186,10 +199,11 @@ class CytologyAFATestType extends AbstractType
                     'class' => 'formatInput',
                     'data-vMin' => '0.0',
                     'data-vMax' => '99.9',
-                    'tabindex' => 12
+                    'tabindex' => 13
                 )
             )
         );
+
 
         $builder->add('alb','text',
             array(
@@ -199,7 +213,7 @@ class CytologyAFATestType extends AbstractType
                     'class' => 'formatInput',
                     'data-vMin' => '0.0',
                     'data-vMax' => '99.9',
-                    'tabindex' => 13
+                    'tabindex' => 14
                 )
             )
         );

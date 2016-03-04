@@ -233,6 +233,13 @@ class CytologyJFATest
     private $glucose;
 
     /**
+     * @var float
+     *
+     * @ORM\Column(name="cytology_jfa_lactate", type="float", nullable=true)
+     */
+    private $lactate;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="cytology_jfa_comments", type="text", nullable=true)
@@ -918,4 +925,22 @@ class CytologyJFATest
     {
         return $this->comments;
     }
+
+    /**
+     * @return float
+     */
+    public function getLactate()
+    {
+        return $this->lactate;
+    }
+
+    /**
+     * @param float $lactate
+     */
+    public function setLactate($lactate)
+    {
+        $this->lactate = $lactate;
+    }
+
+
 }
