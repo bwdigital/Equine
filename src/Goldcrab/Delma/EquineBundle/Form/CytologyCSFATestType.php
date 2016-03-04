@@ -139,20 +139,21 @@ class CytologyCSFATestType extends AbstractType
             )
         );
 
-        $builder->add('ast','text',
+        $builder->add('lactate','text',
             array(
                 'max_length'=>100,
                 'required' => false,
                 'attr' => array(
                     'class' => 'formatInput',
                     'data-vMin' => '0.0',
-                    'data-vMax' => '99.9',
+                    'data-vMax' => '999.9',
                     'tabindex' => 9
                 )
             )
         );
 
-        $builder->add('ck','text',
+
+        $builder->add('ast','text',
             array(
                 'max_length'=>100,
                 'required' => false,
@@ -165,7 +166,7 @@ class CytologyCSFATestType extends AbstractType
             )
         );
 
-        $builder->add('glucose','text',
+        $builder->add('ck','text',
             array(
                 'max_length'=>100,
                 'required' => false,
@@ -178,7 +179,7 @@ class CytologyCSFATestType extends AbstractType
             )
         );
 
-        $builder->add('tp','text',
+        $builder->add('glucose','text',
             array(
                 'max_length'=>100,
                 'required' => false,
@@ -191,7 +192,7 @@ class CytologyCSFATestType extends AbstractType
             )
         );
 
-        $builder->add('alb','text',
+        $builder->add('tp','text',
             array(
                 'max_length'=>100,
                 'required' => false,
@@ -200,6 +201,19 @@ class CytologyCSFATestType extends AbstractType
                     'data-vMin' => '0.0',
                     'data-vMax' => '99.9',
                     'tabindex' => 13
+                )
+            )
+        );
+
+        $builder->add('alb','text',
+            array(
+                'max_length'=>100,
+                'required' => false,
+                'attr' => array(
+                    'class' => 'formatInput',
+                    'data-vMin' => '0.0',
+                    'data-vMax' => '99.9',
+                    'tabindex' => 14
                 )
             )
         );
