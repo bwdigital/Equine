@@ -210,84 +210,84 @@ class BloodTest
      *
      * @ORM\Column(name="blood_c_alb", type="float", nullable=true)
      */
-    private $cAlb = 0.0;
+    private $cAlb = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_alp", type="float", nullable=true)
      */
-    private $cAlp = 0.0;
+    private $cAlp = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_ast", type="float", nullable=true)
      */
-    private $cAst = 0.0;
+    private $cAst = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_ck", type="float", nullable=true)
      */
-    private $cCk = 0.0;
+    private $cCk = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_crea", type="float", nullable=true)
      */
-    private $cCrea = 0.0;
+    private $cCrea = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_d_bil", type="float", nullable=true)
      */
-    private $cDBil = 0.0;
+    private $cDBil = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_gct", type="float", nullable=true)
      */
-    private $cGct = 0.0;
+    private $cGct = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_gluc", type="float", nullable=true)
      */
-    private $cGluc = 0.0;
+    private $cGluc = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_ld", type="float", nullable=true)
      */
-    private $cLd = 0.0;
+    private $cLd = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_t_bil", type="float", nullable=true)
      */
-    private $cTBil = 0.0;
+    private $cTBil = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_stp", type="float", nullable=true)
      */
-    private $cStp = 0.0;
+    private $cStp = -1.0;
 
     /**
      * @var float
      *
      * @ORM\Column(name="blood_c_un", type="float", nullable=true)
      */
-    private $cUn = 0.0;
+    private $cUn = -1.0;
 
     /**
      * @var float

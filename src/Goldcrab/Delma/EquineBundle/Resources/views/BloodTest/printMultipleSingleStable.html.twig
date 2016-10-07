@@ -1,6 +1,6 @@
 {% if showHema == true %}
     <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
-        <p class="labt">LABORATORY REPORT</p>
+        <p class="labt">LABORATORY REPORT TOP1</p>
     </div>
     <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
         <div class="head-name">Stable: </div>
@@ -25,7 +25,7 @@
         <th colspan="13">DIFFERENTIAL</th>
     </tr>
     <tr style="font-size: 10px;">
-        <th style="width:500px;">Horse Name</th>
+        <th style="width:500px;">Horse Name 1</th>
         <th>WBC</th>
         <th>HCT</th>
         <th>HB</th>
@@ -91,13 +91,13 @@
             <td>{{ entity.hPtp|number_format(1, '.', '') }}</td>
             <td>{{ entity.hHpFib|number_format(0, '.', '') }}</td>
         </tr>
-        {% if loop.index % 25 == 0 and loop.last != true %}
+        {% if loop.index % 18 == 0 and loop.last != true %}
             </tbody>
             </table>
             <p style=" text-align:center; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 3366666, Fax: 3359575 | Lab Fax: 3366797</p>
             <div class="page-break"></div>
             <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
-                <p class="labt">LABORATORY REPORT</p>
+                <p class="labt">LABORATORY REPORT TOP2</p>
             </div>
             <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
                 <div class="head-name">Stable: </div>
@@ -122,7 +122,7 @@
                 <th colspan="13">DIFFERENTIAL</th>
             </tr>
             <tr style="font-size: 10px;">
-                <th style="width:500px;">Horse Name</th>
+                <th style="width:500px;">Horse Name 2</th>
                 <th>WBC</th>
                 <th>HCT</th>
                 <th>HB</th>
@@ -174,7 +174,7 @@
 
 {% if showChem == true %}
     <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
-        <p class="labt">LABORATORY REPORT</p>
+        <p class="labt">LABORATORY REPORT TOP3</p>
     </div>
     <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
         <div class="head-name">Stable: </div>
@@ -194,7 +194,7 @@
     <thead>
     <tr style="font-size: 10px;">
 
-        <th style="width:500px;">Horse Name</th>
+        <th style="width:500px;">Horse Name 3</th>
         <th>AST</th>
         <th>CK</th>
         <th>LDH</th>
@@ -232,28 +232,28 @@
     {% for entity in entities %}
         <tr style="height: 20px;">
             <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
-            <td>{{ entity.cAst }}</td>
-            <td>{{ entity.cCk }}</td>
-            <td>{{ entity.cLd }}</td>
-            <td>{{ entity.cGct }}</td>
-            <td>{{ entity.cAlp }}</td>
-            <td>{{ entity.cTBil|number_format(1, '.', '') }}</td>
-            <td>{{ entity.cStp|number_format(1, '.', '') }}</td>
-            <td>{{ entity.cAlb|number_format(1, '.', '') }}</td>
-            <td>{{ entity.cCrea|number_format(1, '.', '') }}</td>
-            <td>{{ entity.cUn }}</td>
-            <td>{{ entity.cGluc }}</td>
-            <td>{{ entity.cDBil|number_format(1, '.', '') }}</td>
+            <td>{% if entity.cAst == -1.0 %}&nbsp;{% else %}{{ entity.cAst }}{% endif %}</td>
+            <td>{% if entity.cCk == -1.0 %}&nbsp;{% else %}{{ entity.cCk }}{% endif %}</td>
+            <td>{% if entity.cLd == -1.0 %}&nbsp;{% else %}{{ entity.cLd }}{% endif %}</td>
+            <td>{% if entity.cGct == -1.0 %}&nbsp;{% else %}{{ entity.cGct }}{% endif %}</td>
+            <td>{% if entity.cAlp == -1.0 %}&nbsp;{% else %}{{ entity.cAlp }}{% endif %}</td>
+            <td>{% if entity.cTBil == -1.0 %}&nbsp;{% else %}{{ entity.cTBil }}{% endif %}</td>
+            <td>{% if entity.cStp == -1.0 %}&nbsp;{% else %}{{ entity.cStp }}{% endif %}</td>
+            <td>{% if entity.cAlb == -1.0 %}&nbsp;{% else %}{{ entity.cAlb }}{% endif %}</td>
+            <td>{% if entity.cCrea == -1.0 %}&nbsp;{% else %}{{ entity.cCrea }}{% endif %}</td>
+            <td>{% if entity.cUn == -1.0 %}&nbsp;{% else %}{{ entity.cUn }}{% endif %}</td>
+            <td>{% if entity.cGluc == -1.0 %}&nbsp;{% else %}{{ entity.cGluc }}{% endif %}</td>
+            <td>{% if entity.cDBil == -1.0 %}&nbsp;{% else %}{{ entity.cDBil }}{% endif %}</td>
             <td>{% if entity.cSaa == -1.0 %}&nbsp;{% else %}{{ entity.cSaa }}{% endif %}</td>
             <td>{% if entity.cIron == -1.0 %}&nbsp;{% else %}{{ entity.cIron }}{% endif %}</td>
         </tr>
-        {% if loop.index % 25 == 0 and loop.last != true %}
+        {% if loop.index % 18 == 0 and loop.last != true %}
             </tbody>
             </table>
             <p style=" text-align:center; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 3366666, Fax: 3359575 | Lab Fax: 3366797</p>
             <div class="page-break"></div>
             <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
-                <p class="labt">LABORATORY REPORT</p>
+                <p class="labt">LABORATORY REPORT TOP4</p>
             </div>
             <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
                 <div class="head-name">Stable: </div>
@@ -273,7 +273,7 @@
             <thead>
             <tr style="font-size: 10px;">
 
-                <th style="width:500px;">Horse Name</th>
+                <th style="width:500px;">Horse Name 4</th>
                 <th>AST</th>
                 <th>CK</th>
                 <th>LDH</th>
@@ -318,7 +318,7 @@
 
 {% if showElec == true %}
     <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
-        <p class="labt">LABORATORY REPORT</p>
+        <p class="labt">LABORATORY REPORT TOP5</p>
     </div>
     <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
         <div class="head-name">Stable: </div>
@@ -372,26 +372,26 @@
     {% for entity in entities %}
         <tr style="height: 20px;">
             <td style="white-space: nowrap; text-align: left; text-transform:uppercase;">{{ entity.horse.name }}</td>
-            <td>{{ entity.eNa|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eK|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eCl|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eBicarb|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eMg|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eCa|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eIca|number_format(2, '.', '') }}</td>
-            <td>{{ entity.ePh|number_format(3, '.', '') }}</td>
-            <td>{{ entity.eBun|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eGluc|number_format(0, '.', '') }}</td>
-            <td>{{ entity.eHb|number_format(1, '.', '') }}</td>
-            <td>{{ entity.eHct|number_format(1, '.', '') }}</td>
+            <td>{% if entity.eNa == -1.0 %}&nbsp;{% else %}{{ entity.eNa }}{% endif %}</td>
+            <td>{% if entity.eK == -1.0 %}&nbsp;{% else %}{{ entity.eK }}{% endif %}</td>
+            <td>{% if entity.eCl == -1.0 %}&nbsp;{% else %}{{ entity.eCl }}{% endif %}</td>
+            <td>{% if entity.eBicarb == -1.0 %}&nbsp;{% else %}{{ entity.eBicarb }}{% endif %}</td>
+            <td>{% if entity.eMg == -1.0 %}&nbsp;{% else %}{{ entity.eMg }}{% endif %}</td>
+            <td>{% if entity.eCa == -1.0 %}&nbsp;{% else %}{{ entity.eCa }}{% endif %}</td>
+            <td>{% if entity.eIca == -1.0 %}&nbsp;{% else %}{{ entity.eIca }}{% endif %}</td>
+            <td>{% if entity.ePh == -1.0 %}&nbsp;{% else %}{{ entity.ePh }}{% endif %}</td>
+            <td>{% if entity.eBun == -1.0 %}&nbsp;{% else %}{{ entity.eBun }}{% endif %}</td>
+            <td>{% if entity.eGluc == -1.0 %}&nbsp;{% else %}{{ entity.eGluc }}{% endif %}</td>
+            <td>{% if entity.eHb == -1.0 %}&nbsp;{% else %}{{ entity.eHb }}{% endif %}</td>
+            <td>{% if entity.eHct == -1.0 %}&nbsp;{% else %}{{ entity.eHct }}{% endif %}</td>
         </tr>
-        {% if loop.index % 25 == 0 and loop.last != true %}
+        {% if loop.index % 18 == 0 and loop.last != true %}
             </tbody>
             </table>
             <p style=" text-align:center; font-size: 12px;">P O Box 9373, Dubai, UAE. Tel: 3366666, Fax: 3359575 | Lab Fax: 3366797</p>
             <div class="page-break"></div>
             <div style="text-align: center;"><img src="/img/DEH-Logo.jpg" alt="DEH" style="padding:0px;" />
-                <p class="labt">LABORATORY REPORT</p>
+                <p class="labt">LABORATORY REPORT TOP6</p>
             </div>
             <div class="main" style="font-size: 12px; display: block; font-weight: bold;">
                 <div class="head-name">Stable: </div>

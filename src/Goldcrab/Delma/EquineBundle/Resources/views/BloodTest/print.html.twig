@@ -81,15 +81,15 @@
                     <td>{{ entity.hMch|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hMchc|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hNeut|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.hNeut2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hNeut2|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hLymph|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.hLymph2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hLymph2|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hMono|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.hMono2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hMono2|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hEosino|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.hEosino2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hEosino2|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hBaso|number_format(0, '.', '') }}</td>
-                    <td>{{ entity.hBaso2|number_format(0, '.', '') }}</td>
+                    <td>{{ entity.hBaso2|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hBands|number_format(0, '.', '') }}</td>
                     <td>{{ entity.hPtp|number_format(1, '.', '') }}</td>
                     <td>{{ entity.hHpFib|number_format(0, '.', '') }}</td>
@@ -109,18 +109,42 @@
             <table style="font-size: 11px;">
                 <tbody>
                 <tr style="font-size: 10px;">
-                    <th>AST</th>
-                    <th>CK</th>
-                    <th>LDH</th>
-                    <th>GGT</th>
-                    <th>ALP</th>
-                    <th>T. BIL</th>
-                    <th>STP</th>
-                    <th>ALB</th>
-                    <th>CREA</th>
-                    <th>BUN</th>
-                    <th>GLUC</th>
-                    <th>D. BIL</th>
+                    {% if entity.cAst != -1 %}
+                        <th>AST</th>
+                    {% endif %}
+                    {% if entity.cCk != -1 %}
+                        <th>CK</th>
+                    {% endif %}
+                    {% if entity.cLd != -1 %}
+                        <th>LDH</th>
+                    {% endif %}
+                    {% if entity.cGct != -1 %}
+                        <th>GGT</th>
+                    {% endif %}
+                    {% if entity.cAlp != -1 %}
+                        <th>ALP</th>
+                    {% endif %}
+                    {% if entity.cTBil != -1 %}
+                        <th>T. BIL</th>
+                    {% endif %}
+                    {% if entity.cStp != -1 %}
+                        <th>STP</th>
+                    {% endif %}
+                    {% if entity.cAlb != -1 %}
+                        <th>ALB</th>
+                    {% endif %}
+                    {% if entity.cCrea != -1 %}
+                        <th>CREA</th>
+                    {% endif %}
+                    {% if entity.cUn != -1 %}
+                        <th>BUN</th>
+                    {% endif %}
+                    {% if entity.cGluc != -1 %}
+                        <th>GLUC</th>
+                    {% endif %}
+                    {% if entity.cDBil != -1 %}
+                        <th>D. BIL</th>
+                    {% endif %}
                     {% if entity.cSaa != -1 %}
                         <th>SAA</th>
                     {% endif %}

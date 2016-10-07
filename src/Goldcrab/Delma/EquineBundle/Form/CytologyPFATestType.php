@@ -159,7 +159,7 @@ class CytologyPFATestType extends AbstractType
                 'attr' => array(
                     'class' => 'formatInput',
                     'data-vMin' => '0.0',
-                    'data-vMax' => '999.9',
+                    'data-vMax' => '9999.9',
                     'tabindex' => 10
                 )
             )
